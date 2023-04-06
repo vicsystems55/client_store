@@ -99,10 +99,10 @@
                     <div class="account__left--sidebar">
                         <h2 class="account__content--title h3 mb-20">My Profile</h2>
                         <ul class="account__menu">
-                            <li class="account__menu--list active"><a href="my-account.html">Dashboard</a></li>
-                            <li class="account__menu--list"><a href="my-account-2.html">Products</a></li>
+                            <li class="account__menu--list active"><a href="#">Dashboard</a></li>
+                            <li class="account__menu--list"><a href="#">Products</a></li>
 
-                            <li class="account__menu--list"><a href="login.html">Log Out</a></li>
+                            <li class="account__menu--list"  >Log Out</li>
                         </ul>
                     </div>
                     <div class="account__wrapper">

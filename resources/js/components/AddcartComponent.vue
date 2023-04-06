@@ -17,7 +17,13 @@ export default {
     methods:{
         addToCart(){
             // console.log(this.$parent.$children[1])
-          this.$parent.$children[1].addProduct(this.productid)
+            if(localStorage.getItem('user_token')){
+
+                this.$parent.$children[1].addProduct(this.productid)
+            }else{
+                return window.location.href='/auth'
+
+            }
         }
     }
 

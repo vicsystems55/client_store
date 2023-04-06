@@ -34,10 +34,12 @@
                                     </div>
                                     <div class="account__login--inner">
                                         <label>
-                                            <input class="account__login--input" v-model="email" placeholder="Email Addres" type="email">
+                                            <input class="account__login--input" v-model="email" placeholder="Email Addres"
+                                                type="email">
                                         </label>
                                         <label>
-                                            <input class="account__login--input" v-model="password" placeholder="Password" type="password">
+                                            <input class="account__login--input" v-model="password" placeholder="Password"
+                                                type="password">
                                         </label>
                                         <div
                                             class="account__login--remember__forgot mb-15 d-flex justify-content-between align-items-center">
@@ -48,8 +50,7 @@
                                                     for="check1">
                                                     Remember me</label>
                                             </div>
-                                            <button class="account__login--forgot" type="submit">Forgot Your
-                                                Password?</button>
+
                                         </div>
                                         <button class="account__login--btn primary__btn" @click="login()">Login</button>
                                         <div class="account__login--divide d-none">
@@ -63,8 +64,7 @@
                                             <a class="account__social--link twitter" target="_blank"
                                                 href="https://twitter.com/">Twitter</a>
                                         </div>
-                                        <p class="account__login--signup__text">Don,t Have an Account? <button
-                                                type="submit">Sign up now</button></p>
+
                                     </div>
                                 </div>
                             </div>
@@ -76,21 +76,24 @@
                                     </div>
                                     <div class="account__login--inner">
                                         <label>
-                                            <input class="account__login--input" v-model="name" placeholder="Username" type="text">
+                                            <input class="account__login--input" v-model="name" placeholder="Fullname"
+                                                type="text">
                                         </label>
                                         <label>
-                                            <input class="account__login--input" v-model="email" placeholder="Email Addres" type="email">
+                                            <input class="account__login--input" v-model="email" placeholder="Email Addres"
+                                                type="email">
                                         </label>
                                         <label>
-                                            <input class="account__login--input" v-model="password" placeholder="Password" type="password">
+                                            <input class="account__login--input" v-model="password" placeholder="Password"
+                                                type="password">
                                         </label>
                                         <label>
                                             <input class="account__login--input" placeholder="Confirm Password"
                                                 type="password">
                                         </label>
                                         <label>
-                                            <button class="account__login--btn primary__btn mb-10" @click="register()">Submit &
-                                                Register</button>
+                                            <button class="account__login--btn primary__btn mb-10"
+                                                @click="register()">{{ loadingr ? 'Register':'Please holding on boss...'}}</button>
                                         </label>
                                         <div class="account__login--remember position__relative">
                                             <input class="checkout__checkbox--input" id="check2" type="checkbox">
@@ -123,6 +126,8 @@ export default {
             email: '',
             password: '',
             loading: false,
+            loadingr: false,
+
             error: false,
 
             error_msg: ''
@@ -134,7 +139,7 @@ export default {
     methods: {
         login() {
 
-            alert(this.vueurl)
+            // alert(this.vueurl)
 
             this.loading = true
 
@@ -157,7 +162,7 @@ export default {
                 console.log(response)
 
 
-                return window.location.href='/'
+                return window.location.href = '/'
 
             }).catch((error) => {
 
@@ -173,11 +178,11 @@ export default {
 
         register() {
 
-            this.loading = true
+            this.loadingr = true
 
 
             axios({
-                url: process.env.VUE_APP_URL + '/api/v1/register',
+                url: this.vueurl + '/api/v1/register',
                 method: 'post',
                 data: {
 
@@ -187,20 +192,20 @@ export default {
 
                 }
             }).then((response) => {
-                this.loading = false
+                this.loadingr = false
 
                 localStorage.setItem('user_role', response.data.user_data.role);
                 localStorage.setItem('user_token', response.data.access_token);
                 localStorage.setItem('user_data', JSON.stringify(response.data.user_data));
                 console.log(response)
-                return window.location.href='/'
+                return window.location.href = '/'
 
 
 
             }).catch((error) => {
 
 
-                this.loading = false
+                this.loadingr = false
                 this.error = true
 
                 this.errors = error.response.data.errors

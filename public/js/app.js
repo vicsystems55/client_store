@@ -2079,7 +2079,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addToCart: function addToCart() {
       // console.log(this.$parent.$children[1])
-      this.$parent.$children[1].addProduct(this.productid);
+      if (localStorage.getItem('user_token')) {
+        this.$parent.$children[1].addProduct(this.productid);
+      } else {
+        return window.location.href = '/auth';
+      }
     }
   }
 });
@@ -2097,7 +2101,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+//
+//
+//
 //
 //
 //
@@ -2222,6 +2228,7 @@ __webpack_require__.r(__webpack_exports__);
       email: '',
       password: '',
       loading: false,
+      loadingr: false,
       error: false,
       error_msg: ''
     };
@@ -2230,7 +2237,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     login: function login() {
       var _this = this;
-      alert(this.vueurl);
+      // alert(this.vueurl)
+
       this.loading = true;
       axios({
         url: this.vueurl + '/api/v1/login',
@@ -2254,9 +2262,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     register: function register() {
       var _this2 = this;
-      this.loading = true;
+      this.loadingr = true;
       axios({
-        url: process.env.VUE_APP_URL + '/api/v1/register',
+        url: this.vueurl + '/api/v1/register',
         method: 'post',
         data: {
           name: this.name,
@@ -2264,14 +2272,14 @@ __webpack_require__.r(__webpack_exports__);
           password: this.password
         }
       }).then(function (response) {
-        _this2.loading = false;
+        _this2.loadingr = false;
         localStorage.setItem('user_role', response.data.user_data.role);
         localStorage.setItem('user_token', response.data.access_token);
         localStorage.setItem('user_data', JSON.stringify(response.data.user_data));
         console.log(response);
         return window.location.href = '/';
       })["catch"](function (error) {
-        _this2.loading = false;
+        _this2.loadingr = false;
         _this2.error = true;
         _this2.errors = error.response.data.errors;
         console.log(_this2.errors);
@@ -40186,15 +40194,13 @@ var render = function () {
                     _vm._m(3),
                     _vm._v(" "),
                     _vm._m(4),
-                    _vm._v(" "),
-                    _vm._m(5),
                   ]),
                 ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col" }, [
                 _c("div", { staticClass: "account__login register" }, [
-                  _vm._m(6),
+                  _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "account__login--inner" }, [
                     _c("label", [
@@ -40208,7 +40214,7 @@ var render = function () {
                           },
                         ],
                         staticClass: "account__login--input",
-                        attrs: { placeholder: "Username", type: "text" },
+                        attrs: { placeholder: "Fullname", type: "text" },
                         domProps: { value: _vm.name },
                         on: {
                           input: function ($event) {
@@ -40269,7 +40275,7 @@ var render = function () {
                       }),
                     ]),
                     _vm._v(" "),
-                    _vm._m(7),
+                    _vm._m(6),
                     _vm._v(" "),
                     _c("label", [
                       _c(
@@ -40284,13 +40290,17 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "Submit &\n                                            Register"
+                            _vm._s(
+                              _vm.loadingr
+                                ? "Register"
+                                : "Please holding on boss..."
+                            )
                           ),
                         ]
                       ),
                     ]),
                     _vm._v(" "),
-                    _vm._m(8),
+                    _vm._m(7),
                   ]),
                 ]),
               ]),
@@ -40396,16 +40406,6 @@ var staticRenderFns = [
             ),
           ]
         ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "account__login--forgot", attrs: { type: "submit" } },
-          [
-            _vm._v(
-              "Forgot Your\n                                            Password?"
-            ),
-          ]
-        ),
       ]
     )
   },
@@ -40458,15 +40458,6 @@ var staticRenderFns = [
         ),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "account__login--signup__text" }, [
-      _vm._v("Don,t Have an Account? "),
-      _c("button", { attrs: { type: "submit" } }, [_vm._v("Sign up now")]),
-    ])
   },
   function () {
     var _vm = this
