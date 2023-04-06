@@ -93,7 +93,7 @@
                                         </label>
                                         <label>
                                             <button class="account__login--btn primary__btn mb-10"
-                                                @click="register()">{{ loadingr ? 'Register':'Please holding on boss...'}}</button>
+                                                @click="register()">{{ loadingr ?'Please holding on boss...': 'Register'}}</button>
                                         </label>
                                         <div class="account__login--remember position__relative">
                                             <input class="checkout__checkbox--input" id="check2" type="checkbox">

@@ -40292,8 +40292,8 @@ var render = function () {
                           _vm._v(
                             _vm._s(
                               _vm.loadingr
-                                ? "Register"
-                                : "Please holding on boss..."
+                                ? "Please holding on boss..."
+                                : "Register"
                             )
                           ),
                         ]
