@@ -409,10 +409,10 @@
                 <div class="row row-cols-1">
                     <div class="col">
                         <div class="breadcrumb__content">
-                            <h1 class="breadcrumb__content--title mb-10">[Business Name]</h1>
+                            <h1 class="breadcrumb__content--title mb-10">Clore Beauty Store</h1>
                             <ul class="breadcrumb__content--menu d-flex">
                                 <li class="breadcrumb__content--menu__items"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb__content--menu__items"><span class="text__secondary">Shop Grid List</span></li>
+                                <li class="breadcrumb__content--menu__items"><span class="text__secondary">All about beauty</span></li>
                             </ul>
                         </div>
                     </div>
