@@ -33,6 +33,9 @@ Vue.component('checkout-component', require('./components/CheckoutComponent.vue'
 
 Vue.component('auth-component', require('./components/AuthComponent.vue').default);
 
+Vue.component('admin-component', require('./components/AdminComponent.vue').default);
+
+
 
 
 /**
