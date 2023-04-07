@@ -24,7 +24,7 @@
                                             <label class="checkout__input--label mb-5" for="input1">Phone: <span
                                                     class="checkout__input--label__star">*</span></label>
                                             <input class="checkout__input--field border-radius-5"
-                                                placeholder="First name (optional)" id="input1" v-model="phone" type="text">
+                                                placeholder="Phone" id="input1" v-model="phone" type="text">
                                         </div>
                                     </div>
 
@@ -32,7 +32,7 @@
                                         <div class="checkout__input--list">
                                             <label class="checkout__input--label mb-5" for="input4">Address <span
                                                     class="checkout__input--label__star">*</span></label>
-                                            <input class="checkout__input--field border-radius-5" v-model="address" placeholder="Address1"
+                                            <input class="checkout__input--field border-radius-5" v-model="address" placeholder="Address"
                                                 id="input4" type="text">
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                         <div class="checkout__input--list">
                                             <label class="checkout__input--label mb-5" for="input5">Town/City <span
                                                     class="checkout__input--label__star">*</span></label>
-                                            <input class="checkout__input--field border-radius-5" v-model="town"  placeholder="City"
+                                            <input class="checkout__input--field border-radius-5" v-model="town"  placeholder="Town/City"
                                                 id="input5" type="text">
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="checkout__total">
                         <table class="checkout__total--table">
-                            <tbody class="checkout__total--body">
+                            <tbody class="checkout__total--body d-none">
                                 <tr class="checkout__total--items">
                                     <td class="checkout__total--title text-left">Subtotal </td>
                                     <td class="checkout__total--amount text-right">$860.00</td>
@@ -161,20 +161,30 @@
 
                     </div>
 
+                    <button @click="init()" class="checkout__discount--code__btn primary__btn border-radius-5"
+                                >{{ processing?'Processing...':'Proceed to pay NGN '+amount }}
+</button>
+
                     <paystack
 
-                    :class="''"
+                    :id="'payBtn'"
+
+                    :type="'hidden'"
+
+                    :class="'d-none'"
                     :paystackkey="paystackkey"
                     :split_code="'SPL_UMfLowpW9Z'"
                     :email="email"
-                    :amount="amount"
+                    :amount="amount * 100"
                     :reference="reference"
                     :callback="onSuccessfulPayment"
                     :onCanel="onCancelledPayment"
 
                     :close="close"
                     :embed="false">
-                        Proceed to pay NGN {{ format(amount) }}
+
+                    {{ processing?'Processing...':'Proceed to pay NGN '+amount }}
+
                     </paystack>
                 </aside>
             </div>
@@ -192,24 +202,24 @@ export default {
             cartCount: 0,
             qty: 1,
             value: 1,
-            address: '',
-            split_code: 'SPL_UZcYSzM76j',
+            address: null,
+            split_code: 'SPL_atUI9mhKYa',
             metadata: {},
 
             userData: [],
 
-            phone: '',
+            phone: null,
 
-            town: '',
+            town: null,
 
-            phone: '',
-
-            country: '',
+            country: null,
             postalCode: '',
             email: '',
             orderNotes: '',
 
-            paystackkey: 'pk_test_81d0ea622e4cb15731a72ac7025af87867e6495a',
+            processing: false,
+
+            paystackkey: 'pk_live_998b59bd6b59899cab4f39340777570b427aa263',
             amount: 1000, //Expressed in lowest demonitation, so 1000kobo is equivalent to 10Naira
             email: '',
             firstname: '', //optional field remember to pass as a prop of firstname if needed
@@ -249,6 +259,22 @@ export default {
 
 
     methods: {
+
+        init(){
+
+            this.processing = true
+
+            if (this.address == null || this.town == null || this.country == null || this.phone == null || this.orderNotes == null) {
+                alert('Please the missing fields.')
+
+                this.processing = false;
+
+
+            }else{
+                document.getElementById('payBtn').click();
+            }
+
+        },
 
 
         onCancelledPayment: function (response) {
@@ -316,12 +342,17 @@ export default {
             })
                 .then((response) => {
 
+                    this.processing = false
+
                     console.log(response)
 
                 return window.location.href='/payment-successful'
 
                 })
                 .catch((response) => {
+
+                    this.processing = false
+
 
                     console.log(response)
 
@@ -369,7 +400,7 @@ export default {
 
                     this.invoiceData = response.data
 
-                    this.amount = this.invoiceData.total_amount * 100
+                    this.amount = this.invoiceData.total_amount
 
 
                     console.log(response)

@@ -2090,6 +2090,396 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      products: [],
+      productOrders: [],
+      cartCount: 0,
+      invoiceData: '',
+      userData: []
+    };
+  },
+  props: ['vueurl'],
+  mounted: function mounted() {
+    this.getProducts();
+    this.getUserData();
+    this.getProductOrders();
+  },
+  methods: {
+    getUserData: function getUserData() {
+      this.userData = JSON.parse(localStorage.getItem('user_data'));
+    },
+    getProducts: function getProducts() {
+      var _this = this;
+      this.loading = true;
+      axios({
+        url: this.vueurl + '/api/v1/products',
+        method: 'get'
+      }).then(function (response) {
+        _this.products = response.data;
+        console.log(response);
+        _this.getInvoiceDetails();
+      })["catch"](function (error) {
+        _this.loading = false;
+        console.log(error);
+      });
+    },
+    getProductOrders: function getProductOrders() {
+      var _this2 = this;
+      axios({
+        url: this.vueurl + '/api/v1/product-order',
+        method: 'get',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+        },
+        params: {
+          user_id: this.userData.id
+        }
+      }).then(function (response) {
+        console.log(response);
+        _this2.productOrders = response.data.product_orders || response.data;
+        _this2.customersCount = response.data.total_customers;
+        _this2.invoicesCount = response.data.invoices;
+        _this2.totalSalesAmount = response.data.total_sales_amount;
+        _this2.timeStamp = response.data.timestamp;
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    },
+    getInvoiceDetails: function getInvoiceDetails() {
+      var _this3 = this;
+      if (localStorage.getItem('invoice_code')) {
+        console.log('ye invoice');
+        axios({
+          url: this.vueurl + '/api/v1/invoices/' + localStorage.getItem('invoice_code'),
+          method: 'get',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+          },
+          data: {
+            invoice_code: localStorage.getItem('invoice_code')
+          }
+        }).then(function (response) {
+          _this3.invoiceData = response.data;
+          _this3.cartCount = _this3.invoiceData.invoice_items.length;
+          console.log(response);
+        })["catch"](function (error) {
+          _this3.loading = false;
+          console.log(error);
+        });
+      } else {
+        localStorage.setItem('invoice_code', Date.now());
+        axios({
+          url: this.vueurl + '/api/v1/invoices',
+          method: 'post',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+          },
+          data: {
+            invoice_code: localStorage.getItem('invoice_code')
+          }
+        }).then(function (response) {
+          console.log(response);
+        })["catch"](function (error) {
+          _this3.loading = false;
+          console.log(error);
+        });
+      }
+    },
+    addProduct: function addProduct(product_id) {
+      var _this4 = this;
+      axios({
+        url: this.vueurl + '/api/v1/invoice-lines',
+        method: 'post',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+        },
+        data: {
+          invoice_code: localStorage.getItem('invoice_code'),
+          product_id: product_id
+        }
+      }).then(function (response) {
+        _this4.$notify("Product Added to cart!!");
+        _this4.getInvoiceDetails();
+        console.log(response);
+      })["catch"](function (error) {
+        _this4.loading = false;
+        console.log(error);
+        _this4.regenerateInvoice();
+      });
+    },
+    regenerateInvoice: function regenerateInvoice() {
+      var _this5 = this;
+      localStorage.removeItem('invoice_code');
+      localStorage.setItem('invoice_code', Date.now());
+      axios({
+        url: this.vueurl + '/api/v1/invoices',
+        method: 'post',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+        },
+        data: {
+          invoice_code: localStorage.getItem('invoice_code')
+        }
+      }).then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        _this5.loading = false;
+        console.log(error);
+      });
+    },
+    viewCart: function viewCart() {
+      this.$router.push('/invoice');
+    },
+    logout: function logout() {
+      // localStorage.removeItem('invoice_code')
+      localStorage.removeItem('user_token');
+      localStorage.removeItem('user_data');
+      localStorage.removeItem('user_role');
+      return window.location.href = '/auth';
+    },
+    format: function format(value) {
+      var numeral = __webpack_require__(/*! numeral */ "./node_modules/numeral/numeral.js");
+      return numeral(value).format('0,0.00');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AuthComponent.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AuthComponent.vue?vue&type=script&lang=js& ***!
@@ -2637,6 +3027,16 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2647,13 +3047,20 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       cartCount: 0,
       qty: 1,
       value: 1,
-      address: '',
-      split_code: 'SPL_UZcYSzM76j',
+      address: null,
+      split_code: 'SPL_atUI9mhKYa',
       metadata: {},
       userData: [],
-      phone: '',
-      town: ''
-    }, _defineProperty(_ref, "phone", ''), _defineProperty(_ref, "country", ''), _defineProperty(_ref, "postalCode", ''), _defineProperty(_ref, "email", ''), _defineProperty(_ref, "orderNotes", ''), _defineProperty(_ref, "paystackkey", 'pk_test_81d0ea622e4cb15731a72ac7025af87867e6495a'), _defineProperty(_ref, "amount", 1000), _defineProperty(_ref, "email", ''), _defineProperty(_ref, "firstname", ''), _defineProperty(_ref, "lastname", ''), _ref;
+      phone: null,
+      town: null,
+      country: null,
+      postalCode: '',
+      email: '',
+      orderNotes: '',
+      processing: false,
+      paystackkey: 'pk_live_998b59bd6b59899cab4f39340777570b427aa263',
+      amount: 1000
+    }, _defineProperty(_ref, "email", ''), _defineProperty(_ref, "firstname", ''), _defineProperty(_ref, "lastname", ''), _ref;
   },
   components: {
     paystack: (vue_paystack__WEBPACK_IMPORTED_MODULE_0___default())
@@ -2672,6 +3079,15 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     this.getUserData();
   },
   methods: {
+    init: function init() {
+      this.processing = true;
+      if (this.address == null || this.town == null || this.country == null || this.phone == null || this.orderNotes == null) {
+        alert('Please the missing fields.');
+        this.processing = false;
+      } else {
+        document.getElementById('payBtn').click();
+      }
+    },
     onCancelledPayment: function onCancelledPayment(response) {
       console.log(response);
     },
@@ -2700,6 +3116,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     onSuccessfulPayment: function () {
       var _onSuccessfulPayment = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(response) {
+        var _this = this;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
@@ -2724,9 +3141,11 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
                   'Authorization': 'Bearer ' + localStorage.getItem('user_token')
                 }
               }).then(function (response) {
+                _this.processing = false;
                 console.log(response);
                 return window.location.href = '/payment-successful';
               })["catch"](function (response) {
+                _this.processing = false;
                 console.log(response);
               });
             case 3:
@@ -2748,7 +3167,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       this.email = this.userData.email;
     },
     getInvoiceDetails: function getInvoiceDetails() {
-      var _this = this;
+      var _this2 = this;
       console.log(localStorage.getItem('invoice_code'));
       if (localStorage.getItem('invoice_code')) {
         axios({
@@ -2764,17 +3183,17 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
             invoice_code: localStorage.getItem('invoice_code')
           }
         }).then(function (response) {
-          _this.invoiceData = response.data;
-          _this.amount = _this.invoiceData.total_amount * 100;
+          _this2.invoiceData = response.data;
+          _this2.amount = _this2.invoiceData.total_amount;
           console.log(response);
-          return _this.invoiceData;
+          return _this2.invoiceData;
         })["catch"](function (error) {
           console.log(error);
         });
       } else {}
     },
     getJustInvoice: function getJustInvoice() {
-      var _this2 = this;
+      var _this3 = this;
       axios({
         url: this.vueurl + '/api/v1/invoices/' + localStorage.getItem('invoice_code'),
         method: 'get',
@@ -2788,11 +3207,11 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           invoice_code: localStorage.getItem('invoice_code')
         }
       }).then(function (response) {
-        _this2.invoiceData = response.data;
-        _this2.amount = _this2.invoiceData.total_amount * 100;
+        _this3.invoiceData = response.data;
+        _this3.amount = _this3.invoiceData.total_amount * 100;
         console.log(response);
       })["catch"](function (error) {
-        _this2.loading = false;
+        _this3.loading = false;
         console.log(error);
       });
     }
@@ -3158,6 +3577,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('cart-icon-component', (__
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('shopping-cart-component', (__webpack_require__(/*! ./components/ShoppingCartComponent.vue */ "./resources/js/components/ShoppingCartComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('checkout-component', (__webpack_require__(/*! ./components/CheckoutComponent.vue */ "./resources/js/components/CheckoutComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('auth-component', (__webpack_require__(/*! ./components/AuthComponent.vue */ "./resources/js/components/AuthComponent.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('admin-component', (__webpack_require__(/*! ./components/AdminComponent.vue */ "./resources/js/components/AdminComponent.vue")["default"]));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -39672,6 +40092,45 @@ component.options.__file = "resources/js/components/AddcartComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/AdminComponent.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/AdminComponent.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminComponent_vue_vue_type_template_id_a603f2ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminComponent.vue?vue&type=template&id=a603f2ce& */ "./resources/js/components/AdminComponent.vue?vue&type=template&id=a603f2ce&");
+/* harmony import */ var _AdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AdminComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminComponent_vue_vue_type_template_id_a603f2ce___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AdminComponent_vue_vue_type_template_id_a603f2ce___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AdminComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/AuthComponent.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/AuthComponent.vue ***!
@@ -39883,6 +40342,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/AdminComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/AdminComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/AuthComponent.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/components/AuthComponent.vue?vue&type=script&lang=js& ***!
@@ -39976,6 +40451,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddcartComponent_vue_vue_type_template_id_7f1d21b2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddcartComponent_vue_vue_type_template_id_7f1d21b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AddcartComponent.vue?vue&type=template&id=7f1d21b2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AddcartComponent.vue?vue&type=template&id=7f1d21b2&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AdminComponent.vue?vue&type=template&id=a603f2ce&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/AdminComponent.vue?vue&type=template&id=a603f2ce& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_template_id_a603f2ce___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_template_id_a603f2ce___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_template_id_a603f2ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminComponent.vue?vue&type=template&id=a603f2ce& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminComponent.vue?vue&type=template&id=a603f2ce&");
 
 
 /***/ }),
@@ -40093,6 +40585,769 @@ var render = function () {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminComponent.vue?vue&type=template&id=a603f2ce&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminComponent.vue?vue&type=template&id=a603f2ce& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    { staticClass: "my__account--section section--padding" },
+    [
+      _c("div", { staticClass: "container" }, [
+        _c("p", { staticClass: "account__welcome--text" }, [
+          _vm._v(
+            "Hello " +
+              _vm._s(_vm.userData.name) +
+              ", welcome to your dashboard!"
+          ),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "my__account--section__inner border-radius-10 d-flex",
+          },
+          [
+            _c("div", { staticClass: "account__left--sidebar" }, [
+              _c("h2", { staticClass: "account__content--title h3 mb-20" }),
+              _vm._v(" "),
+              _c("ul", { staticClass: "account__menu" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.userData.role == "store_owner",
+                        expression: "userData.role =='store_owner'",
+                      },
+                    ],
+                    staticClass: "account__menu--list",
+                  },
+                  [_c("a", { attrs: { href: "#" } }, [_vm._v("Products")])]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.userData.role != "store_owner",
+                        expression: "userData.role !='store_owner'",
+                      },
+                    ],
+                    staticClass: "account__menu--list",
+                  },
+                  [_c("a", { attrs: { href: "#" } }, [_vm._v("My Orders")])]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass: "account__menu--list",
+                    on: {
+                      click: function ($event) {
+                        return _vm.logout()
+                      },
+                    },
+                  },
+                  [_vm._v("Log Out")]
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "account__wrapper" }, [
+              _c("div", { staticClass: "account__content" }, [
+                _c(
+                  "div",
+                  { staticClass: "account__table--area table-responsive" },
+                  [
+                    _c("div", { staticClass: "py-3" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c(
+                          "div",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.userData.role == "store_owner",
+                                expression: "userData.role =='store_owner'",
+                              },
+                            ],
+                            staticClass: "col-md-4 p-2",
+                          },
+                          [_vm._m(2)]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _vm._m(4),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "h2",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.userData.role != "store_owner",
+                            expression: "userData.role !='store_owner'",
+                          },
+                        ],
+                        staticClass: "account__content--title h3 mb-20",
+                      },
+                      [_vm._v("Orders History")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h2",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.userData.role == "store_owner",
+                            expression: "userData.role =='store_owner'",
+                          },
+                        ],
+                        staticClass: "account__content--title h3 mb-20",
+                      },
+                      [_vm._v("Products")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "table",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.userData.role == "store_owner",
+                            expression: "userData.role =='store_owner'",
+                          },
+                        ],
+                        staticClass: "account__table",
+                      },
+                      [
+                        _vm._m(5),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          { staticClass: "account__table--body mobile__none" },
+                          _vm._l(_vm.products, function (product) {
+                            return _c(
+                              "tr",
+                              {
+                                key: product.id,
+                                staticClass: "account__table--body__child",
+                              },
+                              [
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [_vm._v("#")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "col-2",
+                                        staticStyle: { width: "80px" },
+                                      },
+                                      [
+                                        _c("img", {
+                                          staticStyle: {
+                                            height: "45px",
+                                            width: "45px",
+                                            "object-fit": "cover",
+                                          },
+                                          attrs: {
+                                            src: product.img_url,
+                                            alt: "",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [_vm._v("   " + _vm._s(product.name))]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [
+                                    _vm._v(
+                                      "           N " +
+                                        _vm._s(_vm.format(product.price))
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "custom-control custom-switch",
+                                      },
+                                      [
+                                        _c("input", {
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            id: "switch" + product.id,
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: {
+                                              for: "switch" + product.id,
+                                            },
+                                          },
+                                          [_vm._v("live")]
+                                        ),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          { staticClass: "account__table--body mobile__block" },
+                          _vm._l(_vm.products, function (product) {
+                            return _c(
+                              "tr",
+                              {
+                                key: product.id,
+                                staticClass: "account__table--body__child",
+                              },
+                              [
+                                _vm._m(6, true),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [
+                                    _c("strong"),
+                                    _vm._v(" "),
+                                    _c("span", [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "col-2",
+                                          staticStyle: { width: "80px" },
+                                        },
+                                        [
+                                          _c("img", {
+                                            staticStyle: {
+                                              height: "45px",
+                                              width: "45px",
+                                              "object-fit": "cover",
+                                            },
+                                            attrs: {
+                                              src: product.img_url,
+                                              alt: "",
+                                            },
+                                          }),
+                                        ]
+                                      ),
+                                    ]),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [
+                                    _c("strong", [_vm._v("Product Name")]),
+                                    _vm._v(" "),
+                                    _c("span", [_vm._v(_vm._s(product.name))]),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [
+                                    _c("strong", [_vm._v("Product Price")]),
+                                    _vm._v(" "),
+                                    _c("span", [
+                                      _vm._v(
+                                        "  N " +
+                                          _vm._s(_vm.format(product.price))
+                                      ),
+                                    ]),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [
+                                    _c("strong"),
+                                    _vm._v(" "),
+                                    _c("span", [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "custom-control custom-switch",
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass: "custom-control-input",
+                                            attrs: {
+                                              type: "checkbox",
+                                              id: "switch" + product.id,
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "custom-control-label",
+                                              attrs: {
+                                                for: "switch" + product.id,
+                                              },
+                                            },
+                                            [_vm._v("live")]
+                                          ),
+                                        ]
+                                      ),
+                                    ]),
+                                  ]
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("table", { staticClass: "account__table" }, [
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        { staticClass: "account__table--body mobile__none" },
+                        _vm._l(_vm.productOrders, function (productOrder) {
+                          return _c(
+                            "tr",
+                            {
+                              key: productOrder.id,
+                              staticClass: "account__table--body__child",
+                            },
+                            [
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [
+                                  _vm._v(
+                                    "      " +
+                                      _vm._s(productOrder.invoice.invoice_code)
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [
+                                  _vm._v(
+                                    "      " + _vm._s(productOrder.created_at)
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [
+                                  _vm._v(
+                                    "      " +
+                                      _vm._s(productOrder.shipping_address)
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [_vm._v("Paid")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [_vm._v("      " + _vm._s(productOrder.status))]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [
+                                  _vm._v(
+                                    "N " +
+                                      _vm._s(
+                                        _vm.format(
+                                          productOrder.invoice.total_amount
+                                        )
+                                      )
+                                  ),
+                                ]
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        { staticClass: "account__table--body mobile__block" },
+                        _vm._l(_vm.productOrders, function (productOrder) {
+                          return _c(
+                            "tr",
+                            {
+                              key: productOrder.id,
+                              staticClass: "account__table--body__child",
+                            },
+                            [
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [
+                                  _c("strong", [_vm._v("Order")]),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      _vm._s(productOrder.invoice.invoice_code)
+                                    ),
+                                  ]),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [
+                                  _c("strong", [_vm._v("Date")]),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(_vm._s(productOrder.created_at)),
+                                  ]),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [
+                                  _c("strong", [_vm._v("Address")]),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      _vm._s(productOrder.shipping_address)
+                                    ),
+                                  ]),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(8, true),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [
+                                  _c("strong", [_vm._v("Fulfillment Status")]),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(_vm._s(productOrder.status)),
+                                  ]),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "account__table--body__child--items",
+                                },
+                                [
+                                  _c("strong", [_vm._v("Total")]),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      "N " +
+                                        _vm._s(
+                                          _vm.format(
+                                            productOrder.invoice.total_amount
+                                          )
+                                        )
+                                    ),
+                                  ]),
+                                ]
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                    ]),
+                  ]
+                ),
+              ]),
+            ]),
+          ]
+        ),
+      ]),
+    ]
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "account__menu--list active" }, [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Dashboard")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "account__menu--list" }, [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("My Profile")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "my__account--section__inner border-radius-10 d-flex mb-10",
+      },
+      [_c("h3", [_vm._v("Total Customers")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4 p-2" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "my__account--section__inner border-radius-10 d-flex mb-10",
+        },
+        [_c("h6", [_vm._v("Total Orders")])]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4 p-2" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "my__account--section__inner border-radius-10 d-flex mb-10",
+        },
+        [_c("h6", [_vm._v("Total Sales")])]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "account__table--header" }, [
+      _c("tr", { staticClass: "account__table--header__child" }, [
+        _c("th", { staticClass: "account__table--header__child--items" }, [
+          _vm._v("#"),
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }, [
+          _vm._v("Product Name"),
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }, [
+          _vm._v("Price"),
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "account__table--body__child--items" }, [
+      _c("strong", [_vm._v("#")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("#")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "account__table--header" }, [
+      _c("tr", { staticClass: "account__table--header__child" }, [
+        _c("th", { staticClass: "account__table--header__child--items" }, [
+          _vm._v("Order"),
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }, [
+          _vm._v("Date"),
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }, [
+          _vm._v("Address"),
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }, [
+          _vm._v("Payment Status"),
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }, [
+          _vm._v("Fulfillment Status"),
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }, [
+          _vm._v("Total"),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "account__table--body__child--items" }, [
+      _c("strong", [_vm._v("Payment Status")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Paid")]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -40641,7 +41896,7 @@ var render = function () {
                               staticClass:
                                 "checkout__input--field border-radius-5",
                               attrs: {
-                                placeholder: "First name (optional)",
+                                placeholder: "Phone",
                                 id: "input1",
                                 type: "text",
                               },
@@ -40675,7 +41930,7 @@ var render = function () {
                             staticClass:
                               "checkout__input--field border-radius-5",
                             attrs: {
-                              placeholder: "Address1",
+                              placeholder: "Address",
                               id: "input4",
                               type: "text",
                             },
@@ -40708,7 +41963,7 @@ var render = function () {
                             staticClass:
                               "checkout__input--field border-radius-5",
                             attrs: {
-                              placeholder: "City",
+                              placeholder: "Town/City",
                               id: "input5",
                               type: "text",
                             },
@@ -41027,7 +42282,7 @@ var render = function () {
                         staticClass:
                           "checkout__total--footer__title checkout__total--footer__list text-left",
                       },
-                      [_vm._v("Total\n                                ")]
+                      [_vm._v("Total\n                                    ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -41038,7 +42293,7 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                                    NGN " +
+                          "\n                                        NGN " +
                             _vm._s(_vm.format(_vm.invoiceData.total_amount))
                         ),
                       ]
@@ -41051,14 +42306,38 @@ var render = function () {
             _vm._m(12),
             _vm._v(" "),
             _c(
+              "button",
+              {
+                staticClass:
+                  "checkout__discount--code__btn primary__btn border-radius-5",
+                on: {
+                  click: function ($event) {
+                    return _vm.init()
+                  },
+                },
+              },
+              [
+                _vm._v(
+                  _vm._s(
+                    _vm.processing
+                      ? "Processing..."
+                      : "Proceed to pay NGN " + _vm.amount
+                  ) + "\n"
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
               "paystack",
               {
-                class: "",
+                class: "d-none",
                 attrs: {
+                  id: "payBtn",
+                  type: "hidden",
                   paystackkey: _vm.paystackkey,
                   split_code: "SPL_UMfLowpW9Z",
                   email: _vm.email,
-                  amount: _vm.amount,
+                  amount: _vm.amount * 100,
                   reference: _vm.reference,
                   callback: _vm.onSuccessfulPayment,
                   onCanel: _vm.onCancelledPayment,
@@ -41068,9 +42347,13 @@ var render = function () {
               },
               [
                 _vm._v(
-                  "\n                    Proceed to pay NGN " +
-                    _vm._s(_vm.format(_vm.amount)) +
-                    "\n                "
+                  "\n\n                    " +
+                    _vm._s(
+                      _vm.processing
+                        ? "Processing..."
+                        : "Proceed to pay NGN " + _vm.amount
+                    ) +
+                    "\n\n                    "
                 ),
               ]
             ),
@@ -41261,7 +42544,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tbody", { staticClass: "checkout__total--body" }, [
+    return _c("tbody", { staticClass: "checkout__total--body d-none" }, [
       _c("tr", { staticClass: "checkout__total--items" }, [
         _c("td", { staticClass: "checkout__total--title text-left" }, [
           _vm._v("Subtotal "),
