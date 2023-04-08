@@ -81,6 +81,8 @@
                                         <th class="account__table--header__child--items">Product Name</th>
                                         <th class="account__table--header__child--items">Price</th>
                                         <th class="account__table--header__child--items"></th>
+                                        <th class="account__table--header__child--items"></th>
+
                                     </tr>
                                 </thead>
                                 <tbody class="account__table--body mobile__none">
@@ -98,14 +100,23 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="account__table--body__child--items"> {{ product.name }}</td>
-                                        <td class="account__table--body__child--items"> N {{ format(product.price) }}</td>
+                                        <td class="account__table--body__child--items">
+                                            <input type="text" class="form-control" :id="'productName'+product.id" :value="product.name">
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <input type="text" class="form-control" :id="'productPrice'+product.id" :value="product.price">
+
+                                        </td>
                                         <td class="account__table--body__child--items">
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                     :id="'switch' + product.id">
                                                 <label class="custom-control-label" :for="'switch' + product.id">live</label>
                                             </div>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <button @click="updateProductRow()" class="btn btn-primary">update</button>
+
                                         </td>
                                     </tr>
 

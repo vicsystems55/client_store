@@ -2331,6 +2331,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -40889,7 +40900,16 @@ var render = function () {
                                     staticClass:
                                       "account__table--body__child--items",
                                   },
-                                  [_vm._v(" " + _vm._s(product.name))]
+                                  [
+                                    _c("input", {
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "text",
+                                        id: "productName" + product.id,
+                                      },
+                                      domProps: { value: product.name },
+                                    }),
+                                  ]
                                 ),
                                 _vm._v(" "),
                                 _c(
@@ -40899,9 +40919,14 @@ var render = function () {
                                       "account__table--body__child--items",
                                   },
                                   [
-                                    _vm._v(
-                                      " N " + _vm._s(_vm.format(product.price))
-                                    ),
+                                    _c("input", {
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "text",
+                                        id: "productPrice" + product.id,
+                                      },
+                                      domProps: { value: product.price },
+                                    }),
                                   ]
                                 ),
                                 _vm._v(" "),
@@ -40938,6 +40963,28 @@ var render = function () {
                                           [_vm._v("live")]
                                         ),
                                       ]
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass:
+                                      "account__table--body__child--items",
+                                  },
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-primary",
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.updateProductRow()
+                                          },
+                                        },
+                                      },
+                                      [_vm._v("update")]
                                     ),
                                   ]
                                 ),
@@ -41383,6 +41430,8 @@ var staticRenderFns = [
         _c("th", { staticClass: "account__table--header__child--items" }, [
           _vm._v("Price"),
         ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "account__table--header__child--items" }),
         _vm._v(" "),
         _c("th", { staticClass: "account__table--header__child--items" }),
       ]),
