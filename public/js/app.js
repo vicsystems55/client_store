@@ -2309,6 +2309,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2317,7 +2339,9 @@ __webpack_require__.r(__webpack_exports__);
       productOrders: [],
       cartCount: 0,
       invoiceData: '',
-      userData: []
+      userData: [],
+      selProductImage: '',
+      selProductId: ''
     };
   },
   props: ['vueurl'],
@@ -2327,26 +2351,57 @@ __webpack_require__.r(__webpack_exports__);
     this.getProductOrders();
   },
   methods: {
-    getUserData: function getUserData() {
-      this.userData = JSON.parse(localStorage.getItem('user_data'));
-    },
-    getProducts: function getProducts() {
+    previewFile4: function previewFile4(event) {
       var _this = this;
-      this.loading = true;
+      console.log(event.target.files[0]);
+      if (event.target.files.length > 0) {
+        // var src = URL.createObjectURL(event.target.files[0]);
+        // var preview = document.getElementById("previewImg");
+        // preview.src = src;
+        // preview.style.display = "block";
+      }
+      this.selProductImage = event.target.files[0];
+      var formData = new FormData();
+      formData.append('product_image', this.selProductImage);
+      formData.append('type', 'imageUpdate');
+      formData.append('productId', this.selProductId);
       axios({
         url: this.vueurl + '/api/v1/products',
-        method: 'get'
+        method: 'post',
+        data: formData
       }).then(function (response) {
-        _this.products = response.data;
         console.log(response);
-        _this.getInvoiceDetails();
+        _this.getProducts();
       })["catch"](function (error) {
         _this.loading = false;
         console.log(error);
       });
     },
-    getProductOrders: function getProductOrders() {
+    selectImage: function selectImage(productId) {
+      alert('selecting');
+      this.selProductId = productId;
+      document.getElementById('customFile' + productId).click();
+    },
+    getUserData: function getUserData() {
+      this.userData = JSON.parse(localStorage.getItem('user_data'));
+    },
+    getProducts: function getProducts() {
       var _this2 = this;
+      this.loading = true;
+      axios({
+        url: this.vueurl + '/api/v1/products',
+        method: 'get'
+      }).then(function (response) {
+        _this2.products = response.data;
+        console.log(response);
+        _this2.getInvoiceDetails();
+      })["catch"](function (error) {
+        _this2.loading = false;
+        console.log(error);
+      });
+    },
+    getProductOrders: function getProductOrders() {
+      var _this3 = this;
       axios({
         url: this.vueurl + '/api/v1/product-order',
         method: 'get',
@@ -2358,17 +2413,17 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         console.log(response);
-        _this2.productOrders = response.data.product_orders || response.data;
-        _this2.customersCount = response.data.total_customers;
-        _this2.invoicesCount = response.data.invoices;
-        _this2.totalSalesAmount = response.data.total_sales_amount;
-        _this2.timeStamp = response.data.timestamp;
+        _this3.productOrders = response.data.product_orders || response.data;
+        _this3.customersCount = response.data.total_customers;
+        _this3.invoicesCount = response.data.invoices;
+        _this3.totalSalesAmount = response.data.total_sales_amount;
+        _this3.timeStamp = response.data.timestamp;
       })["catch"](function (response) {
         console.log(response);
       });
     },
     getInvoiceDetails: function getInvoiceDetails() {
-      var _this3 = this;
+      var _this4 = this;
       if (localStorage.getItem('invoice_code')) {
         console.log('ye invoice');
         axios({
@@ -2384,11 +2439,11 @@ __webpack_require__.r(__webpack_exports__);
             invoice_code: localStorage.getItem('invoice_code')
           }
         }).then(function (response) {
-          _this3.invoiceData = response.data;
-          _this3.cartCount = _this3.invoiceData.invoice_items.length;
+          _this4.invoiceData = response.data;
+          _this4.cartCount = _this4.invoiceData.invoice_items.length;
           console.log(response);
         })["catch"](function (error) {
-          _this3.loading = false;
+          _this4.loading = false;
           console.log(error);
         });
       } else {
@@ -2408,13 +2463,13 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (response) {
           console.log(response);
         })["catch"](function (error) {
-          _this3.loading = false;
+          _this4.loading = false;
           console.log(error);
         });
       }
     },
     addProduct: function addProduct(product_id) {
-      var _this4 = this;
+      var _this5 = this;
       axios({
         url: this.vueurl + '/api/v1/invoice-lines',
         method: 'post',
@@ -2429,17 +2484,17 @@ __webpack_require__.r(__webpack_exports__);
           product_id: product_id
         }
       }).then(function (response) {
-        _this4.$notify("Product Added to cart!!");
-        _this4.getInvoiceDetails();
+        _this5.$notify("Product Added to cart!!");
+        _this5.getInvoiceDetails();
         console.log(response);
       })["catch"](function (error) {
-        _this4.loading = false;
+        _this5.loading = false;
         console.log(error);
-        _this4.regenerateInvoice();
+        _this5.regenerateInvoice();
       });
     },
     regenerateInvoice: function regenerateInvoice() {
-      var _this5 = this;
+      var _this6 = this;
       localStorage.removeItem('invoice_code');
       localStorage.setItem('invoice_code', Date.now());
       axios({
@@ -2457,7 +2512,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         console.log(response);
       })["catch"](function (error) {
-        _this5.loading = false;
+        _this6.loading = false;
         console.log(error);
       });
     },
@@ -40642,7 +40697,7 @@ var render = function () {
                         name: "show",
                         rawName: "v-show",
                         value: _vm.userData.role == "store_owner",
-                        expression: "userData.role =='store_owner'",
+                        expression: "userData.role == 'store_owner'",
                       },
                     ],
                     staticClass: "account__menu--list",
@@ -40658,7 +40713,7 @@ var render = function () {
                         name: "show",
                         rawName: "v-show",
                         value: _vm.userData.role != "store_owner",
-                        expression: "userData.role !='store_owner'",
+                        expression: "userData.role != 'store_owner'",
                       },
                     ],
                     staticClass: "account__menu--list",
@@ -40697,7 +40752,7 @@ var render = function () {
                                 name: "show",
                                 rawName: "v-show",
                                 value: _vm.userData.role == "store_owner",
-                                expression: "userData.role =='store_owner'",
+                                expression: "userData.role == 'store_owner'",
                               },
                             ],
                             staticClass: "col-md-4 p-2",
@@ -40719,12 +40774,12 @@ var render = function () {
                             name: "show",
                             rawName: "v-show",
                             value: _vm.userData.role != "store_owner",
-                            expression: "userData.role !='store_owner'",
+                            expression: "userData.role != 'store_owner'",
                           },
                         ],
                         staticClass: "account__content--title h3 mb-20",
                       },
-                      [_vm._v("Orders History")]
+                      [_vm._v("Orders\n                            History")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -40735,12 +40790,12 @@ var render = function () {
                             name: "show",
                             rawName: "v-show",
                             value: _vm.userData.role == "store_owner",
-                            expression: "userData.role =='store_owner'",
+                            expression: "userData.role == 'store_owner'",
                           },
                         ],
                         staticClass: "account__content--title h3 mb-20",
                       },
-                      [_vm._v("Products")]
+                      [_vm._v("Products\n                        ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -40751,7 +40806,7 @@ var render = function () {
                             name: "show",
                             rawName: "v-show",
                             value: _vm.userData.role == "store_owner",
-                            expression: "userData.role =='store_owner'",
+                            expression: "userData.role == 'store_owner'",
                           },
                         ],
                         staticClass: "account__table",
@@ -40803,7 +40858,26 @@ var render = function () {
                                             src: product.img_url,
                                             alt: "",
                                           },
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.selectImage(product.id)
+                                            },
+                                          },
                                         }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "text-center d-none" },
+                                          [
+                                            _c("input", {
+                                              attrs: {
+                                                type: "file",
+                                                id: "customFile" + product.id,
+                                              },
+                                              on: { change: _vm.previewFile4 },
+                                            }),
+                                          ]
+                                        ),
                                       ]
                                     ),
                                   ]
@@ -40815,7 +40889,7 @@ var render = function () {
                                     staticClass:
                                       "account__table--body__child--items",
                                   },
-                                  [_vm._v("   " + _vm._s(product.name))]
+                                  [_vm._v(" " + _vm._s(product.name))]
                                 ),
                                 _vm._v(" "),
                                 _c(
@@ -40826,8 +40900,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "           N " +
-                                        _vm._s(_vm.format(product.price))
+                                      " N " + _vm._s(_vm.format(product.price))
                                     ),
                                   ]
                                 ),
@@ -40914,6 +40987,29 @@ var render = function () {
                                               src: product.img_url,
                                               alt: "",
                                             },
+                                            on: {
+                                              click: function ($event) {
+                                                return _vm.selectImage(
+                                                  product.id
+                                                )
+                                              },
+                                            },
+                                          }),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "text-center d-none" },
+                                        [
+                                          _c("input", {
+                                            ref: "file",
+                                            refInFor: true,
+                                            attrs: {
+                                              type: "file",
+                                              id: "customFile" + product.id,
+                                            },
+                                            on: { change: _vm.previewFile4 },
                                           }),
                                         ]
                                       ),
@@ -40945,7 +41041,7 @@ var render = function () {
                                     _vm._v(" "),
                                     _c("span", [
                                       _vm._v(
-                                        "  N " +
+                                        " N " +
                                           _vm._s(_vm.format(product.price))
                                       ),
                                     ]),
@@ -41023,7 +41119,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "      " +
+                                    " " +
                                       _vm._s(productOrder.invoice.invoice_code)
                                   ),
                                 ]
@@ -41035,11 +41131,7 @@ var render = function () {
                                   staticClass:
                                     "account__table--body__child--items",
                                 },
-                                [
-                                  _vm._v(
-                                    "      " + _vm._s(productOrder.created_at)
-                                  ),
-                                ]
+                                [_vm._v(" " + _vm._s(productOrder.created_at))]
                               ),
                               _vm._v(" "),
                               _c(
@@ -41050,8 +41142,9 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "      " +
-                                      _vm._s(productOrder.shipping_address)
+                                    " " +
+                                      _vm._s(productOrder.shipping_address) +
+                                      "\n                                    "
                                   ),
                                 ]
                               ),
@@ -41071,7 +41164,7 @@ var render = function () {
                                   staticClass:
                                     "account__table--body__child--items",
                                 },
-                                [_vm._v("      " + _vm._s(productOrder.status))]
+                                [_vm._v(" " + _vm._s(productOrder.status))]
                               ),
                               _vm._v(" "),
                               _c(
@@ -41082,7 +41175,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "N " +
+                                    "N\n                                        " +
                                       _vm._s(
                                         _vm.format(
                                           productOrder.invoice.total_amount

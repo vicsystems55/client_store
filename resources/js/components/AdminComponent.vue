@@ -1,209 +1,231 @@
 <template>
+    <section class="my__account--section section--padding">
+        <div class="container">
+            <p class="account__welcome--text">Hello {{ userData.name }}, welcome to your dashboard!</p>
+            <div class="my__account--section__inner border-radius-10 d-flex">
+                <div class="account__left--sidebar">
+                    <h2 class="account__content--title h3 mb-20"></h2>
+                    <ul class="account__menu">
+                        <li class="account__menu--list active"><a href="#">Dashboard</a></li>
+                        <li class="account__menu--list "><a href="#">My Profile</a></li>
 
-<section class="my__account--section section--padding">
-            <div class="container">
-                <p class="account__welcome--text">Hello {{userData.name}}, welcome to your dashboard!</p>
-                <div class="my__account--section__inner border-radius-10 d-flex">
-                    <div class="account__left--sidebar">
-                        <h2 class="account__content--title h3 mb-20"></h2>
-                        <ul class="account__menu">
-                            <li class="account__menu--list active"><a href="#">Dashboard</a></li>
-                            <li class="account__menu--list "><a href="#">My Profile</a></li>
+                        <li v-show="userData.role == 'store_owner'" class="account__menu--list"><a href="#">Products</a></li>
 
-                            <li v-show="userData.role =='store_owner'" class="account__menu--list"><a href="#">Products</a></li>
-
-                            <li v-show="userData.role !='store_owner'" class="account__menu--list"><a href="#">My Orders</a></li>
-
-
-                            <li class="account__menu--list" @click="logout()"  >Log Out</li>
-                        </ul>
-                    </div>
-                    <div class="account__wrapper">
-                        <div class="account__content">
-                            <div class="account__table--area table-responsive">
+                        <li v-show="userData.role != 'store_owner'" class="account__menu--list"><a href="#">My Orders</a>
+                        </li>
 
 
-
-
-                                <div class="py-3">
-                                    <div class="row">
-                                        <div v-show="userData.role =='store_owner'" class="col-md-4 p-2">
-
-                                            <div class="my__account--section__inner border-radius-10 d-flex mb-10 ">
-
-                                                    <h3 >Total Customers</h3>
+                        <li class="account__menu--list" @click="logout()">Log Out</li>
+                    </ul>
+                </div>
+                <div class="account__wrapper">
+                    <div class="account__content">
+                        <div class="account__table--area table-responsive">
 
 
 
 
-                                            </div>
+                            <div class="py-3">
+                                <div class="row">
+                                    <div v-show="userData.role == 'store_owner'" class="col-md-4 p-2">
+
+                                        <div class="my__account--section__inner border-radius-10 d-flex mb-10 ">
+
+                                            <h3>Total Customers</h3>
+
+
+
 
                                         </div>
 
-                                        <div class="col-md-4 p-2">
+                                    </div>
 
-                                            <div class="my__account--section__inner border-radius-10 d-flex mb-10 ">
+                                    <div class="col-md-4 p-2">
 
-                                                    <h6>Total Orders</h6>
+                                        <div class="my__account--section__inner border-radius-10 d-flex mb-10 ">
+
+                                            <h6>Total Orders</h6>
 
 
-
-                                            </div>
 
                                         </div>
 
-                                        <div class="col-md-4 p-2">
+                                    </div>
 
-                                            <div class="my__account--section__inner border-radius-10 d-flex mb-10 ">
+                                    <div class="col-md-4 p-2">
 
-                                                    <h6>Total Sales</h6>
+                                        <div class="my__account--section__inner border-radius-10 d-flex mb-10 ">
+
+                                            <h6>Total Sales</h6>
 
 
-
-                                            </div>
 
                                         </div>
+
                                     </div>
                                 </div>
+                            </div>
 
-                                <h2 v-show="userData.role !='store_owner'" class="account__content--title h3 mb-20">Orders History</h2>
+                            <h2 v-show="userData.role != 'store_owner'" class="account__content--title h3 mb-20">Orders
+                                History</h2>
 
-                                <h2 v-show="userData.role =='store_owner'" class="account__content--title h3 mb-20">Products</h2>
+                            <h2 v-show="userData.role == 'store_owner'" class="account__content--title h3 mb-20">Products
+                            </h2>
 
 
-                                <table v-show="userData.role =='store_owner'" class="account__table">
-                                    <thead class="account__table--header">
-                                        <tr class="account__table--header__child">
-                                            <th class="account__table--header__child--items">#</th>
-                                            <th class="account__table--header__child--items"></th>
-                                            <th class="account__table--header__child--items">Product Name</th>
-                                            <th class="account__table--header__child--items">Price</th>
-                                            <th class="account__table--header__child--items"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="account__table--body mobile__none">
-                                        <tr v-for="product in products" :key="product.id"  class="account__table--body__child">
-                                            <td class="account__table--body__child--items">#</td>
-                                            <td class="account__table--body__child--items">
+                            <table v-show="userData.role == 'store_owner'" class="account__table">
+                                <thead class="account__table--header">
+                                    <tr class="account__table--header__child">
+                                        <th class="account__table--header__child--items">#</th>
+                                        <th class="account__table--header__child--items"></th>
+                                        <th class="account__table--header__child--items">Product Name</th>
+                                        <th class="account__table--header__child--items">Price</th>
+                                        <th class="account__table--header__child--items"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="account__table--body mobile__none">
+                                    <tr v-for="product in products" :key="product.id" class="account__table--body__child">
+                                        <td class="account__table--body__child--items">#</td>
+                                        <td class="account__table--body__child--items">
+                                            <div class="col-2" style="width: 80px;">
+                                                <img :src="product.img_url"
+                                                @click="selectImage(product.id)"
+                                                    style="height: 45px; width: 45px; object-fit: cover;" alt="">
+
+                                                    <div class="text-center d-none">
+                                                    <input @change="previewFile4"  type="file" :id="'customFile'+product.id">
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="account__table--body__child--items"> {{ product.name }}</td>
+                                        <td class="account__table--body__child--items"> N {{ format(product.price) }}</td>
+                                        <td class="account__table--body__child--items">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    :id="'switch' + product.id">
+                                                <label class="custom-control-label" :for="'switch' + product.id">live</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                                <tbody class="account__table--body mobile__block">
+                                    <tr v-for="product in products" :key="product.id" class="account__table--body__child">
+                                        <td class="account__table--body__child--items">
+                                            <strong>#</strong>
+                                            <span>#</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong></strong>
+                                            <span>
                                                 <div class="col-2" style="width: 80px;">
-                                <img :src="product.img_url" style="height: 45px; width: 45px; object-fit: cover;" alt="">
-                            </div>
-                                            </td>
-                                            <td class="account__table--body__child--items">   {{ product.name }}</td>
-                                            <td class="account__table--body__child--items">           N {{ format(product.price) }}</td>
-                                            <td class="account__table--body__child--items">
+                                                    <img :src="product.img_url"
+                                                        @click="selectImage(product.id)"
+                                                        style="height: 45px; width: 45px; object-fit: cover;" alt="">
+                                                </div>
+
+                                                <div class="text-center d-none">
+                                                    <input @change="previewFile4" ref="file" type="file" :id="'customFile'+product.id">
+
+                                                </div>
+                                            </span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong>Product Name</strong>
+                                            <span>{{ product.name }}</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong>Product Price</strong>
+                                            <span> N {{ format(product.price) }}</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong></strong>
+                                            <span>
                                                 <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input" :id="'switch'+product.id">
-                                            <label class="custom-control-label" :for="'switch'+product.id">live</label>
-                                        </div>
-                                    </td>
-                                        </tr>
-
-                                    </tbody>
-                                    <tbody class="account__table--body mobile__block">
-                                        <tr v-for="product in products" :key="product.id" class="account__table--body__child">
-                                            <td class="account__table--body__child--items">
-                                                <strong>#</strong>
-                                                <span>#</span>
-                                            </td>
-                                            <td class="account__table--body__child--items">
-                                                <strong></strong>
-                                                <span>
-                                                    <div class="col-2" style="width: 80px;">
-                                <img :src="product.img_url" style="height: 45px; width: 45px; object-fit: cover;" alt="">
-                            </div>
-                                                </span>
-                                            </td>
-                                            <td class="account__table--body__child--items">
-                                                <strong>Product Name</strong>
-                                                <span>{{product.name}}</span>
-                                            </td>
-                                            <td class="account__table--body__child--items">
-                                                <strong>Product Price</strong>
-                                                <span>  N {{ format(product.price) }}</span>
-                                            </td>
-                                            <td class="account__table--body__child--items">
-                                                <strong></strong>
-                                                <span>
-                                                    <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input" :id="'switch'+product.id">
-                                            <label class="custom-control-label" :for="'switch'+product.id">live</label>
-                                        </div>
-                                                </span>
-                                            </td>
-                                        </tr>
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        :id="'switch' + product.id">
+                                                    <label class="custom-control-label"
+                                                        :for="'switch' + product.id">live</label>
+                                                </div>
+                                            </span>
+                                        </td>
+                                    </tr>
 
 
 
-                                    </tbody>
-                                </table>
+                                </tbody>
+                            </table>
 
-                                <table  class="account__table">
-                                    <thead class="account__table--header">
-                                        <tr class="account__table--header__child">
-                                            <th class="account__table--header__child--items">Order</th>
-                                            <th class="account__table--header__child--items">Date</th>
-                                            <th class="account__table--header__child--items">Address</th>
+                            <table class="account__table">
+                                <thead class="account__table--header">
+                                    <tr class="account__table--header__child">
+                                        <th class="account__table--header__child--items">Order</th>
+                                        <th class="account__table--header__child--items">Date</th>
+                                        <th class="account__table--header__child--items">Address</th>
 
-                                            <th class="account__table--header__child--items">Payment Status</th>
-                                            <th class="account__table--header__child--items">Fulfillment Status</th>
-                                            <th class="account__table--header__child--items">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="account__table--body mobile__none">
-                                        <tr v-for="productOrder in productOrders" :key="productOrder.id"  class="account__table--body__child">
-                                            <td class="account__table--body__child--items">      {{ productOrder.invoice.invoice_code }}</td>
-                                            <td class="account__table--body__child--items">      {{ productOrder.created_at }}</td>
-                                            <td class="account__table--body__child--items">      {{ productOrder.shipping_address }}</td>
+                                        <th class="account__table--header__child--items">Payment Status</th>
+                                        <th class="account__table--header__child--items">Fulfillment Status</th>
+                                        <th class="account__table--header__child--items">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="account__table--body mobile__none">
+                                    <tr v-for="productOrder in productOrders" :key="productOrder.id"
+                                        class="account__table--body__child">
+                                        <td class="account__table--body__child--items"> {{ productOrder.invoice.invoice_code
+                                        }}</td>
+                                        <td class="account__table--body__child--items"> {{ productOrder.created_at }}</td>
+                                        <td class="account__table--body__child--items"> {{ productOrder.shipping_address }}
+                                        </td>
 
-                                            <td class="account__table--body__child--items">Paid</td>
-                                            <td class="account__table--body__child--items">      {{ productOrder.status }}</td>
-                                            <td class="account__table--body__child--items">N {{format(productOrder.invoice.total_amount)}}</td>
-                                        </tr>
+                                        <td class="account__table--body__child--items">Paid</td>
+                                        <td class="account__table--body__child--items"> {{ productOrder.status }}</td>
+                                        <td class="account__table--body__child--items">N
+                                            {{ format(productOrder.invoice.total_amount) }}</td>
+                                    </tr>
 
-                                    </tbody>
-                                    <tbody class="account__table--body mobile__block">
-                                        <tr v-for="productOrder in productOrders" :key="productOrder.id"  class="account__table--body__child">
-                                            <td class="account__table--body__child--items">
-                                                <strong>Order</strong>
-                                                <span>{{ productOrder.invoice.invoice_code }}</span>
-                                            </td>
-                                            <td class="account__table--body__child--items">
-                                                <strong>Date</strong>
-                                                <span>{{ productOrder.created_at }}</span>
-                                            </td>
-                                            <td class="account__table--body__child--items">
-                                                <strong>Address</strong>
-                                                <span>{{ productOrder.shipping_address }}</span>
-                                            </td>
-                                            <td class="account__table--body__child--items">
-                                                <strong>Payment Status</strong>
-                                                <span>Paid</span>
-                                            </td>
-                                            <td class="account__table--body__child--items">
-                                                <strong>Fulfillment Status</strong>
-                                                <span>{{ productOrder.status }}</span>
-                                            </td>
-                                            <td class="account__table--body__child--items">
-                                                <strong>Total</strong>
-                                                <span>N {{format(productOrder.invoice.total_amount)}}</span>
-                                            </td>
-                                        </tr>
-
-
-
-                                    </tbody>
-                                </table>
+                                </tbody>
+                                <tbody class="account__table--body mobile__block">
+                                    <tr v-for="productOrder in productOrders" :key="productOrder.id"
+                                        class="account__table--body__child">
+                                        <td class="account__table--body__child--items">
+                                            <strong>Order</strong>
+                                            <span>{{ productOrder.invoice.invoice_code }}</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong>Date</strong>
+                                            <span>{{ productOrder.created_at }}</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong>Address</strong>
+                                            <span>{{ productOrder.shipping_address }}</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong>Payment Status</strong>
+                                            <span>Paid</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong>Fulfillment Status</strong>
+                                            <span>{{ productOrder.status }}</span>
+                                        </td>
+                                        <td class="account__table--body__child--items">
+                                            <strong>Total</strong>
+                                            <span>N {{ format(productOrder.invoice.total_amount) }}</span>
+                                        </td>
+                                    </tr>
 
 
-                            </div>
+
+                                </tbody>
+                            </table>
+
+
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-
+        </div>
+    </section>
 </template>
 
 <script>
@@ -214,7 +236,9 @@ export default {
             productOrders: [],
             cartCount: 0,
             invoiceData: '',
-            userData: []
+            userData: [],
+            selProductImage: '',
+            selProductId: ''
         }
     },
 
@@ -227,6 +251,53 @@ export default {
     },
 
     methods: {
+
+        previewFile4(event) {
+
+
+            console.log(event.target.files[0])
+
+            if (event.target.files.length > 0) {
+                // var src = URL.createObjectURL(event.target.files[0]);
+                // var preview = document.getElementById("previewImg");
+                // preview.src = src;
+                // preview.style.display = "block";
+            }
+
+            this.selProductImage = event.target.files[0];
+
+            let formData = new FormData();
+
+            formData.append('product_image', this.selProductImage);
+            formData.append('type', 'imageUpdate');
+            formData.append('productId', this.selProductId);
+
+             axios({
+                url: this.vueurl + '/api/v1/products',
+                method: 'post',
+                data: formData
+
+            }).then((response) => {
+
+                console.log(response)
+
+
+                this.getProducts()
+
+            }).catch((error) => {
+
+                this.loading = false
+                console.log(error)
+            })
+
+        },
+
+        selectImage(productId){
+            alert('selecting')
+            this.selProductId = productId
+            document.getElementById('customFile'+productId).click()
+        },
+
 
         getUserData() {
             this.userData = JSON.parse(localStorage.getItem('user_data'));
@@ -257,33 +328,33 @@ export default {
 
         },
 
-        getProductOrders(){
+        getProductOrders() {
             axios({
-                url: this.vueurl +'/api/v1/product-order',
+                url: this.vueurl + '/api/v1/product-order',
                 method: 'get',
-                headers:{
-                    'Authorization': 'Bearer ' +localStorage.getItem('user_token')
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('user_token')
                 },
-                params:{
+                params: {
                     user_id: this.userData.id
                 }
 
             })
-            .then((response)=>{
-                console.log(response)
+                .then((response) => {
+                    console.log(response)
 
-                this.productOrders = response.data.product_orders || response.data
-                this.customersCount = response.data.total_customers
-                this.invoicesCount = response.data.invoices
-                this.totalSalesAmount = response.data.total_sales_amount
-                this.timeStamp = response.data.timestamp
+                    this.productOrders = response.data.product_orders || response.data
+                    this.customersCount = response.data.total_customers
+                    this.invoicesCount = response.data.invoices
+                    this.totalSalesAmount = response.data.total_sales_amount
+                    this.timeStamp = response.data.timestamp
 
 
 
-            })
-            .catch((response)=>{
-                console.log(response)
-            })
+                })
+                .catch((response) => {
+                    console.log(response)
+                })
         },
 
         getInvoiceDetails() {
