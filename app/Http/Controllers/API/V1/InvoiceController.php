@@ -36,7 +36,7 @@ class InvoiceController extends Controller
     {
         //
 
-        return $request->user();
+        // return $request->user();
 
         Invoice::updateOrCreate(
             [
