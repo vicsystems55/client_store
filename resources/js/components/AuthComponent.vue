@@ -91,16 +91,18 @@
                                             <input class="account__login--input" placeholder="Confirm Password"
                                                 type="password">
                                         </label>
-                                        <label>
-                                            <button class="account__login--btn primary__btn mb-10"
-                                                @click="register()">{{ loadingr ?'Please holding on boss...': 'Register'}}</button>
-                                        </label>
+
                                         <div class="account__login--remember position__relative">
                                             <input class="checkout__checkbox--input" id="check2" type="checkbox">
                                             <span class="checkout__checkbox--checkmark"></span>
                                             <label class="checkout__checkbox--label login__remember--label" for="check2">
                                                 I have read and agree to the terms & conditions</label>
                                         </div>
+
+                                        <label>
+                                            <button class="account__login--btn primary__btn mb-10"
+                                                @click="register()">{{ loadingr ?'Please holding on boss...': 'Register'}}</button>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +181,7 @@ export default {
 
         async register() {
 
-           await alert(this.storedb)
+        //    await alert(this.storedb)
 
             this.loadingr = true
 

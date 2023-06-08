@@ -34,7 +34,7 @@ class ApiAuthController extends Controller
 
         // return $request->all();
 
-        Config::set('database.connections.mysql.database', $request->storeDb);
+        // Config::set('database.connections.mysql.database', $request->storeDb);
 
 
 
@@ -116,7 +116,7 @@ class ApiAuthController extends Controller
 
            //code...
 
-        Config::set('database.connections.mysql.database', $request->storeDb);
+        // Config::set('database.connections.mysql.database', $request->storeDb);
 
 
 

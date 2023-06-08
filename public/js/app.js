@@ -2614,6 +2614,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2661,9 +2663,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return alert(_this2.storedb);
-            case 2:
+              //    await alert(this.storedb)
+
               _this2.loadingr = true;
               axios({
                 url: _this2.vueurl + '/api/v1/register',
@@ -2687,7 +2688,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this2.errors = error.response.data.errors;
                 console.log(_this2.errors);
               });
-            case 4:
+            case 2:
             case "end":
               return _context.stop();
           }
@@ -41571,6 +41572,8 @@ var render = function () {
                     _vm._v(" "),
                     _vm._m(6),
                     _vm._v(" "),
+                    _vm._m(7),
+                    _vm._v(" "),
                     _c("label", [
                       _c(
                         "button",
@@ -41593,8 +41596,6 @@ var render = function () {
                         ]
                       ),
                     ]),
-                    _vm._v(" "),
-                    _vm._m(7),
                   ]),
                 ]),
               ]),
