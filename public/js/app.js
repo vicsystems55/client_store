@@ -2813,6 +2813,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         _this2.loading = false;
         console.log(error);
+        window.location.href = '/auth';
         _this2.regenerateInvoice();
       });
     },
