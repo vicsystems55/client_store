@@ -34,7 +34,7 @@ class InvoiceItemController extends Controller
     {
         //
 
-        Config::set('database.connections.mysql.database', $request->storeDb);
+        // Config::set('database.connections.mysql.database', $request->storeDb);
 
 
         $request->validate([
@@ -104,7 +104,7 @@ class InvoiceItemController extends Controller
         //
 
 
-        Config::set('database.connections.mysql.database', $request->storeDb);
+        // Config::set('database.connections.mysql.database', $request->storeDb);
 
 
 
@@ -146,7 +146,7 @@ class InvoiceItemController extends Controller
     {
         //
 
-        Config::set('database.connections.mysql.database', $request->storeDb);
+        // Config::set('database.connections.mysql.database', $request->storeDb);
 
 
         InvoiceItem::find($invoiceItem)->delete();
