@@ -2639,7 +2639,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         method: 'post',
         data: {
           email: this.email,
-          password: this.password
+          password: this.password,
+          storeDb: this.storedb
         }
       }).then(function (response) {
         _this.loading = false;
@@ -2715,6 +2716,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'CartIconComponent',
@@ -2735,6 +2737,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       if (localStorage.getItem('invoice_code')) {
         console.log('ye invoice');
+
+        // alert(localStorage.getItem('user_token'))
+
         axios({
           url: this.vueurl + '/api/v1/invoices/' + localStorage.getItem('invoice_code'),
           method: 'get',
@@ -2744,8 +2749,9 @@ __webpack_require__.r(__webpack_exports__);
             'Accept': 'application/json',
             'Authorization': 'Bearer ' + localStorage.getItem('user_token')
           },
-          data: {
-            invoice_code: localStorage.getItem('invoice_code')
+          params: {
+            invoice_code: localStorage.getItem('invoice_code'),
+            storeDb: this.storedb
           }
         }).then(function (response) {
           _this.invoiceData = response.data;
@@ -2753,6 +2759,7 @@ __webpack_require__.r(__webpack_exports__);
           console.log(_this.cartCount);
           return _this.cartCount;
         })["catch"](function (error) {
+          alert(error);
           _this.loading = false;
           console.log(error);
         });
@@ -2768,7 +2775,8 @@ __webpack_require__.r(__webpack_exports__);
             'Authorization': 'Bearer ' + localStorage.getItem('user_token')
           },
           data: {
-            invoice_code: localStorage.getItem('invoice_code')
+            invoice_code: localStorage.getItem('invoice_code'),
+            storeDb: this.storedb
           }
         }).then(function (response) {
           console.log(response);
@@ -2780,6 +2788,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     addProduct: function addProduct(productId) {
       var _this2 = this;
+      alert(localStorage.getItem('user_token'));
       axios({
         url: this.vueurl + '/api/v1/invoice-lines',
         method: 'post',
@@ -2828,7 +2837,8 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + localStorage.getItem('user_token')
         },
         data: {
-          invoice_code: localStorage.getItem('invoice_code')
+          invoice_code: localStorage.getItem('invoice_code'),
+          storeDb: this.storedb
         }
       }).then(function (response) {
         console.log(response);
@@ -3225,7 +3235,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           'Authorization': 'Bearer ' + localStorage.getItem('user_token')
         },
         data: {
-          invoice_code: localStorage.getItem('invoice_code')
+          invoice_code: localStorage.getItem('invoice_code'),
+          storeDb: this.storedb
         }
       }).then(function (response) {
         _this3.invoiceData = response.data;

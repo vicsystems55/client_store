@@ -434,7 +434,8 @@ export default {
                     'Authorization': 'Bearer ' + localStorage.getItem('user_token')
                 },
                 data: {
-                    invoice_code: localStorage.getItem('invoice_code')
+                    invoice_code: localStorage.getItem('invoice_code'),
+                    storeDb: this.storedb
                 }
 
             }).then((response) => {

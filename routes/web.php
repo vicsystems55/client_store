@@ -33,7 +33,13 @@ Route::get('/payment-successful', function () {
 });
 
 
-Route::get('/admin', [DashboardController::class, 'index']);
+Route::get('/admin/home', [DashboardController::class, 'index'])->middleware('checkdb');
+
+Route::get('/admin/products', [DashboardController::class, 'products'])->middleware('checkdb');
+
+
+Route::get('/admin/orders', [DashboardController::class, 'orders'])->middleware('checkdb');;
+
 
 Auth::routes();
 

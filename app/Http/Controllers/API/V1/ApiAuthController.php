@@ -116,6 +116,9 @@ class ApiAuthController extends Controller
 
            //code...
 
+        Config::set('database.connections.mysql.database', $request->storeDb);
+
+
 
 
            if (!Auth::attempt($request->only('email', 'password'))) {

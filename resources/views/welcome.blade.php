@@ -531,7 +531,7 @@
                                                             <span class="price__divided"></span>
                                                             <span class="old__price"> NGN {{number_format($product->price * 1.3)}}.</span>
                                                         </div>
-                                                    <addcart-component productid="{{$product->id}}"></addcart-component>
+                                                    <addcart-component  productid="{{$product->id}}"></addcart-component>
                                                     </div>
                                                 </article>
                                             </div>

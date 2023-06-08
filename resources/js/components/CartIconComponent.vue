@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <span class="items__count">{{ cartCount }}</span>
     </div>
 </template>
@@ -22,10 +23,15 @@ export default {
     },
     methods: {
         getInvoiceDetails() {
+
             if (localStorage.getItem('invoice_code')) {
                 console.log('ye invoice')
+
+                // alert(localStorage.getItem('user_token'))
+
+
                 axios({
-                    url: this.vueurl+'/api/v1/invoices/' + localStorage.getItem('invoice_code'),
+                    url: this.vueurl+'/api/v1/invoices/'+localStorage.getItem('invoice_code'),
                     method: 'get',
                     headers: {
                         'Access-Control-Allow-Origin': '*',
@@ -33,8 +39,9 @@ export default {
                         'Accept': 'application/json',
                         'Authorization': 'Bearer ' + localStorage.getItem('user_token')
                     },
-                    data: {
-                        invoice_code: localStorage.getItem('invoice_code')
+                    params: {
+                        invoice_code: localStorage.getItem('invoice_code'),
+                        storeDb: this.storedb
                     }
 
                 }).then((response) => {
@@ -48,11 +55,15 @@ export default {
                     console.log(this.cartCount)
 
 
+
+
                     return this.cartCount;
 
 
 
                 }).catch((error) => {
+
+alert(error)
 
                     this.loading = false
                     console.log(error)
@@ -60,6 +71,7 @@ export default {
                 })
 
             } else {
+
 
                 localStorage.setItem('invoice_code', Date.now())
 
@@ -73,7 +85,9 @@ export default {
                         'Authorization': 'Bearer ' + localStorage.getItem('user_token')
                     },
                     data: {
-                        invoice_code: localStorage.getItem('invoice_code')
+                        invoice_code: localStorage.getItem('invoice_code'),
+                        storeDb: this.storedb
+
                     }
 
                 }).then((response) => {
@@ -92,6 +106,7 @@ export default {
         },
 
         addProduct(productId) {
+            alert(localStorage.getItem('user_token'))
 
 
             axios({
@@ -156,7 +171,8 @@ export default {
                     'Authorization': 'Bearer ' + localStorage.getItem('user_token')
                 },
                 data: {
-                    invoice_code: localStorage.getItem('invoice_code')
+                    invoice_code: localStorage.getItem('invoice_code'),
+                    storeDb: this.storedb
                 }
 
             }).then((response) => {

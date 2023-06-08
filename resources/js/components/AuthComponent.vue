@@ -151,7 +151,8 @@ export default {
 
 
                     email: this.email,
-                    password: this.password
+                    password: this.password,
+                    storeDb: this.storedb
 
                 }
             }).then((response) => {

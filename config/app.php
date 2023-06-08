@@ -56,6 +56,9 @@ return [
 
     'front_end_url' => env('VUE_URL'),
 
+    'backendurl' => env('BACKEND_URL'),
+
+
 
     'asset_url' => env('ASSET_URL', null),
 

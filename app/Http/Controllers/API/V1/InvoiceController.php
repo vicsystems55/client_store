@@ -19,9 +19,11 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+
+        return 1231;
     }
 
     /**
@@ -33,6 +35,8 @@ class InvoiceController extends Controller
     public function store(StoreInvoiceRequest $request)
     {
         //
+
+        return $request->user();
 
         Invoice::updateOrCreate(
             [
@@ -55,15 +59,17 @@ class InvoiceController extends Controller
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function show($invoice_code, Request $request)
+    public function show(Request $request)
     {
         //
-        
+
+        return 123;
+
 
         Config::set('database.connections.mysql.database', $request->storeDb);
 
 
-        $invoiceData = Invoice::with('invoice_items.products')->where('invoice_code', $invoice_code)->first();
+        $invoiceData = Invoice::with('invoice_items.products')->where('invoice_code', $request->invoice_code)->first();
 
         return $invoiceData;
     }
