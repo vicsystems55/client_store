@@ -137,7 +137,7 @@ export default {
                 this.loading = false
                 console.log(error)
 
-                window.location.href='/auth';
+                // window.location.href='/auth';
 
 
 
