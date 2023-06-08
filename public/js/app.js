@@ -2809,6 +2809,8 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         // this.$notify("Product Added to cart!!");
 
+        // alert('added')
+
         _this2.getInvoiceDetails();
         console.log(response);
       })["catch"](function (error) {

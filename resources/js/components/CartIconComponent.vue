@@ -127,6 +127,8 @@ export default {
             }).then((response) => {
                 // this.$notify("Product Added to cart!!");
 
+                // alert('added')
+
 
                 this.getInvoiceDetails()
 
