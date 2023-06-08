@@ -41,24 +41,24 @@ class CheckDBMiddleware
         if ($request->session()->get('storeDb')) {
             # code...
             Config::set('database.connections.mysql.database', $request->session()->get('storeDb'));
-            
+
         return $next($request);
 
         }else{
 
-            $subs = Http::get('localhost:5555/api/subscriptions',[
-                'storeUrl' => ($request->url())// this will be store official url
-            ]);
+            // $subs = Http::get('localhost:5555/api/subscriptions',[
+            //     'storeUrl' => ($request->url())// this will be store official url
+            // ]);
 
-            $subs = json_decode($subs);
+            // $subs = json_decode($subs);
 
-            $request->session()->put('storeDb', $subs->store_db);
-            $request->session()->put('storeUrl', $subs->store_url);
+            // $request->session()->put('storeDb', $subs->store_db);
+            // $request->session()->put('storeUrl', $subs->store_url);
 
 
-            Config::set('database.connections.mysql.database', $request->session()->get('storeDb'));
+            // Config::set('database.connections.mysql.database', $request->session()->get('storeDb'));
 
-            return $next($request);
+            // return $next($request);
         }
 
 
