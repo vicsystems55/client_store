@@ -16,7 +16,7 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [PageController::class,'index'])->middleware('checkdb');
+Route::get('/', [PageController::class,'index']);
 
 Route::get('/about', [PageController::class,'about']);
 
@@ -24,7 +24,7 @@ Route::get('/contact', [PageController::class,'contact']);
 
 Route::get('/cart', [PageController::class,'cart']);
 
-Route::get('/auth', [PageController::class,'auth'])->middleware('checkdb');
+Route::get('/auth', [PageController::class,'auth']);
 
 Route::get('/checkout', [PageController::class,'checkout']);
 
@@ -33,12 +33,12 @@ Route::get('/payment-successful', function () {
 });
 
 
-Route::get('/admin/home', [DashboardController::class, 'index'])->middleware('checkdb');
+Route::get('/admin/home', [DashboardController::class, 'index']);
 
-Route::get('/admin/products', [DashboardController::class, 'products'])->middleware('checkdb');
+Route::get('/admin/products', [DashboardController::class, 'products']);
 
 
-Route::get('/admin/orders', [DashboardController::class, 'orders'])->middleware('checkdb');;
+Route::get('/admin/orders', [DashboardController::class, 'orders']);;
 
 
 Auth::routes();
