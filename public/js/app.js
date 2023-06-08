@@ -2759,7 +2759,8 @@ __webpack_require__.r(__webpack_exports__);
           console.log(_this.cartCount);
           return _this.cartCount;
         })["catch"](function (error) {
-          alert(error);
+          // alert(error)
+
           _this.loading = false;
           console.log(error);
         });
@@ -2788,7 +2789,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     addProduct: function addProduct(productId) {
       var _this2 = this;
-      alert(localStorage.getItem('user_token'));
+      // alert(localStorage.getItem('user_token'))
+
       axios({
         url: this.vueurl + '/api/v1/invoice-lines',
         method: 'post',

@@ -63,7 +63,7 @@ export default {
 
                 }).catch((error) => {
 
-alert(error)
+// alert(error)
 
                     this.loading = false
                     console.log(error)
@@ -106,7 +106,7 @@ alert(error)
         },
 
         addProduct(productId) {
-            alert(localStorage.getItem('user_token'))
+            // alert(localStorage.getItem('user_token'))
 
 
             axios({
