@@ -162,7 +162,7 @@
                     </div>
 
                     <button @click="init()" class="checkout__discount--code__btn primary__btn border-radius-5"
-                                >{{ processing?'Processing...':'Proceed to pay NGN '+amount }}
+                                >{{ processing?'Processing...':'Proceed to pay NGN '+format(amount) }}
 </button>
 
                     <paystack

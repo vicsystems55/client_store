@@ -42365,7 +42365,7 @@ var render = function () {
                   _vm._s(
                     _vm.processing
                       ? "Processing..."
-                      : "Proceed to pay NGN " + _vm.amount
+                      : "Proceed to pay NGN " + _vm.format(_vm.amount)
                   ) + "\n"
                 ),
               ]
