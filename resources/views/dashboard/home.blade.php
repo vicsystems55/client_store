@@ -9,7 +9,7 @@
                 <div class="col-lg-6">
                     <div class="page-header-left">
                         <h3>Dashboard
-                            <small>Multikart Admin panel</small>
+                            <small>Admin Dashboard</small>
                         </h3>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                                 <i data-feather="home"></i>
                             </a>
                         </li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">home</li>
                     </ol>
                 </div>
             </div>
@@ -42,8 +42,7 @@
                             </div>
                             <div class="media-body media-doller">
                                 <span class="m-0">Sales</span>
-                                <h3 class="mb-0">$ <span class="counter">6659</span><small> This
-                                        Month</small>
+                                <h3 class="mb-0">N <span class="counter">{{number_format($sales->sum('invoice.total_amount'),2)}}</span><br><small> {{\Carbon\Carbon::now()->format('d-m-y h:m:s')}}</small>
                                 </h3>
                             </div>
                         </div>
@@ -61,8 +60,7 @@
                                         class="font-danger"></i></div>
                             </div>
                             <div class="media-body media-doller"><span class="m-0">Orders</span>
-                                <h3 class="mb-0"> <span class="counter">5631</span><small> This
-                                        Month</small></h3>
+                                <h3 class="mb-0"> <span class="counter">{{$orders->count()}}</span><br><small> {{\Carbon\Carbon::now()->format('d-m-y h:m:s')}}</small></h3>
                             </div>
                         </div>
                     </div>
@@ -78,40 +76,58 @@
                                         class="font-danger"></i></div>
                             </div>
                             <div class="media-body media-doller"><span class="m-0">Customers</span>
-                                <h3 class="mb-0"> <span class="counter">5631</span><small> This
-                                        Month</small></h3>
+                                <h3 class="mb-0"> <span class="counter">{{$users->count()}}</span><br><small> {{\Carbon\Carbon::now()->format('d-m-y h:m:s')}}</small></h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 xl-100">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Performance</h5>
-                        <div class="card-header-right">
-                            <ul class="list-unstyled card-option">
-                                <li><i class="icofont icofont-simple-left"></i></li>
-                                <li><i class="view-html fa fa-code"></i></li>
-                                <li><i class="icofont icofont-maximize full-card"></i></li>
-                                <li><i class="icofont icofont-minus minimize-card"></i></li>
-                                <li><i class="icofont icofont-refresh reload-card"></i></li>
-                                <li><i class="icofont icofont-error close-card"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="market-chart"></div>
-                        <div class="code-box-copy">
-                            <button class="code-box-copy__btn btn-clipboard"
-                data-clipboard-target="#example-head" title="Copy"><i
-                    class="icofont icofont-copy-alt"></i>
-                </button>
+            <input type="hidden" id="arrayList" value="{{$monthlySales}}">
+            <div class="card">
+                <div class="card-body">
+                <canvas id="myChart"></canvas>
 
-                        </div>
-                    </div>
+
                 </div>
             </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    const ctx = document.getElementById('myChart');
+
+    var myString = document.getElementById('arrayList').value
+
+    var newArray = myString.split(' ');
+
+    alert(newArray)
+
+    var salesChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+        datasets: [{
+            label: 'Total Sales',
+            data: [12, 19, 3, 5, 2, 3],
+            lineTension: 0.2,
+            borderWidth: 2
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+
+    salesChart.data.datasets[0].data = newArray
+
+    salesChart.update()
+    </script>
+
 
 
 
@@ -126,5 +142,18 @@
     </div>
     <!-- Container-fluid Ends-->
 </div>
+
+@endsection
+
+@section('load-chart')
+
+    <!--chartist js-->
+    <script src="{{asset('admin_dashboard')}}/assets/js/chart/chartist/chartist.js"></script>
+
+    <!--chartjs js-->
+    <script src="{{asset('admin_dashboard')}}/assets/js/chart/chartjs/chart.min.js"></script>
+
+    <script src="{{asset('admin_dashboard')}}/assets/js/dashboard/default.js"></script>
+
 
 @endsection

@@ -185,8 +185,8 @@
                     <div class="sidebar-user">
                         <img class="img-60" src="{{asset('admin_dashboard')}}/assets/images/dashboard/user3.jpg" alt="#">
                         <div>
-                            <h6 class="f-14">JUSTICE</h6>
-                            <p>CEO</p>
+                            <h6 class="f-14"></h6>
+                            <p></p>
                         </div>
                     </div>
                     <ul class="sidebar-menu">
@@ -279,7 +279,7 @@
     <!--counter js-->
     <script src="{{asset('admin_dashboard')}}/assets/js/counter/jquery.waypoints.min.js"></script>
     <script src="{{asset('admin_dashboard')}}/assets/js/counter/jquery.counterup.min.js"></script>
-    {{-- <script src="{{asset('admin_dashboard')}}/assets/js/counter/counter-custom.js"></script> --}}
+    <script src="{{asset('admin_dashboard')}}/assets/js/counter/counter-custom.js"></script>
 
     <!--peity chart js-->
     <script src="{{asset('admin_dashboard')}}/assets/js/chart/peity-chart/peity.jquery.js"></script>
@@ -291,7 +291,7 @@
     <script src="{{asset('admin_dashboard')}}/assets/js/chart/sparkline/sparkline.js"></script>
 
     <!--Customizer admin-->
-    {{-- <script src="{{asset('admin_dashboard')}}/assets/js/admin-customizer.js"></script> --}}
+    <script src="{{asset('admin_dashboard')}}/assets/js/admin-customizer.js"></script>
 
     <!--dashboard custom js-->
     <script src="{{asset('admin_dashboard')}}/assets/js/dashboard/default.js"></script>
@@ -307,6 +307,7 @@
 
     <!--script admin-->
     <script src="{{asset('admin_dashboard')}}/assets/js/admin-script.js"></script>
+
 </body>
 
 </html>

@@ -200,7 +200,7 @@ Chart.defaults.global = {
     onAnimationComplete: function () {}
 };
 var lineGraphData = {
-    labels: ["1 min.", "10 min.", "20 min.", "30 min.", "40 min.", "50 min."],
+    labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
     datasets: [{
         label: "My First dataset",
         fillColor: "transparent",
@@ -209,26 +209,30 @@ var lineGraphData = {
         pointStrokeColor: "#fff",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "#000",
-        data: [20, 5, 80, 10, 100, 15]
-    }, {
-        label: "My Second dataset",
-        fillColor: "transparent",
-        strokeColor: "#a5a5a5",
-        pointColor: "#a5a5a5",
-        pointStrokeColor: "#fff",
-        pointHighlightFill: "#000",
-        pointHighlightStroke: "rgba(30, 166, 236, 1)",
-        data: [0, 50, 20, 70, 30, 27]
-    }, {
-        label: "My third dataset",
-        fillColor: "transparent",
-        strokeColor: "#ff4c3b",
-        pointColor: "#ff4c3b",
-        pointStrokeColor: "#fff",
-        pointHighlightFill: "#000",
-        pointHighlightStroke: "rgba(30, 166, 236, 1)",
-        data: [0, 30, 40, 10, 86, 40]
-    }]
+        data: [100,234]
+    }
+
+    // , {
+    //     label: "My Second dataset",
+    //     fillColor: "transparent",
+    //     strokeColor: "#a5a5a5",
+    //     pointColor: "#a5a5a5",
+    //     pointStrokeColor: "#fff",
+    //     pointHighlightFill: "#000",
+    //     pointHighlightStroke: "rgba(30, 166, 236, 1)",
+    //     data: [0, 50, 20, 70, 30, 27]
+    // }, {
+    //     label: "My third dataset",
+    //     fillColor: "transparent",
+    //     strokeColor: "#ff4c3b",
+    //     pointColor: "#ff4c3b",
+    //     pointStrokeColor: "#fff",
+    //     pointHighlightFill: "#000",
+    //     pointHighlightStroke: "rgba(30, 166, 236, 1)",
+    //     data: [0, 30, 40, 10, 86, 40]
+    // }
+
+]
 };
 var lineGraphOptions = {
     scaleShowGridLines: true,
@@ -250,11 +254,18 @@ var lineGraphOptions = {
 var lineCtx = document.getElementById("myGraph").getContext("2d");
 var myLineCharts = new Chart(lineCtx).Line(lineGraphData, lineGraphOptions);
 
+var newData = [10, 20, 30, 40, 50]; // New values for the dataset
+myLineCharts.datasets[0].data = newData;
+
+// Update the chart
+myLineCharts.update();
+
 
 // sparkline
 
 var sparkline_chart = {
     init: function () {
+
         setTimeout(function () {
             $("#simple-line-chart-sparkline").sparkline([85, 83, 90, 70, 85, 60, 65, 63, 68, 68, 65, 40, 60, 68, 75, 70, 90], {
                 type: 'line',
@@ -330,4 +341,5 @@ var sparkline_chart = {
 (function ($) {
     "use strict";
     sparkline_chart.init()
+
 })(jQuery);

@@ -33,7 +33,7 @@ Route::get('/payment-successful', function () {
 });
 
 
-Route::get('/admin/home', [DashboardController::class, 'index']);
+Route::get('/admin/home', [DashboardController::class, 'index'])->middleware('auth:sanctum');
 
 Route::get('/admin/products', [DashboardController::class, 'products']);
 
