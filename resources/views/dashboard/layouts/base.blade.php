@@ -47,7 +47,7 @@
 <body>
 
     <!-- page-wrapper Start-->
-    <div class="page-wrapper">
+    <div id="app" class="page-wrapper">
 
         <!-- Page Header Start-->
         <div class="page-main-header">
@@ -183,29 +183,25 @@
                     <a href="javascript:void(0)" class="sidebar-back d-lg-none d-block"><i class="fa fa-times"
                             aria-hidden="true"></i></a>
                     <div class="sidebar-user">
-                        <img class="img-60" src="{{asset('admin_dashboard')}}/assets/images/dashboard/user3.jpg" alt="#">
-                        <div>
-                            <h6 class="f-14"></h6>
-                            <p></p>
-                        </div>
+                      <store-profile-card appurl="{{config('app.url')}}"></store-profile-card>
                     </div>
                     <ul class="sidebar-menu">
                         <li>
-                            <a class="sidebar-header" href="/admin">
+                            <a class="sidebar-header" href="/dashboard">
                                 <i data-feather="home"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
                         <li>
-                            <a class="sidebar-header" href="/admin/products">
+                            <a class="sidebar-header" href="/products">
                                 <i data-feather="users"></i>
                                 <span>Products</span>
                             </a>
                         </li>
 
                         <li>
-                            <a class="sidebar-header" href="/admin/orders">
+                            <a class="sidebar-header" href="/my-orders">
                                 <i data-feather="users"></i>
                                 <span>Orders</span>
                             </a>
@@ -237,10 +233,10 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6 footer-copyright text-start">
-                            <p class="mb-0">Copyright 2019 © Multikart All rights reserved.</p>
+                            <p class="mb-0">Copyright 2023 ©vicSystems Technologies Ltd.</p>
                         </div>
                         <div class="col-md-6 pull-right text-end">
-                            <p class=" mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
+
                         </div>
                     </div>
                 </div>
@@ -248,6 +244,8 @@
             <!-- footer end-->
         </div>
     </div>
+
+    <script src="{{asset('js/app.js')}}"></script>
 
     <!-- latest jquery-->
     <script src="{{asset('admin_dashboard')}}/assets/js/jquery-3.3.1.min.js"></script>
@@ -307,6 +305,9 @@
 
     <!--script admin-->
     <script src="{{asset('admin_dashboard')}}/assets/js/admin-script.js"></script>
+
+    @yield('load-chart')
+
 
 </body>
 

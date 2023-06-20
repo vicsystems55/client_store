@@ -30,6 +30,8 @@ class CreateStoreSubDetailsTable extends Migration
             $table->string('auth_code')->nullable();
             $table->boolean('sub_status')->default(true);
             $table->foreignId('plug_play_sub_id')->nullable();
+            $table->foreignId('user_id')->nullable();
+
 
             $table->timestamps();
         });

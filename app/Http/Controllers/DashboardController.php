@@ -40,19 +40,19 @@ class DashboardController extends Controller
 
         $monthlySales = [];
 
-for ($i=0; $i < 12; $i++) {
-    # code...
+        for ($i=0; $i < 12; $i++) {
+            # code...
 
-    $monthSales = ProductOrder::
-    whereHas('invoice', function($q){
-        $q->where('status', 'paid');
-    })->whereMonth('created_at', $i)
-    ->get()->sum('invoice.total_amount');
+            $monthSales = ProductOrder::
+            whereHas('invoice', function($q){
+                $q->where('status', 'paid');
+            })->whereMonth('created_at', $i)
+            ->get()->sum('invoice.total_amount');
 
-    array_push($monthlySales, $monthSales);
-}
+            array_push($monthlySales, $monthSales);
+        }
 
-// return $monthlySales;
+        // return $monthlySales;
 
 
         $monthlySales = implode(" ",$monthlySales);

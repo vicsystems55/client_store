@@ -9,6 +9,7 @@ use App\Http\Controllers\API\V1\ProductController;
 use App\Http\Controllers\API\V1\InvoiceItemController;
 use App\Http\Controllers\API\V1\ProductOrderController;
 use App\Http\Controllers\API\V1\ProductCategoryController;
+use App\Http\Controllers\API\V1\StoreProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,14 @@ Route::group([
       Route::apiResource('invoices', InvoiceController::class)->middleware('auth:sanctum');
 
       Route::apiResource('invoice-lines', InvoiceItemController::class)->middleware('auth:sanctum');
+
+      Route::apiResource('invoice-lines', InvoiceItemController::class)->middleware('auth:sanctum');
+
+      Route::get('store-profile', [StoreProfileController::class, 'store_profile'])->middleware('auth:sanctum');
+
+
+
+    //   store-profile'
 
 
   });

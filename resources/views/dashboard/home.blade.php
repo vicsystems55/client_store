@@ -82,14 +82,26 @@
                     </div>
                 </div>
             </div>
-            <input type="hidden" id="arrayList" value="{{$monthlySales}}">
-            <div class="card">
-                <div class="card-body">
-                <canvas id="myChart"></canvas>
+
+        </div>
+
+        <input type="hidden" id="arrayList" value="{{$monthlySales}}">
+        <div class="card">
+            <div class="card-body">
+            <canvas id="myChart"></canvas>
 
 
-                </div>
             </div>
+        </div>
+
+
+    </div>
+    <!-- Container-fluid Ends-->
+</div>
+
+@endsection
+
+@section('load-chart')
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -101,7 +113,7 @@
 
     var newArray = myString.split(' ');
 
-    alert(newArray)
+    // alert(newArray)
 
     var salesChart = new Chart(ctx, {
         type: 'line',
@@ -127,33 +139,6 @@
 
     salesChart.update()
     </script>
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-    </div>
-    <!-- Container-fluid Ends-->
-</div>
-
-@endsection
-
-@section('load-chart')
-
-    <!--chartist js-->
-    <script src="{{asset('admin_dashboard')}}/assets/js/chart/chartist/chartist.js"></script>
-
-    <!--chartjs js-->
-    <script src="{{asset('admin_dashboard')}}/assets/js/chart/chartjs/chart.min.js"></script>
-
-    <script src="{{asset('admin_dashboard')}}/assets/js/dashboard/default.js"></script>
 
 
 @endsection
