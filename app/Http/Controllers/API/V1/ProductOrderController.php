@@ -114,6 +114,9 @@ class ProductOrderController extends Controller
                 Mail::to('victorasuquob@gmail.com')
                 ->send(new OrderPlacedMail($datax));
 
+                Mail::to(User::where('role', 'storeowner')->first()->email)
+                ->send(new OrderPlacedMail($datax));
+
 
         } else {
             # code...
