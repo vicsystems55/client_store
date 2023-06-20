@@ -66,7 +66,7 @@
                     </a>
                 </div>
                 <div class="main__logo">
-                    <a class="main__logo--link" href="/"><img class="main__logo--img" src="assets/img/logo/nav-logo.webp" alt="logo-img"></a>
+                    <a class="main__logo--link" href="/"><img style="height: 90px;" class="main__logo--img" src="assets/img/logo/nav-logo.webp" alt="logo-img"></a>
                 </div>
                 <div class="header__menu d-none d-lg-block">
                     <nav class="header__menu--navigation">
@@ -121,7 +121,7 @@
         <div class="offcanvas__inner">
             <div class="offcanvas__logo">
                 <a class="offcanvas__logo_link" href="index.html">
-                    <img src="assets/img/logo/nav-logo.webp" alt="Rokon Logo">
+                    <img style="height: 90px;" src="assets/img/logo/nav-logo.webp" alt="Rokon Logo">
                 </a>
                 <button class="offcanvas__close--btn" data-offcanvas>close</button>
             </div>
