@@ -208,6 +208,13 @@
                         </li>
 
                         <li>
+                            <a class="sidebar-header" href="/settings">
+                                <i data-feather="users"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a class="sidebar-header" href="#">
                                 <i data-feather="log-out"></i>
                                 <span>Logout</span>

@@ -37,7 +37,10 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/products', [DashboardController::class, 'products']);
 
-Route::get('/my-orders', [DashboardController::class, 'orders']);;
+Route::get('/my-orders', [DashboardController::class, 'orders']);
+
+Route::get('/settings', [DashboardController::class, 'settings']);
+
 
 
 Auth::routes();

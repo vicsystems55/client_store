@@ -80,4 +80,11 @@ class DashboardController extends Controller
 
         return view('dashboard.orders', compact('orders'));
     }
+
+    public function settings() {
+
+
+        return view('dashboard.settings');
+
+    }
 }
