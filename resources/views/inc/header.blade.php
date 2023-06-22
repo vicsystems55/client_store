@@ -66,7 +66,7 @@
                     </a>
                 </div>
                 <div class="main__logo">
-                    <a class="main__logo--link" href="/"><img style="height: 90px;" class="main__logo--img" src="assets/img/logo/nav-logo.webp" alt="logo-img"></a>
+                    <a class="main__logo--link" href="/"><img style="max-height: 40px;" class="main__logo--img" src="assets/img/logo/nav-logo.webp" alt="logo-img"></a>
                 </div>
                 <div class="header__menu d-none d-lg-block">
                     <nav class="header__menu--navigation">
