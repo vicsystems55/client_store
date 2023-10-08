@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\API\V1;
 use Auth;
-
 use Carbon\Carbon;
 
 use App\Models\User;
@@ -143,7 +143,6 @@ class ApiAuthController extends Controller
 
 
     }
-
 
     public function verify_otp(Request $request)
     {
