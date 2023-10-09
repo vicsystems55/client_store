@@ -12,7 +12,7 @@
                         <svg class="header__contact--info__icon" xmlns="http://www.w3.org/2000/svg" width="20.57" height="13.13" viewBox="0 0 31.57 31.13">
                             <path  d="M30.413,4H5.157C3.421,4,2.016,5.751,2.016,7.891L2,31.239c0,2.14,1.421,3.891,3.157,3.891H30.413c1.736,0,3.157-1.751,3.157-3.891V7.891C33.57,5.751,32.149,4,30.413,4Zm0,7.783L17.785,21.511,5.157,11.783V7.891l12.628,9.728L30.413,7.891Z" transform="translate(-2 -4)" fill="currentColor"></path>
                         </svg>
-                        <a href="mailto:demo@example.com">support@vicsystems.com.ng</a>
+                        <a href="mailto:demo@example.com">support@vicsystems.us</a>
                     </li>
                 </ul>
                 <div class="language__currency d-none d-lg-block">
@@ -75,14 +75,20 @@
                                 <a class="header__menu--link" href="/">Home </a>
 
                             </li>
-
                             <li class="header__menu--items">
-                                <a class="header__menu--link" href="/about">About US </a>
+                                <a class="header__menu--link" href="/store">Shop </a>
                             </li>
 
 
                             <li class="header__menu--items">
-                                <a class="header__menu--link" href="/contact">Contact </a>
+                                <a class="header__menu--link" href="/about">About Us </a>
+                            </li>
+
+
+
+
+                            <li class="header__menu--items">
+                                <a class="header__menu--link" href="/contact">Contact Us</a>
                             </li>
                         </ul>
                     </nav>

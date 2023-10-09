@@ -16,7 +16,9 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [PageController::class,'index']);
+Route::get('/', [PageController::class,'home']);
+
+Route::get('/store', [PageController::class,'index']);
 
 Route::get('/about', [PageController::class,'about']);
 
