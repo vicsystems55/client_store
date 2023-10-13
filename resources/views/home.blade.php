@@ -20,12 +20,12 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="slider__content style2">
-                                            <h2 class="slider__content--maintitle h1">Natural For Materialslll <br>
-                                                Time watch.  </h2>
-                                            <p class="slider__content--desc style2 d-sm-2-none">There are many variations of passages of Lorem Ipsum availabled alteration in alley of type and scrambled it some.</p>
+                                            <h2 class="slider__content--maintitle h1">Glamour Galore: <br> Jewels, Bags, Shoes<br>
+                                                 </h2>
+                                            <p class="slider__content--desc style2 d-sm-2-none">Indulge in the ultimate fashion experience at Glamour Galore – your one-stop destination for exquisite jewels, bags, and shoes.</p>
                                             <div class="slider__content--footer style2 d-flex align-items-center">
-                                                <a class="slider__content--btn primary__btn" href="shop.html">Shop Now</a>
-                                                <div class="bideo__play slider__play--bideo">
+                                                <a class="slider__content--btn primary__btn" href="/store">Shop Now</a>
+                                                <div class="d-none bideo__play slider__play--bideo">
                                                     <a class="bideo__play--icon glightbox" href="https://vimeo.com/115041822" data-gallery="video">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 31 37">
                                                             <path  data-name="Polygon 1" d="M16.783,2.878a2,2,0,0,1,3.435,0l14.977,25.1A2,2,0,0,1,33.477,31H3.523a2,2,0,0,1-1.717-3.025Z" transform="translate(31) rotate(90)" fill="currentColor"></path>
@@ -33,6 +33,7 @@
                                                         <span class="visually-hidden">Play</span>
                                                     </a>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -46,12 +47,11 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="slider__content style2">
-                                            <h2 class="slider__content--maintitle h1">Natural For Materials <br>
-                                                Time watch.  </h2>
-                                            <p class="slider__content--desc style2 d-sm-2-none">There are many variations of passages of Lorem Ipsum availabled alteration in alley of type and scrambled it some.</p>
+                                            <h2 class="slider__content--maintitle h1">Discover Elegance: <br>Menswear's Finest Picks</h2>
+                                            <p class="slider__content--desc style2 d-sm-2-none">Explore the world of men's fashion at Elegance Unveiled – your premier destination for refined suits, accessories, and footwear</p>
                                             <div class="slider__content--footer style2 d-flex align-items-center">
-                                                <a class="slider__content--btn primary__btn" href="shop.html">Shop Now</a>
-                                                <div class="bideo__play slider__play--bideo">
+                                                <a class="slider__content--btn primary__btn" href="/store">Shop Now</a>
+                                                <div class="d-none bideo__play slider__play--bideo">
                                                     <a class="bideo__play--icon glightbox" href="https://vimeo.com/115041822" data-gallery="video">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 31 37">
                                                             <path  data-name="Polygon 1" d="M16.783,2.878a2,2,0,0,1,3.435,0l14.977,25.1A2,2,0,0,1,33.477,31H3.523a2,2,0,0,1-1.717-3.025Z" transform="translate(31) rotate(90)" fill="currentColor"></path>
@@ -72,12 +72,12 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="slider__content style2">
-                                            <h2 class="slider__content--maintitle h1">Natural For Materials <br>
-                                                Time watch.  </h2>
-                                            <p class="slider__content--desc style2 d-sm-2-none">There are many variations of passages of Lorem Ipsum availabled alteration in alley of type and scrambled it some.</p>
+                                            <h2 class="slider__content--maintitle h1">Natural Little Elegance: <br>Kids' Chic Styles<br>
+                                                </h2>
+                                            <p class="slider__content--desc style2 d-sm-2-none">Step into the enchanting world of children's fashion at Little Elegance – your go-to for adorable outfits, accessories, and footwear.</p>
                                             <div class="slider__content--footer style2 d-flex align-items-center">
-                                                <a class="slider__content--btn primary__btn" href="shop.html">Shop Now</a>
-                                                <div class="bideo__play slider__play--bideo">
+                                                <a class="slider__content--btn primary__btn" href="/store">Shop Now</a>
+                                                <div class="d-none bideo__play slider__play--bideo">
                                                     <a class="bideo__play--icon glightbox" href="https://vimeo.com/115041822" data-gallery="video">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 31 37">
                                                             <path  data-name="Polygon 1" d="M16.783,2.878a2,2,0,0,1,3.435,0l14.977,25.1A2,2,0,0,1,33.477,31H3.523a2,2,0,0,1-1.717-3.025Z" transform="translate(31) rotate(90)" fill="currentColor"></path>
@@ -98,12 +98,12 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="slider__content style2">
-                                            <h2 class="slider__content--maintitle h1">Natural For Materials <br>
-                                                Time watch.  </h2>
-                                            <p class="slider__content--desc style2 d-sm-2-none">There are many variations of passages of Lorem Ipsum availabled alteration in alley of type and scrambled it some.</p>
+                                            <h2 class="slider__content--maintitle h1">Culinary Haven: <br>Kitchenware Excellence<br>
+                                                </h2>
+                                            <p class="slider__content--desc style2 d-sm-2-none">Embark on a culinary journey at Culinary Haven – your ultimate source for premium kitchenware and accessories.</p>
                                             <div class="slider__content--footer style2 d-flex align-items-center">
-                                                <a class="slider__content--btn primary__btn" href="shop.html">Shop Now</a>
-                                                <div class="bideo__play slider__play--bideo">
+                                                <a class="slider__content--btn primary__btn" href="/store">Shop Now</a>
+                                                <div class="d-none bideo__play slider__play--bideo">
                                                     <a class="bideo__play--icon glightbox" href="https://vimeo.com/115041822" data-gallery="video">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 31 37">
                                                             <path  data-name="Polygon 1" d="M16.783,2.878a2,2,0,0,1,3.435,0l14.977,25.1A2,2,0,0,1,33.477,31H3.523a2,2,0,0,1-1.717-3.025Z" transform="translate(31) rotate(90)" fill="currentColor"></path>
@@ -564,7 +564,7 @@
                             <span class="current__price">$25.00</span>
                         </div>
                         <div class="deals__countdown d-flex mb-50" data-countdown="Sep 30, 2022 00:00:00"></div>
-                        <a class="deals__content--btn primary__btn" href="shop.html">Shop Now</a>
+                        <a class="deals__content--btn primary__btn" href="/store">Shop Now</a>
                     </div>
                 </div>
             </div>

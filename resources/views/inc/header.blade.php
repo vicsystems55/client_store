@@ -138,6 +138,7 @@
 
                     </li>
 
+                    <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="/store">Shop</a></li>
 
                     <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="/about">About</a></li>
                     <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="/contact">Contact</a></li>
