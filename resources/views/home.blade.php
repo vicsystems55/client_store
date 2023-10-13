@@ -20,7 +20,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="slider__content style2">
-                                            <h2 class="slider__content--maintitle h1">Natural For Materials <br>
+                                            <h2 class="slider__content--maintitle h1">Natural For Materialslll <br>
                                                 Time watch.  </h2>
                                             <p class="slider__content--desc style2 d-sm-2-none">There are many variations of passages of Lorem Ipsum availabled alteration in alley of type and scrambled it some.</p>
                                             <div class="slider__content--footer style2 d-flex align-items-center">
