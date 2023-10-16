@@ -497,26 +497,26 @@
                                                             <img class="product__card--thumbnail__img product__secondary--img display-block"  style="width: 410px; height: 410px; object-fit:cover;" src="{{$product->img_url}}"  alt="product-img">
                                                         </a>
                                                         <ul class="product__card--action d-flex align-items-center justify-content-center">
-                                                            {{-- <li class="product__card--action__list">
+                                                             <li class="product__card--action__list">
                                                                 <a class="product__card--action__btn" title="Wishlist" href="wishlist.html">
                                                                     <svg class="product__card--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="25.51" height="22.443" viewBox="0 0 512 512"><path d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path></svg>
                                                                     <span class="visually-hidden">Wishlist</span>
                                                                 </a>
-                                                            </li> --}}
-                                                            {{-- <li class="product__card--action__list">
+                                                            </li>
+                                                             <li class="product__card--action__list">
                                                                 <a class="product__card--action__btn" title="Quick View" data-open="modal1" href="javascript:void(0)">
                                                                     <svg class="product__card--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="24.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                                                     <span class="visually-hidden">Quick View</span>
                                                                 </a>
-                                                            </li> --}}
-                                                            {{-- <li class="product__card--action__list">
+                                                            </li>
+                                                             <li class="product__card--action__list">
                                                                 <a class="product__card--action__btn" title="Compare" href="compare.html">
                                                                     <svg class="product__card--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="19.51" height="18.443" viewBox="0 0 20 20" fill="currentColor">
                                                                         <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
                                                                     </svg>
                                                                     <span class="visually-hidden">Compare</span>
                                                                 </a>
-                                                            </li> --}}
+                                                            </li> 
                                                         </ul>
                                                         <div class="product__badge">
                                                             <span class="product__badge--items sale">SALE</span>

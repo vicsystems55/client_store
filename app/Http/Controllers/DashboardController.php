@@ -72,6 +72,16 @@ class DashboardController extends Controller
         return view('dashboard.products', compact('products'));
     }
 
+    public function add_products()
+    {
+
+
+        $products = Product::latest()->get();
+
+
+        return view('dashboard.add_products', compact('products'));
+    }
+
     public function orders()
     {
 

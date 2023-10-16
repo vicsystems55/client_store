@@ -12,7 +12,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{asset('admin_dashboard')}}/assets/images/dashboard/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('admin_dashboard')}}/assets/images/dashboard/favicon.png" type="image/x-icon">
-    <title>Plug & Play Ecommerce </title>
+    <title>Ednascorner Stores - Admin</title>
 
     <!-- Google font-->
     <link rel="stylesheet"
@@ -194,10 +194,26 @@
                         </li>
 
                         <li>
-                            <a class="sidebar-header" href="/products">
+                            <a class="sidebar-header" href="/all-products">
                                 <i data-feather="users"></i>
                                 <span>Products</span>
                             </a>
+
+                            <ul class="sidebar-submenu">
+                                <li>
+                                    <a href="category-digital.html">
+                                        <i class="fa fa-circle"></i>Category
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/add-products">
+                                        <i class="fa fa-circle"></i>Add Products
+                                    </a>
+                                </li>
+
+
+
+                            </ul>
                         </li>
 
                         <li>
@@ -296,7 +312,7 @@
     <script src="{{asset('admin_dashboard')}}/assets/js/chart/sparkline/sparkline.js"></script>
 
     <!--Customizer admin-->
-    <script src="{{asset('admin_dashboard')}}/assets/js/admin-customizer.js"></script>
+    {{-- <script src="{{asset('admin_dashboard')}}/assets/js/admin-customizer.js"></script> --}}
 
     <!--dashboard custom js-->
     <script src="{{asset('admin_dashboard')}}/assets/js/dashboard/default.js"></script>

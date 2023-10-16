@@ -35,6 +35,8 @@ Vue.component('auth-component', require('./components/AuthComponent.vue').defaul
 
 Vue.component('admin-component', require('./components/AdminComponent.vue').default);
 
+Vue.component('add-product-component', require('./components/AddProductComponent.vue').default);
+
 Vue.component('store-profile-card', require('./components/StoreProfileCardComponent.vue').default);
 
 

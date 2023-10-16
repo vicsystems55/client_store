@@ -240,7 +240,7 @@
                         <li>
                             <a class="sidebar-header" href="javascript:void(0)">
                                 <i data-feather="box"></i>
-                                <span>Products</span>
+                                <span>Productsx</span>
                                 <i class="fa fa-angle-right pull-right"></i>
                             </a>
 
@@ -254,29 +254,13 @@
 
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="category.html">
+                                            <a href="category-digital.html">
                                                 <i class="fa fa-circle"></i>Category
                                             </a>
                                         </li>
-
                                         <li>
-                                            <a href="category-sub.html">
-                                                <i class="fa fa-circle"></i>Sub Category</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="product-list.html">
-                                                <i class="fa fa-circle"></i>Product List</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="product-detail.html">
-                                                <i class="fa fa-circle"></i>Product Detail</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="add-product.html">
-                                                <i class="fa fa-circle"></i>Add Product
+                                            <a href="/add-products">
+                                                <i class="fa fa-circle"></i>Add Products
                                             </a>
                                         </li>
                                     </ul>

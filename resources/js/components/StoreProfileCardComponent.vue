@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img class="img-100" :src="appurl+'/assets/img/logo/logo_white.png'" alt="#">
+        <img class="img-100" :src="appurl+'/assets/img/logo/nav-logo-white.webp'" alt="#">
         <div>
             <h6 class="f-14">{{storeData.store_name}}</h6>
             <p></p>

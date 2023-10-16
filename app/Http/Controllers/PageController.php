@@ -46,6 +46,12 @@ class PageController extends Controller
 
     }
 
+    public function product_details()
+    {
+
+        return view('product_details');
+    }
+
     public function home()
     {
 
