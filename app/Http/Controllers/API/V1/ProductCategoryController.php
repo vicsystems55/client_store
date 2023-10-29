@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
 use App\Http\Requests\StoreProductCategoryRequest;
 use App\Http\Requests\UpdateProductCategoryRequest;
+use Illuminate\Support\Facades\DB;
 
 class ProductCategoryController extends Controller
 {
@@ -14,12 +15,38 @@ class ProductCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        //
+        // Get all categories from the database
+        $categories = DB::table('product_categories')->get();
 
-        return ProductCategory::get();
+        // Organize categories into a hierarchy
+        $categoryTree = $this->buildCategoryTree($categories);
+
+        return $categoryTree;
     }
+
+    private function buildCategoryTree($categories, $parentId = null)
+    {
+        $categoryTree = [];
+
+        foreach ($categories as $category) {
+            if ($category->parentCategoryID === $parentId) {
+                $subcategories = $this->buildCategoryTree($categories, $category->id);
+
+                if (!empty($subcategories)) {
+                    $category->subcategories = $subcategories;
+                }
+
+                $categoryTree[] = $category;
+            }
+        }
+
+        return $categoryTree;
+    }
+
 
     /**
      * Store a newly created resource in storage.

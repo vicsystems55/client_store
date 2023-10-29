@@ -126,7 +126,7 @@
     <!-- End slider section -->
 
     <!-- Start featured product section -->
-    <section class="featured__product--section section--padding">
+    <section class="featured__product--section section--padding d-none">
         <div class="container">
             <div class="row row-cols-lg-3 row-cols-1">
                 <div class="col">
@@ -200,7 +200,7 @@
     <!-- End featured product section -->
 
     <!-- Start about section -->
-    <section class="about__section about__section--bg section--padding">
+    <section class="about__section about__section--bg section--padding d-none">
         <div class="container">
             <div class="row row-cols-lg-2 row-cols-md-2 row-cols-1 align-items-center">
                 <div class="col col-sm-order">
@@ -720,7 +720,7 @@
     <!-- End counterup section -->
 
     <!-- Start newsletter section -->
-    <section class="newsletter__section newsletter__bg">
+    <section class="newsletter__section newsletter__bg d-none">
         <div class="container">
             <div class="row row-cols-md-2 row-cols-1 align-items-center">
                 <div class="col">
@@ -882,7 +882,7 @@
     <!-- End contact section -->
 
     <!-- Start blog section -->
-    <section class="blog__section section--padding">
+    <section class="blog__section section--padding d-none">
         <div class="container">
             <div class="section__heading text-center mb-50">
                 <h2 class="section__heading--maintitle text__secondary mb-10">Our Largest Blog</h2>
@@ -978,7 +978,7 @@
     <!-- End blog section -->
 
     <!-- Start instagram section -->
-    <div class="instagram__section">
+    <div class="instagram__section d-none">
         <div class="container-fluid p-0">
             <div class="instagram__section--inner instagram__swiper--activation swiper">
                 <div class="swiper-wrapper">

@@ -2142,6 +2142,191 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2151,7 +2336,12 @@ __webpack_require__.r(__webpack_exports__);
       productimg3: '',
       productimg4: '',
       productimg5: '',
-      productimg6: ''
+      productimg6: '',
+      productimg7: '',
+      product_name: '',
+      brands: [],
+      subcategories: [],
+      categories: []
     };
   },
   mounted: function mounted() {
@@ -2182,7 +2372,11 @@ __webpack_require__.r(__webpack_exports__);
       console.log(event);
       if (event.target.files.length > 0) {
         var src = URL.createObjectURL(event.target.files[0]);
-        var preview = document.getElementById("_preview" + event.target.id);
+        if (event.target.files[0].type.startsWith('video/')) {
+          var preview = document.getElementById("_vidpreview" + event.target.id);
+        } else {
+          var preview = document.getElementById("_preview" + event.target.id);
+        }
         preview.src = src;
 
         // preview.style.display = "block";
@@ -2202,6 +2396,9 @@ __webpack_require__.r(__webpack_exports__);
       }
       if (event.target.id == 'img5') {
         this.productimg5 = event.target.files[0];
+      }
+      if (event.target.id == 'img7') {
+        this.productimg7 = event.target.files[0];
       }
       console.log(this.productimg1, this.productimg2, this.productimg3);
     },
@@ -41000,42 +41197,57 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row product-adding" }, [
-    _c("div", { staticClass: "col-md-7" }, [
+    _c("div", { staticClass: "col-md-6" }, [
       _c("div", { staticClass: "add-product" }, [
-        _c("div", { staticClass: "d-flex flex-wrap justify-content-around" }, [
+        _c("div", { staticClass: "d-flex flex-wrap justify-content-between" }, [
           _c("div", {}, [
             _c("div", { staticClass: "form-group" }, [
-              _vm.resolveMediatype(_vm.productimg1)
-                ? _c("div", [_vm._m(0)])
-                : _c("div", [
-                    _vm.productimg6
-                      ? _c("img", {
-                          staticClass: "shadow",
-                          staticStyle: {
-                            height: "200px",
-                            width: "200px",
-                            "object-fit": "cover",
-                          },
-                          attrs: {
-                            onclick: "document.getElementById('img1').click()",
-                            id: "_previewimg1",
-                            src: "productimg1",
-                          },
-                        })
-                      : _c("img", {
-                          staticClass: "shadow",
-                          staticStyle: {
-                            height: "200px",
-                            width: "200px",
-                            "object-fit": "cover",
-                          },
-                          attrs: {
-                            onclick: "document.getElementById('img1').click()",
-                            id: "_previewimg1",
-                            src: "https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg",
-                          },
-                        }),
-                  ]),
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg1)
+                    ? "p-2 "
+                    : "d-none p-2 ",
+                  attrs: { onclick: "document.getElementById('img1').click()" },
+                },
+                [_vm._m(0)]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg1) ? "d-none" : "",
+                },
+                [
+                  _vm.productimg6
+                    ? _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img1').click()",
+                          id: "_previewimg1",
+                          src: "productimg1",
+                        },
+                      })
+                    : _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img1').click()",
+                          id: "_previewimg1",
+                          src: "https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg",
+                        },
+                      }),
+                ]
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "text-center d-none" }, [
@@ -41064,33 +41276,52 @@ var render = function () {
           _vm._v(" "),
           _c("div", {}, [
             _c("div", { staticClass: "form-group" }, [
-              _vm.productimg6
-                ? _c("img", {
-                    staticClass: "shadow",
-                    staticStyle: {
-                      height: "200px",
-                      width: "200px",
-                      "object-fit": "cover",
-                    },
-                    attrs: {
-                      onclick: "document.getElementById('img2').click()",
-                      id: "_previewimg2",
-                      src: "productimg2",
-                    },
-                  })
-                : _c("img", {
-                    staticClass: "shadow",
-                    staticStyle: {
-                      height: "200px",
-                      width: "200px",
-                      "object-fit": "cover",
-                    },
-                    attrs: {
-                      onclick: "document.getElementById('img2').click()",
-                      id: "_previewimg2",
-                      src: "https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg",
-                    },
-                  }),
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg2)
+                    ? "p-2 "
+                    : "d-none p-2 ",
+                  attrs: { onclick: "document.getElementById('img2').click()" },
+                },
+                [_vm._m(1)]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg2) ? "d-none" : "",
+                },
+                [
+                  _vm.productimg6
+                    ? _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img2').click()",
+                          id: "_previewimg2",
+                          src: "productimg2",
+                        },
+                      })
+                    : _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img2').click()",
+                          id: "_previewimg2",
+                          src: "https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg",
+                        },
+                      }),
+                ]
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "text-center d-none" }, [
@@ -41116,11 +41347,479 @@ var render = function () {
               ),
             ]),
           ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg3)
+                    ? "p-2 "
+                    : "d-none p-2 ",
+                  attrs: { onclick: "document.getElementById('img3').click()" },
+                },
+                [_vm._m(2)]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg3) ? "d-none" : "",
+                },
+                [
+                  _vm.productimg6
+                    ? _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img3').click()",
+                          id: "_previewimg3",
+                          src: "productimg3",
+                        },
+                      })
+                    : _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img3').click()",
+                          id: "_previewimg3",
+                          src: "https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg",
+                        },
+                      }),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-center d-none" }, [
+              _c("input", {
+                ref: "file",
+                attrs: { type: "file", id: "img3" },
+                on: { change: _vm.previewFile4 },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group text-center d-none" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  on: {
+                    click: function ($event) {
+                      return _vm.uploadAvatar()
+                    },
+                  },
+                },
+                [_vm._v("Upload")]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg4)
+                    ? "p-2 "
+                    : "d-none p-2 ",
+                  attrs: { onclick: "document.getElementById('img4').click()" },
+                },
+                [_vm._m(3)]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg4) ? "d-none" : "",
+                },
+                [
+                  _vm.productimg6
+                    ? _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img4').click()",
+                          id: "_previewimg4",
+                          src: "productimg4",
+                        },
+                      })
+                    : _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img4').click()",
+                          id: "_previewimg4",
+                          src: "https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg",
+                        },
+                      }),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-center d-none" }, [
+              _c("input", {
+                ref: "file",
+                attrs: { type: "file", id: "img4" },
+                on: { change: _vm.previewFile4 },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group text-center d-none" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  on: {
+                    click: function ($event) {
+                      return _vm.uploadAvatar()
+                    },
+                  },
+                },
+                [_vm._v("Upload")]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg5)
+                    ? "p-2 "
+                    : "d-none p-2 ",
+                  attrs: { onclick: "document.getElementById('img5').click()" },
+                },
+                [_vm._m(4)]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg5) ? "d-none" : "",
+                },
+                [
+                  _vm.productimg6
+                    ? _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img4').click()",
+                          id: "_previewimg5",
+                          src: "productimg5",
+                        },
+                      })
+                    : _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img5').click()",
+                          id: "_previewimg5",
+                          src: "https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg",
+                        },
+                      }),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-center d-none" }, [
+              _c("input", {
+                ref: "file",
+                attrs: { type: "file", id: "img5" },
+                on: { change: _vm.previewFile4 },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group text-center d-none" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  on: {
+                    click: function ($event) {
+                      return _vm.uploadAvatar()
+                    },
+                  },
+                },
+                [_vm._v("Upload")]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg7)
+                    ? "p-2 "
+                    : "d-none p-2 ",
+                  attrs: { onclick: "document.getElementById('img7').click()" },
+                },
+                [_vm._m(5)]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  class: _vm.resolveMediatype(_vm.productimg7) ? "d-none" : "",
+                },
+                [
+                  _vm.productimg6
+                    ? _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img7').click()",
+                          id: "_previewimg7",
+                          src: "productimg7",
+                        },
+                      })
+                    : _c("img", {
+                        staticClass: "shadow",
+                        staticStyle: {
+                          height: "200px",
+                          width: "200px",
+                          "object-fit": "cover",
+                        },
+                        attrs: {
+                          onclick: "document.getElementById('img7').click()",
+                          id: "_previewimg7",
+                          src: "https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg",
+                        },
+                      }),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-center d-none" }, [
+              _c("input", {
+                ref: "file",
+                attrs: { type: "file", id: "img7" },
+                on: { change: _vm.previewFile4 },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group text-center d-none" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  on: {
+                    click: function ($event) {
+                      return _vm.uploadAvatar()
+                    },
+                  },
+                },
+                [_vm._v("Upload")]
+              ),
+            ]),
+          ]),
         ]),
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _c("div", { staticClass: "col-md-6" }, [
+      _c("div", [
+        _c("label", { attrs: { for: "product-name" } }, [
+          _vm._v("Product Name:"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.productName,
+              expression: "productName",
+            },
+          ],
+          attrs: { type: "text", id: "product-name", required: "" },
+          domProps: { value: _vm.productName },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.productName = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("label", { attrs: { for: "category" } }, [_vm._v("Category:")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selectedCategory,
+                expression: "selectedCategory",
+              },
+            ],
+            attrs: { id: "category" },
+            on: {
+              change: [
+                function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.selectedCategory = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.loadSubcategories,
+              ],
+            },
+          },
+          [
+            _c("option", { attrs: { value: "" } }, [
+              _vm._v("Select a Category"),
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.categories, function (category) {
+              return _c("option", { domProps: { value: category.id } }, [
+                _vm._v(_vm._s(category.categoryName)),
+              ])
+            }),
+          ],
+          2
+        ),
+      ]),
+      _vm._v(" "),
+      _vm.subcategories.length
+        ? _c("div", [
+            _c("label", { attrs: { for: "subcategory" } }, [
+              _vm._v("Subcategory:"),
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selectedSubcategory,
+                    expression: "selectedSubcategory",
+                  },
+                ],
+                attrs: { id: "subcategory" },
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.selectedSubcategory = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                },
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("Select a Subcategory"),
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.subcategories, function (subcategory) {
+                  return _c("option", { key: subcategory.id }, [
+                    _vm._v(_vm._s(subcategory.categoryName)),
+                  ])
+                }),
+              ],
+              2
+            ),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", [
+        _c("label", { attrs: { for: "brand" } }, [_vm._v("Brand:")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selectedBrand,
+                expression: "selectedBrand",
+              },
+            ],
+            attrs: { id: "brand" },
+            on: {
+              change: function ($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function (o) {
+                    return o.selected
+                  })
+                  .map(function (o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.selectedBrand = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+            },
+          },
+          [
+            _c("option", { attrs: { value: "" } }, [_vm._v("Select a Brand")]),
+            _vm._v(" "),
+            _vm._l(_vm.brands, function (brand) {
+              return _c("option", { key: brand.id }, [
+                _vm._v(_vm._s(brand.brandName)),
+              ])
+            }),
+          ],
+          2
+        ),
+      ]),
+      _vm._v(" "),
+      _c("button", { attrs: { type: "submit" } }, [_vm._v("Submit")]),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -41132,10 +41831,9 @@ var staticRenderFns = [
       "video",
       {
         attrs: {
-          id: "_previewimg1",
-          onclick: "document.getElementById('img1').click()",
-          width: "320",
-          height: "240",
+          id: "_vidpreviewimg1",
+          width: "200",
+          height: "200",
           controls: "",
         },
       },
@@ -41153,9 +41851,126 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-5" }, [
-      _c("h4", [_vm._v("Previe")]),
-    ])
+    return _c(
+      "video",
+      {
+        staticStyle: { "object-fit": "cover" },
+        attrs: {
+          id: "_vidpreviewimg2",
+          width: "200",
+          height: "200",
+          controls: "",
+        },
+      },
+      [
+        _c("source", { attrs: { src: "movie.mp4", type: "video/mp4" } }),
+        _vm._v(" "),
+        _c("source", { attrs: { src: "movie.ogg", type: "video/ogg" } }),
+        _vm._v(
+          "\n                                Your browser does not support the video tag.\n                            "
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "video",
+      {
+        staticStyle: { "object-fit": "cover" },
+        attrs: {
+          id: "_vidpreviewimg3",
+          width: "200",
+          height: "200",
+          controls: "",
+        },
+      },
+      [
+        _c("source", { attrs: { src: "movie.mp4", type: "video/mp4" } }),
+        _vm._v(" "),
+        _c("source", { attrs: { src: "movie.ogg", type: "video/ogg" } }),
+        _vm._v(
+          "\n                                Your browser does not support the video tag.\n                            "
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "video",
+      {
+        staticStyle: { "object-fit": "cover" },
+        attrs: {
+          id: "_vidpreviewimg4",
+          width: "200",
+          height: "200",
+          controls: "",
+        },
+      },
+      [
+        _c("source", { attrs: { src: "movie.mp4", type: "video/mp4" } }),
+        _vm._v(" "),
+        _c("source", { attrs: { src: "movie.ogg", type: "video/ogg" } }),
+        _vm._v(
+          "\n                                Your browser does not support the video tag.\n                            "
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "video",
+      {
+        staticStyle: { "object-fit": "cover" },
+        attrs: {
+          id: "_vidpreviewimg5",
+          width: "200",
+          height: "200",
+          controls: "",
+        },
+      },
+      [
+        _c("source", { attrs: { src: "movie.mp4", type: "video/mp4" } }),
+        _vm._v(" "),
+        _c("source", { attrs: { src: "movie.ogg", type: "video/ogg" } }),
+        _vm._v(
+          "\n                                Your browser does not support the video tag.\n                            "
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "video",
+      {
+        staticStyle: { "object-fit": "cover" },
+        attrs: {
+          id: "_vidpreviewimg7",
+          width: "200",
+          height: "200",
+          controls: "",
+        },
+      },
+      [
+        _c("source", { attrs: { src: "movie.mp4", type: "video/mp4" } }),
+        _vm._v(" "),
+        _c("source", { attrs: { src: "movie.ogg", type: "video/ogg" } }),
+        _vm._v(
+          "\n                                Your browser does not support the video tag.\n                            "
+        ),
+      ]
+    )
   },
 ]
 render._withStripped = true

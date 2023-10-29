@@ -1,23 +1,22 @@
 <template>
     <div class="row product-adding">
-        <div class="col-md-7">
+        <div class="col-md-6">
             <div class="add-product">
 
-                <div class="d-flex flex-wrap justify-content-around">
+                <div class="d-flex flex-wrap justify-content-between">
                     <div class="">
                         <div class="form-group ">
 
                             <!-- //  video decision -->
-                            <div v-if="resolveMediatype(productimg1)">
-                                <video id="_previewimg1"
-                                onclick="document.getElementById('img1').click()"
-                                width="320" height="240" controls>
+                            <div onclick="document.getElementById('img1').click()"
+                                :class="resolveMediatype(productimg1) ? 'p-2 ' : 'd-none p-2 '">
+                                <video id="_vidpreviewimg1" width="200" height="200" controls>
                                     <source src="movie.mp4" type="video/mp4">
                                     <source src="movie.ogg" type="video/ogg">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
-                            <div v-else>
+                            <div :class="resolveMediatype(productimg1) ? 'd-none' : ''">
                                 <img v-if="productimg6" onclick="document.getElementById('img1').click()" id="_previewimg1"
                                     style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
                                     :src="'productimg1'">
@@ -41,12 +40,26 @@
 
                     <div class="">
                         <div class="form-group ">
-                            <img v-if="productimg6" onclick="document.getElementById('img2').click()" id="_previewimg2"
-                                style="height: 200px; width: 200px; object-fit: cover;" class="shadow" :src="'productimg2'">
 
-                            <img v-else onclick="document.getElementById('img2').click()" id="_previewimg2"
-                                style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
-                                :src="'https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg'">
+                            <!-- //  video decision -->
+                            <div onclick="document.getElementById('img2').click()"
+                                :class="resolveMediatype(productimg2) ? 'p-2 ' : 'd-none p-2 '">
+                                <video id="_vidpreviewimg2" style="object-fit: cover;" width="200" height="200" controls>
+                                    <source src="movie.mp4" type="video/mp4">
+                                    <source src="movie.ogg" type="video/ogg">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div :class="resolveMediatype(productimg2) ? 'd-none' : ''">
+                                <img v-if="productimg6" onclick="document.getElementById('img2').click()" id="_previewimg2"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'productimg2'">
+
+                                <img v-else onclick="document.getElementById('img2').click()" id="_previewimg2"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg'">
+
+                            </div>
 
                         </div>
                         <div class="text-center d-none">
@@ -59,6 +72,144 @@
                         </div>
                     </div>
 
+                    <div class="">
+                        <div class="form-group ">
+
+                            <!-- //  video decision -->
+                            <div onclick="document.getElementById('img3').click()"
+                                :class="resolveMediatype(productimg3) ? 'p-2 ' : 'd-none p-2 '">
+                                <video id="_vidpreviewimg3" style="object-fit: cover;" width="200" height="200" controls>
+                                    <source src="movie.mp4" type="video/mp4">
+                                    <source src="movie.ogg" type="video/ogg">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div :class="resolveMediatype(productimg3) ? 'd-none' : ''">
+                                <img v-if="productimg6" onclick="document.getElementById('img3').click()" id="_previewimg3"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'productimg3'">
+
+                                <img v-else onclick="document.getElementById('img3').click()" id="_previewimg3"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg'">
+
+                            </div>
+
+                        </div>
+                        <div class="text-center d-none">
+                            <input @change="previewFile4" ref="file" type="file" id="img3">
+
+                        </div>
+
+                        <div class="form-group text-center d-none">
+                            <button @click="uploadAvatar()" class="btn btn-primary btn-sm">Upload</button>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="form-group ">
+
+                            <!-- //  video decision -->
+                            <div onclick="document.getElementById('img4').click()"
+                                :class="resolveMediatype(productimg4) ? 'p-2 ' : 'd-none p-2 '">
+                                <video id="_vidpreviewimg4" style="object-fit: cover;" width="200" height="200" controls>
+                                    <source src="movie.mp4" type="video/mp4">
+                                    <source src="movie.ogg" type="video/ogg">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div :class="resolveMediatype(productimg4) ? 'd-none' : ''">
+                                <img v-if="productimg6" onclick="document.getElementById('img4').click()" id="_previewimg4"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'productimg4'">
+
+                                <img v-else onclick="document.getElementById('img4').click()" id="_previewimg4"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg'">
+
+                            </div>
+
+                        </div>
+                        <div class="text-center d-none">
+                            <input @change="previewFile4" ref="file" type="file" id="img4">
+
+                        </div>
+
+                        <div class="form-group text-center d-none">
+                            <button @click="uploadAvatar()" class="btn btn-primary btn-sm">Upload</button>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="form-group ">
+
+                            <!-- //  video decision -->
+                            <div onclick="document.getElementById('img5').click()"
+                                :class="resolveMediatype(productimg5) ? 'p-2 ' : 'd-none p-2 '">
+                                <video id="_vidpreviewimg5" style="object-fit: cover;" width="200" height="200" controls>
+                                    <source src="movie.mp4" type="video/mp4">
+                                    <source src="movie.ogg" type="video/ogg">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div :class="resolveMediatype(productimg5) ? 'd-none' : ''">
+                                <img v-if="productimg6" onclick="document.getElementById('img4').click()" id="_previewimg5"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'productimg5'">
+
+                                <img v-else onclick="document.getElementById('img5').click()" id="_previewimg5"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg'">
+
+                            </div>
+
+                        </div>
+                        <div class="text-center d-none">
+                            <input @change="previewFile4" ref="file" type="file" id="img5">
+
+                        </div>
+
+                        <div class="form-group text-center d-none">
+                            <button @click="uploadAvatar()" class="btn btn-primary btn-sm">Upload</button>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="form-group ">
+
+                            <!-- //  video decision -->
+                            <div onclick="document.getElementById('img7').click()"
+                                :class="resolveMediatype(productimg7) ? 'p-2 ' : 'd-none p-2 '">
+                                <video id="_vidpreviewimg7" style="object-fit: cover;" width="200" height="200" controls>
+                                    <source src="movie.mp4" type="video/mp4">
+                                    <source src="movie.ogg" type="video/ogg">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div :class="resolveMediatype(productimg7) ? 'd-none' : ''">
+                                <img v-if="productimg6" onclick="document.getElementById('img7').click()" id="_previewimg7"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'productimg7'">
+
+                                <img v-else onclick="document.getElementById('img7').click()" id="_previewimg7"
+                                    style="height: 200px; width: 200px; object-fit: cover;" class="shadow"
+                                    :src="'https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg'">
+
+                            </div>
+
+                        </div>
+                        <div class="text-center d-none">
+                            <input @change="previewFile4" ref="file" type="file" id="img7">
+
+                        </div>
+
+                        <div class="form-group text-center d-none">
+                            <button @click="uploadAvatar()" class="btn btn-primary btn-sm">Upload</button>
+                        </div>
+                    </div>
+
+
+
 
                 </div>
 
@@ -67,9 +218,43 @@
 
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
 
-            <h4>Previe</h4>
+            <div>
+      <label for="product-name">Product Name:</label>
+      <input type="text" id="product-name" v-model="productName" required />
+    </div>
+
+    <!-- Other product details fields -->
+
+    <div>
+      <label for="category">Category:</label>
+      <select id="category" v-model="selectedCategory" @change="loadSubcategories">
+        <option value="">Select a Category</option>
+        <option v-for="category in categories" :value="category.id">{{ category.categoryName }}</option>
+      </select>
+    </div>
+
+    <div v-if="subcategories.length">
+      <label for="subcategory">Subcategory:</label>
+      <select id="subcategory" v-model="selectedSubcategory">
+        <option value="">Select a Subcategory</option>
+        <option v-for="subcategory in subcategories" :key="subcategory.id">{{ subcategory.categoryName }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="brand">Brand:</label>
+      <select id="brand" v-model="selectedBrand">
+        <option value="">Select a Brand</option>
+        <option v-for="brand in brands" :key="brand.id">{{ brand.brandName }}</option>
+      </select>
+    </div>
+
+    <!-- Additional product attributes fields based on category and subcategory -->
+
+    <button type="submit">Submit</button>
+
 
         </div>
     </div>
@@ -86,6 +271,15 @@ export default {
             productimg4: '',
             productimg5: '',
             productimg6: '',
+            productimg7: '',
+
+            product_name: '',
+
+
+            brands: [],
+            subcategories:[],
+            categories:[]
+
 
 
 
@@ -133,11 +327,19 @@ export default {
         previewFile4(event) {
 
 
+
+
             console.log(event)
 
             if (event.target.files.length > 0) {
                 var src = URL.createObjectURL(event.target.files[0]);
-                var preview = document.getElementById("_preview" + event.target.id);
+
+
+                if (event.target.files[0].type.startsWith('video/')) {
+                    var preview = document.getElementById("_vidpreview" + event.target.id);
+                } else {
+                    var preview = document.getElementById("_preview" + event.target.id);
+                }
                 preview.src = src;
 
 
@@ -167,6 +369,12 @@ export default {
             if (event.target.id == 'img5') {
 
                 this.productimg5 = event.target.files[0]
+            }
+
+
+            if (event.target.id == 'img7') {
+
+                this.productimg7 = event.target.files[0]
             }
 
             console.log(this.productimg1, this.productimg2, this.productimg3)

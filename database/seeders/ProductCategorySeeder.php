@@ -1,65 +1,99 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
 class ProductCategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
+        $categoriesData = [];
 
-        DB::table('product_categories')->insertOrIgnore([
+        // Insert top-level categories
+        $topLevelCategories = [
+            'Apparel',
+            'Footwear',
+            'Accessories',
+            'Beauty',
+            'Brands',
+            'Sale',
+            'Trending',
+            'Occasions',
+            'Size',
+            'Collections',
+        ];
 
-            [   'id' => 1,
-                'category_name' => 'Women',
-                'parent_id' => null,
-                'category_banner' => asset('category_banners').'/women.jpg',
-            ],
+        foreach ($topLevelCategories as $categoryName) {
+            $categoryId = DB::table('product_categories')->insertGetId(['categoryName' => $categoryName]);
 
-            [   'id' => 2,
-                'parent_id' => null,
+            // Add top-level categories to the data array
+            $categoriesData[] = ['categoryName' => $categoryName, 'parentCategoryID' => null];
 
-                'category_name' => 'Men',
-                'category_banner' => asset('category_banners').'/men.jpg',
-            ],
+            // Define subcategories for each top-level category
+            $subcategories = [];
 
-            [   'id' => 3,
-                'parent_id' => 2,
-                'category_name' => 'Men Clothings',
-                'category_banner' => asset('category_banners').'/men_clothings.jpg',
-            ],
-            [   'id' => 4,
-                'parent_id' => 1,
-                'category_name' => 'Women Clothings',
-                'category_banner' => asset('category_banners').'/women_clothings.jpg',
-            ],
-            [   'id' => 5,
-                'parent_id' => null,
+            switch ($categoryName) {
+                case 'Apparel':
+                    $subcategories = [
+                        'Tops', 'T-Shirts', 'Shirts', 'Blouses',
+                        'Bottoms', 'Jeans', 'Pants', 'Skirts', 'Dresses',
+                        'Outerwear', 'Jackets', 'Coats', 'Sweaters',
+                        'Activewear', 'Lingerie', 'Sleepwear',
+                    ];
+                    break;
+                case 'Footwear':
+                    $subcategories = [
+                        "Men's Shoes", 'Sneakers', 'Dress Shoes', 'Boots',
+                        "Women's Shoes", 'Flats', 'Heels', 'Sandals',
+                        "Kids' Shoes", 'Athletic Shoes', 'Slippers',
+                    ];
+                    break;
+                case 'Accessories':
+                    $subcategories = [
+                        'Handbags', 'Backpacks', 'Wallets',
+                        'Jewelry', 'Necklaces', 'Earrings', 'Bracelets',
+                        'Hats', 'Scarves', 'Sunglasses', 'Watches', 'Belts',
+                    ];
+                    break;
+                case 'Beauty':
+                    $subcategories = [
+                        'Makeup', 'Face', 'Eyes', 'Lips',
+                        'Skincare', 'Fragrances', 'Haircare', 'Nail Care', 'Beauty Tools',
+                    ];
+                    break;
+                case 'Brands':
+                    // You can add a list of popular fashion brands here
+                    $brands = [
+                        'Nike', 'Adidas', 'Gucci', 'Prada', 'Zara',
+                        'H&M', 'Calvin Klein', 'Louis Vuitton', 'Versace', 'Chanel',
+                    ];
+                    foreach ($brands as $brandName) {
+                        $categoriesData[] = ['categoryName' => $brandName, 'parentCategoryID' => $categoryId];
+                    }
+                    break;
+                case 'Occasions':
+                    $subcategories = [
+                        'Casual', 'Formal', 'Party', 'Wedding', 'Athletic',
+                    ];
+                    break;
+                case 'Size':
+                    $subcategories = ['XS', 'S', 'M', 'L', 'XL', 'Plus Sizes'];
+                    break;
+                case 'Collections':
+                    $subcategories = ['Sustainable', 'Vintage', 'Designer', 'Streetwear'];
+                    break;
+                default:
+                    // Handle other top-level categories here if needed
+                    break;
+            }
 
-                'category_name' => 'Kids Clothings',
-                'category_banner' => asset('category_banners').'/kids_clothings.jpg',
-            ],
-            [   'id' => 6,
-                'parent_id' => null,
+            // Insert subcategories and add them to the data array
+            foreach ($subcategories as $subcategoryName) {
+                $categoriesData[] = ['categoryName' => $subcategoryName, 'parentCategoryID' => $categoryId];
+            }
+        }
 
-                'category_name' => 'Clothing Accessories',
-                'category_banner' => asset('category_banners').'/clothing_accessories.jpg',
-            ],
-            [   'id' => 7,
-                'parent_id' => 1,
-                'category_name' => 'Women Hair',
-                'category_banner' => asset('category_banners').'/women_hair.jpg',
-            ]
-
-
-        ]);
+        // Insert all categories and subcategories
+        DB::table('product_categories')->insert($categoriesData);
     }
 }

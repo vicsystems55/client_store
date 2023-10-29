@@ -15,11 +15,15 @@ class CreateProductCategoriesTable extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name');
-            $table->string('category_banner');
-            $table->foreignId('parent_id')->nullable();
+            $table->string('categoryName');
+            $table->string('category_banner')->nullalbe();
+            $table->unsignedBigInteger('parentCategoryID')->nullable();
+            $table->unsignedInteger('categoryCount')->default(0);
+
             $table->string('status')->default('active');
             $table->timestamps();
+
+            $table->foreign('parentCategoryID')->references('id')->on('product_categories');
         });
     }
 
