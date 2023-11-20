@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\API\V1;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Models\ProductCategory;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductCategoryRequest;
 use App\Http\Requests\UpdateProductCategoryRequest;
-use Illuminate\Support\Facades\DB;
 
 class ProductCategoryController extends Controller
 {
@@ -17,8 +18,17 @@ class ProductCategoryController extends Controller
      */
 
 
-    public function index()
+    public function index(Request $request)
     {
+
+
+        // return $request->all();
+        if ($request->type == 'brands') {
+            # code...
+            $brands = ProductCategory::where('parentCategoryID', 71)->get();
+
+            return $brands;
+        }
         // Get all categories from the database
         $categories = DB::table('product_categories')->get();
 

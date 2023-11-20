@@ -220,40 +220,43 @@
         </div>
         <div class="col-md-6">
 
-            <div>
+            <div class="form-group">
       <label for="product-name">Product Name:</label>
-      <input type="text" id="product-name" v-model="productName" required />
+      <input type="text" id="product-name" class="form-control"  v-model="product_name" required />
     </div>
 
     <!-- Other product details fields -->
 
-    <div>
+    <div class="form-group">
       <label for="category">Category:</label>
-      <select id="category" v-model="selectedCategory" @change="loadSubcategories">
+      <select id="category" v-model="selectedCategory" @change="loadSubcategories" class="form-control" >
         <option value="">Select a Category</option>
-        <option v-for="category in categories" :value="category.id">{{ category.categoryName }}</option>
+        <option v-for="category in categories" :key="category.index" :value="category.id">{{ category.categoryName }}</option>
       </select>
     </div>
 
-    <div v-if="subcategories.length">
+    <div v-if="subcategories.length" class="form-group">
       <label for="subcategory">Subcategory:</label>
-      <select id="subcategory" v-model="selectedSubcategory">
+      <select id="subcategory" v-model="selectedSubcategory" class="form-control" >
         <option value="">Select a Subcategory</option>
-        <option v-for="subcategory in subcategories" :key="subcategory.id">{{ subcategory.categoryName }}</option>
+        <option v-for="subcategory in subcategories" :key="subcategory.id" :value="subcategory.id">{{ subcategory.categoryName }}</option>
       </select>
     </div>
 
-    <div>
+    <div class="form-group">
       <label for="brand">Brand:</label>
-      <select id="brand" v-model="selectedBrand">
+      <select id="brand" v-model="selectedBrand" class="form-control" >
         <option value="">Select a Brand</option>
-        <option v-for="brand in brands" :key="brand.id">{{ brand.brandName }}</option>
+
+        <option v-for="brand in brands" :key="brand.id">{{ brand.categoryName }}</option>
       </select>
     </div>
+
+
 
     <!-- Additional product attributes fields based on category and subcategory -->
 
-    <button type="submit">Submit</button>
+        <button @click="createProduct()" class="btn btn-primary" >Submit</button>
 
 
         </div>
@@ -275,10 +278,19 @@ export default {
 
             product_name: '',
 
+            selectedSubcategory: '',
+            selectedCategory: '',
+
+
 
             brands: [],
             subcategories:[],
-            categories:[]
+            categories:[],
+
+            brands: [],
+            selectedBrand: '',
+
+
 
 
 
@@ -290,11 +302,89 @@ export default {
 
     mounted() {
         console.log('add product')
+        this.getCategories()
+        this.getBrands()
+
     },
 
     props: ['productid'],
 
     methods: {
+
+        getBrands(){
+            axios({
+                    url: '/api/v1/product-category',
+                    method: 'get',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-type': 'application/json',
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+                    },
+                    params: {
+                        invoice_code: localStorage.getItem('invoice_code'),
+                        type: 'brands'
+                    }
+
+                }).then((response) => {
+
+                    this.brands = response.data
+                    console.log(response)
+
+
+
+                }).catch((error) => {
+
+                    this.loading = false
+                    console.log(error)
+                })
+
+
+        },
+
+        getCategories(){
+
+            axios({
+                    url: '/api/v1/product-category',
+                    method: 'get',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-type': 'application/json',
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+                    },
+                    data: {
+                        invoice_code: localStorage.getItem('invoice_code')
+                    }
+
+                }).then((response) => {
+
+                    this.categories = response.data
+                    console.log(response)
+
+
+
+                }).catch((error) => {
+
+                    this.loading = false
+                    console.log(error)
+                })
+
+        },
+
+        loadSubcategories( selectedSubcategory){
+
+
+            const selectedCategoryObject = this.categories.find(category => category.id === this.selectedCategory);
+
+            if (selectedCategoryObject) {
+            // Extract subcategories from the selected category
+            this.subcategories = selectedCategoryObject.subcategories || []
+
+            }
+        },
+
+
         addToCart() {
             // console.log(this.$parent.$children[1])
             if (localStorage.getItem('user_token')) {
@@ -409,6 +499,49 @@ export default {
 
 
         },
+
+
+
+        createProduct(){
+
+            const formData = new FormData();
+
+            formData.append('productImg1', this.productimg1);
+            formData.append('productImg2', this.productimg2);
+            formData.append('productImg3', this.productimg3);
+            formData.append('productImg4', this.productimg4);
+            formData.append('productImg5', this.productimg5);
+            formData.append('productImg7', this.productimg7);
+
+            formData.append('product_name', this.product_name);
+            formData.append('selectedSubcategory', this.selectedSubcategory);
+            formData.append('selectedCategory', this.selectedCategory);
+            formData.append('selectedBrand', this.selectedBrand);
+
+            axios({
+                    url: '/api/v1/products',
+                    method: 'post',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-type': 'multipart/form-data',
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+                    },
+                    data: formData
+
+                }).then((response) => {
+
+
+                    console.log(response)
+
+
+
+                }).catch((error) => {
+
+                    this.loading = false
+                    console.log(error)
+                })
+        }
     }
 
 }

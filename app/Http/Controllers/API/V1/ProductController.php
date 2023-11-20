@@ -38,7 +38,7 @@ class ProductController extends Controller
     {
         //
 
-        // return $request->all();
+        return $request->all();
 
         if ($request->has('type')) {
 

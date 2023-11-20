@@ -2066,6 +2066,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+//
+//
+//
 //
 //
 //
@@ -2330,7 +2337,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {
+    var _ref;
+    return _ref = {
       productimg1: '',
       productimg2: '',
       productimg3: '',
@@ -2339,16 +2347,75 @@ __webpack_require__.r(__webpack_exports__);
       productimg6: '',
       productimg7: '',
       product_name: '',
+      selectedSubcategory: '',
+      selectedCategory: '',
       brands: [],
       subcategories: [],
       categories: []
-    };
+    }, _defineProperty(_ref, "brands", []), _defineProperty(_ref, "selectedBrand", ''), _ref;
   },
   mounted: function mounted() {
     console.log('add product');
+    this.getCategories();
+    this.getBrands();
   },
   props: ['productid'],
   methods: {
+    getBrands: function getBrands() {
+      var _this = this;
+      axios({
+        url: '/api/v1/product-category',
+        method: 'get',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+        },
+        params: {
+          invoice_code: localStorage.getItem('invoice_code'),
+          type: 'brands'
+        }
+      }).then(function (response) {
+        _this.brands = response.data;
+        console.log(response);
+      })["catch"](function (error) {
+        _this.loading = false;
+        console.log(error);
+      });
+    },
+    getCategories: function getCategories() {
+      var _this2 = this;
+      axios({
+        url: '/api/v1/product-category',
+        method: 'get',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+        },
+        data: {
+          invoice_code: localStorage.getItem('invoice_code')
+        }
+      }).then(function (response) {
+        _this2.categories = response.data;
+        console.log(response);
+      })["catch"](function (error) {
+        _this2.loading = false;
+        console.log(error);
+      });
+    },
+    loadSubcategories: function loadSubcategories(selectedSubcategory) {
+      var _this3 = this;
+      var selectedCategoryObject = this.categories.find(function (category) {
+        return category.id === _this3.selectedCategory;
+      });
+      if (selectedCategoryObject) {
+        // Extract subcategories from the selected category
+        this.subcategories = selectedCategoryObject.subcategories || [];
+      }
+    },
     addToCart: function addToCart() {
       // console.log(this.$parent.$children[1])
       if (localStorage.getItem('user_token')) {
@@ -2420,6 +2487,36 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
       })["catch"](function (response) {
         console.log(response);
+      });
+    },
+    createProduct: function createProduct() {
+      var _this4 = this;
+      var formData = new FormData();
+      formData.append('productImg1', this.productimg1);
+      formData.append('productImg2', this.productimg2);
+      formData.append('productImg3', this.productimg3);
+      formData.append('productImg4', this.productimg4);
+      formData.append('productImg5', this.productimg5);
+      formData.append('productImg7', this.productimg7);
+      formData.append('product_name', this.product_name);
+      formData.append('selectedSubcategory', this.selectedSubcategory);
+      formData.append('selectedCategory', this.selectedCategory);
+      formData.append('selectedBrand', this.selectedBrand);
+      axios({
+        url: '/api/v1/products',
+        method: 'post',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-type': 'multipart/form-data',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+        },
+        data: formData
+      }).then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        _this4.loading = false;
+        console.log(error);
       });
     }
   }
@@ -41648,7 +41745,7 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-md-6" }, [
-      _c("div", [
+      _c("div", { staticClass: "form-group" }, [
         _c("label", { attrs: { for: "product-name" } }, [
           _vm._v("Product Name:"),
         ]),
@@ -41658,24 +41755,25 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.productName,
-              expression: "productName",
+              value: _vm.product_name,
+              expression: "product_name",
             },
           ],
+          staticClass: "form-control",
           attrs: { type: "text", id: "product-name", required: "" },
-          domProps: { value: _vm.productName },
+          domProps: { value: _vm.product_name },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.productName = $event.target.value
+              _vm.product_name = $event.target.value
             },
           },
         }),
       ]),
       _vm._v(" "),
-      _c("div", [
+      _c("div", { staticClass: "form-group" }, [
         _c("label", { attrs: { for: "category" } }, [_vm._v("Category:")]),
         _vm._v(" "),
         _c(
@@ -41689,6 +41787,7 @@ var render = function () {
                 expression: "selectedCategory",
               },
             ],
+            staticClass: "form-control",
             attrs: { id: "category" },
             on: {
               change: [
@@ -41715,9 +41814,11 @@ var render = function () {
             ]),
             _vm._v(" "),
             _vm._l(_vm.categories, function (category) {
-              return _c("option", { domProps: { value: category.id } }, [
-                _vm._v(_vm._s(category.categoryName)),
-              ])
+              return _c(
+                "option",
+                { key: category.index, domProps: { value: category.id } },
+                [_vm._v(_vm._s(category.categoryName))]
+              )
             }),
           ],
           2
@@ -41725,7 +41826,7 @@ var render = function () {
       ]),
       _vm._v(" "),
       _vm.subcategories.length
-        ? _c("div", [
+        ? _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "subcategory" } }, [
               _vm._v("Subcategory:"),
             ]),
@@ -41741,6 +41842,7 @@ var render = function () {
                     expression: "selectedSubcategory",
                   },
                 ],
+                staticClass: "form-control",
                 attrs: { id: "subcategory" },
                 on: {
                   change: function ($event) {
@@ -41764,9 +41866,14 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.subcategories, function (subcategory) {
-                  return _c("option", { key: subcategory.id }, [
-                    _vm._v(_vm._s(subcategory.categoryName)),
-                  ])
+                  return _c(
+                    "option",
+                    {
+                      key: subcategory.id,
+                      domProps: { value: subcategory.id },
+                    },
+                    [_vm._v(_vm._s(subcategory.categoryName))]
+                  )
                 }),
               ],
               2
@@ -41774,7 +41881,7 @@ var render = function () {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c("div", [
+      _c("div", { staticClass: "form-group" }, [
         _c("label", { attrs: { for: "brand" } }, [_vm._v("Brand:")]),
         _vm._v(" "),
         _c(
@@ -41788,6 +41895,7 @@ var render = function () {
                 expression: "selectedBrand",
               },
             ],
+            staticClass: "form-control",
             attrs: { id: "brand" },
             on: {
               change: function ($event) {
@@ -41810,7 +41918,7 @@ var render = function () {
             _vm._v(" "),
             _vm._l(_vm.brands, function (brand) {
               return _c("option", { key: brand.id }, [
-                _vm._v(_vm._s(brand.brandName)),
+                _vm._v(_vm._s(brand.categoryName)),
               ])
             }),
           ],
@@ -41818,7 +41926,18 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _c("button", { attrs: { type: "submit" } }, [_vm._v("Submit")]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          on: {
+            click: function ($event) {
+              return _vm.createProduct()
+            },
+          },
+        },
+        [_vm._v("Submit")]
+      ),
     ]),
   ])
 }

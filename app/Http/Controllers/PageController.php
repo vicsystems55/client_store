@@ -80,6 +80,8 @@ class PageController extends Controller
     public function auth()
     {
 
+        return 123;
+
         return view('auth');
     }
 
