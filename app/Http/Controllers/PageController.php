@@ -48,7 +48,7 @@ class PageController extends Controller
 
     }
 
-    public function product_details()
+    public function product_details($id)
     {
 
         return view('product_details');

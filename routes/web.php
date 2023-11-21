@@ -20,7 +20,7 @@ Route::get('/', [PageController::class,'home']);
 
 Route::get('/store', [PageController::class,'index']);
 
-Route::get('/product-details', [PageController::class,'product_details']);
+Route::get('/product-details/{id}', [PageController::class,'product_details']);
 
 Route::get('/about', [PageController::class,'about']);
 

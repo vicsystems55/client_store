@@ -39,6 +39,9 @@ Route::group([
 
       Route::apiResource('products', ProductController::class);
 
+        // Route::get('/product-details/{id}', [PageController::class,'product_details']);
+
+
       Route::get('productsx', [ProductController::class,'products']);
 
 
