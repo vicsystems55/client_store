@@ -39,6 +39,9 @@ Vue.component('add-product-component', require('./components/AddProductComponent
 
 Vue.component('store-profile-card', require('./components/StoreProfileCardComponent.vue').default);
 
+Vue.component('store-front-component', require('./components/StoreFrontComponent.vue').default);
+
+
 
 
 

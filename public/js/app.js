@@ -2334,6 +2334,11 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2347,12 +2352,13 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       productimg6: '',
       productimg7: '',
       product_name: '',
+      product_price: '',
       selectedSubcategory: '',
       selectedCategory: '',
       brands: [],
       subcategories: [],
       categories: []
-    }, _defineProperty(_ref, "brands", []), _defineProperty(_ref, "selectedBrand", ''), _ref;
+    }, _defineProperty(_ref, "brands", []), _defineProperty(_ref, "selectedBrand", ''), _defineProperty(_ref, "loading", false), _ref;
   },
   mounted: function mounted() {
     console.log('add product');
@@ -2491,6 +2497,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     createProduct: function createProduct() {
       var _this4 = this;
+      this.loading = true;
       var formData = new FormData();
       formData.append('productImg1', this.productimg1);
       formData.append('productImg2', this.productimg2);
@@ -2499,6 +2506,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       formData.append('productImg5', this.productimg5);
       formData.append('productImg7', this.productimg7);
       formData.append('product_name', this.product_name);
+      formData.append('product_price', this.product_price);
       formData.append('selectedSubcategory', this.selectedSubcategory);
       formData.append('selectedCategory', this.selectedCategory);
       formData.append('selectedBrand', this.selectedBrand);
@@ -2513,6 +2521,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         },
         data: formData
       }).then(function (response) {
+        _this4.loading = false;
         console.log(response);
       })["catch"](function (error) {
         _this4.loading = false;
@@ -4056,6 +4065,1469 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/StoreFrontComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/StoreFrontComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    var _ref;
+    return _ref = {
+      products: [],
+      selectedSubcategory: '',
+      selectedCategory: '',
+      brands: [],
+      subcategories: [],
+      categories: []
+    }, _defineProperty(_ref, "brands", []), _defineProperty(_ref, "selectedBrand", ''), _defineProperty(_ref, "loading", false), _ref;
+  },
+  mounted: function mounted() {
+    console.log('store front');
+    this.getProducts();
+  },
+  props: ['productid'],
+  methods: {
+    getBrands: function getBrands() {
+      var _this = this;
+      axios({
+        url: '/api/v1/product-category',
+        method: 'get',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+        },
+        params: {
+          invoice_code: localStorage.getItem('invoice_code'),
+          type: 'brands'
+        }
+      }).then(function (response) {
+        _this.brands = response.data;
+        console.log(response);
+      })["catch"](function (error) {
+        _this.loading = false;
+        console.log(error);
+      });
+    },
+    getCategories: function getCategories() {
+      var _this2 = this;
+      axios({
+        url: '/api/v1/product-category',
+        method: 'get',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+        },
+        data: {
+          invoice_code: localStorage.getItem('invoice_code')
+        }
+      }).then(function (response) {
+        _this2.categories = response.data;
+        console.log(response);
+      })["catch"](function (error) {
+        _this2.loading = false;
+        console.log(error);
+      });
+    },
+    loadSubcategories: function loadSubcategories(selectedSubcategory) {
+      var _this3 = this;
+      var selectedCategoryObject = this.categories.find(function (category) {
+        return category.id === _this3.selectedCategory;
+      });
+      if (selectedCategoryObject) {
+        // Extract subcategories from the selected category
+        this.subcategories = selectedCategoryObject.subcategories || [];
+      }
+    },
+    addToCart: function addToCart() {
+      // console.log(this.$parent.$children[1])
+      if (localStorage.getItem('user_token')) {
+        this.$parent.$children[1].addProduct(this.productid);
+      } else {
+        return window.location.href = '/auth';
+      }
+    },
+    resolveMediatype: function resolveMediatype(_mediaType) {
+      if (_mediaType) {
+        if (_mediaType.type.startsWith('video/')) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    },
+    previewFile4: function previewFile4(event) {
+      console.log(event);
+      if (event.target.files.length > 0) {
+        var src = URL.createObjectURL(event.target.files[0]);
+        if (event.target.files[0].type.startsWith('video/')) {
+          var preview = document.getElementById("_vidpreview" + event.target.id);
+        } else {
+          var preview = document.getElementById("_preview" + event.target.id);
+        }
+        preview.src = src;
+
+        // preview.style.display = "block";
+      }
+
+      if (event.target.id == 'img1') {
+        this.productimg1 = event.target.files[0];
+      }
+      if (event.target.id == 'img2') {
+        this.productimg2 = event.target.files[0];
+      }
+      if (event.target.id == 'img3') {
+        this.productimg3 = event.target.files[0];
+      }
+      if (event.target.id == 'img4') {
+        this.productimg4 = event.target.files[0];
+      }
+      if (event.target.id == 'img5') {
+        this.productimg5 = event.target.files[0];
+      }
+      if (event.target.id == 'img7') {
+        this.productimg7 = event.target.files[0];
+      }
+      console.log(this.productimg1, this.productimg2, this.productimg3);
+    },
+    uploadAvatar: function uploadAvatar() {
+      var formData = new FormData();
+      formData.append('avatar', this.file);
+      formData.append('type', 'avatar');
+      axios({
+        url: process.env.VUE_APP_URL + '/api/profiles',
+        method: 'post',
+        data: formData,
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token'),
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (response) {
+        // toast.success('Profile picture Updated');
+
+        console.log(response);
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    },
+    getProducts: function getProducts() {
+      var _this4 = this;
+      this.loading = true;
+      axios({
+        url: '/api/v1/products',
+        method: 'get',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-type': 'multipart/form-data',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('user_token')
+        }
+      }).then(function (response) {
+        _this4.loading = false;
+        _this4.products = response.data;
+        console.log(response);
+      })["catch"](function (error) {
+        _this4.loading = false;
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/StoreProfileCardComponent.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/StoreProfileCardComponent.vue?vue&type=script&lang=js& ***!
@@ -4154,6 +5626,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('auth-component', (__webpa
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('admin-component', (__webpack_require__(/*! ./components/AdminComponent.vue */ "./resources/js/components/AdminComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('add-product-component', (__webpack_require__(/*! ./components/AddProductComponent.vue */ "./resources/js/components/AddProductComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('store-profile-card', (__webpack_require__(/*! ./components/StoreProfileCardComponent.vue */ "./resources/js/components/StoreProfileCardComponent.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('store-front-component', (__webpack_require__(/*! ./components/StoreFrontComponent.vue */ "./resources/js/components/StoreFrontComponent.vue")["default"]));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -40941,6 +42414,45 @@ component.options.__file = "resources/js/components/ShoppingCartComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/StoreFrontComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/StoreFrontComponent.vue ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _StoreFrontComponent_vue_vue_type_template_id_63c9af7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StoreFrontComponent.vue?vue&type=template&id=63c9af7a& */ "./resources/js/components/StoreFrontComponent.vue?vue&type=template&id=63c9af7a&");
+/* harmony import */ var _StoreFrontComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StoreFrontComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/StoreFrontComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StoreFrontComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StoreFrontComponent_vue_vue_type_template_id_63c9af7a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _StoreFrontComponent_vue_vue_type_template_id_63c9af7a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/StoreFrontComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/StoreProfileCardComponent.vue":
 /*!***************************************************************!*\
   !*** ./resources/js/components/StoreProfileCardComponent.vue ***!
@@ -41108,6 +42620,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/StoreFrontComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/StoreFrontComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StoreFrontComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StoreFrontComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/StoreFrontComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StoreFrontComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/StoreProfileCardComponent.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************!*\
   !*** ./resources/js/components/StoreProfileCardComponent.vue?vue&type=script&lang=js& ***!
@@ -41256,6 +42784,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShoppingCartComponent_vue_vue_type_template_id_3109ad4c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShoppingCartComponent_vue_vue_type_template_id_3109ad4c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ShoppingCartComponent.vue?vue&type=template&id=3109ad4c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ShoppingCartComponent.vue?vue&type=template&id=3109ad4c&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/StoreFrontComponent.vue?vue&type=template&id=63c9af7a&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/StoreFrontComponent.vue?vue&type=template&id=63c9af7a& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StoreFrontComponent_vue_vue_type_template_id_63c9af7a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StoreFrontComponent_vue_vue_type_template_id_63c9af7a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StoreFrontComponent_vue_vue_type_template_id_63c9af7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StoreFrontComponent.vue?vue&type=template&id=63c9af7a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/StoreFrontComponent.vue?vue&type=template&id=63c9af7a&");
 
 
 /***/ }),
@@ -41774,6 +43319,34 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "product-name" } }, [
+          _vm._v("Product Price:"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.product_price,
+              expression: "product_price",
+            },
+          ],
+          staticClass: "form-control",
+          attrs: { type: "number", id: "product-name", required: "" },
+          domProps: { value: _vm.product_price },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.product_price = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
         _c("label", { attrs: { for: "category" } }, [_vm._v("Category:")]),
         _vm._v(" "),
         _c(
@@ -41936,7 +43509,7 @@ var render = function () {
             },
           },
         },
-        [_vm._v("Submit")]
+        [_vm._v(_vm._s(_vm.loading ? "Processing..." : "Submit"))]
       ),
     ]),
   ])
@@ -44481,6 +46054,6837 @@ var staticRenderFns = [
           ),
         ]),
       ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/StoreFrontComponent.vue?vue&type=template&id=63c9af7a&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/StoreFrontComponent.vue?vue&type=template&id=63c9af7a& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", {}, [
+    _c("section", { staticClass: "shop__section section--padding" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-xl-3 col-lg-4" }, [
+            _c(
+              "div",
+              { staticClass: "shop__sidebar--widget widget__area d-md-none" },
+              [
+                _c("div", { staticClass: "single__widget widget__bg" }, [
+                  _c(
+                    "h2",
+                    { staticClass: "widget__title position__relative h3" },
+                    [_vm._v("Search")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "form",
+                    {
+                      staticClass: "widget__search--form",
+                      attrs: { action: "#" },
+                    },
+                    [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "widget__search--form__btn",
+                          attrs: {
+                            type: "submit",
+                            "aria-label": "search button",
+                          },
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "widget__search--form__btn--svg",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "25.51",
+                                height: "22.443",
+                                viewBox: "0 0 512 512",
+                              },
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-miterlimit": "10",
+                                  "stroke-width": "32",
+                                },
+                              }),
+                              _c("path", {
+                                attrs: {
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-linecap": "round",
+                                  "stroke-miterlimit": "10",
+                                  "stroke-width": "32",
+                                  d: "M338.29 338.29L448 448",
+                                },
+                              }),
+                            ]
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "single__widget widget__bg" }, [
+                  _c(
+                    "h2",
+                    { staticClass: "widget__title position__relative h3" },
+                    [_vm._v("Categories")]
+                  ),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "widget__categories--menu" }, [
+                    _c(
+                      "li",
+                      { staticClass: "widget__categories--menu__list" },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "widget__categories--menu__label d-flex align-items-center",
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "widget__categories--menu__img",
+                              attrs: {
+                                src: "assets/img/product/small-product1.webp",
+                                alt: "categories-img",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              { staticClass: "widget__categories--menu__text" },
+                              [_vm._v("Denim Jacket")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "widget__categories--menu__arrowdown--icon",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "12.355",
+                                  height: "8.394",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z",
+                                    transform: "translate(-6 -8.59)",
+                                    fill: "currentColor",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(1),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "widget__categories--menu__list" },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "widget__categories--menu__label d-flex align-items-center",
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "widget__categories--menu__img",
+                              attrs: {
+                                src: "assets/img/product/small-product2.webp",
+                                alt: "categories-img",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              { staticClass: "widget__categories--menu__text" },
+                              [_vm._v("Oversize Cotton")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "widget__categories--menu__arrowdown--icon",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "12.355",
+                                  height: "8.394",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z",
+                                    transform: "translate(-6 -8.59)",
+                                    fill: "currentColor",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(2),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "widget__categories--menu__list" },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "widget__categories--menu__label d-flex align-items-center",
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "widget__categories--menu__img",
+                              attrs: {
+                                src: "assets/img/product/small-product3.webp",
+                                alt: "categories-img",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              { staticClass: "widget__categories--menu__text" },
+                              [_vm._v("Dairy & chesse")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "widget__categories--menu__arrowdown--icon",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "12.355",
+                                  height: "8.394",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z",
+                                    transform: "translate(-6 -8.59)",
+                                    fill: "currentColor",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(3),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "widget__categories--menu__list" },
+                      [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "widget__categories--menu__label d-flex align-items-center",
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "widget__categories--menu__img",
+                              attrs: {
+                                src: "assets/img/product/small-product4.webp",
+                                alt: "categories-img",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              { staticClass: "widget__categories--menu__text" },
+                              [_vm._v("Shoulder Bag")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "widget__categories--menu__arrowdown--icon",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "12.355",
+                                  height: "8.394",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z",
+                                    transform: "translate(-6 -8.59)",
+                                    fill: "currentColor",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(4),
+                      ]
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _vm._m(5),
+                _vm._v(" "),
+                _vm._m(6),
+                _vm._v(" "),
+                _c("div", { staticClass: "single__widget widget__bg" }, [
+                  _c(
+                    "h2",
+                    { staticClass: "widget__title position__relative h3" },
+                    [_vm._v("Top Rated Product")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "product__sidebar" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "small__product d-flex align-items-center mb-20",
+                      },
+                      [
+                        _vm._m(7),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "small__product--content" }, [
+                          _vm._m(8),
+                          _vm._v(" "),
+                          _vm._m(9),
+                          _vm._v(" "),
+                          _c(
+                            "ul",
+                            {
+                              staticClass:
+                                "rating small__product--rating d-flex",
+                            },
+                            [
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(10),
+                            ]
+                          ),
+                        ]),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "small__product d-flex align-items-center mb-20",
+                      },
+                      [
+                        _vm._m(11),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "small__product--content" }, [
+                          _vm._m(12),
+                          _vm._v(" "),
+                          _vm._m(13),
+                          _vm._v(" "),
+                          _c(
+                            "ul",
+                            {
+                              staticClass:
+                                "rating small__product--rating d-flex",
+                            },
+                            [
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(14),
+                            ]
+                          ),
+                        ]),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "small__product d-flex align-items-center",
+                      },
+                      [
+                        _vm._m(15),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "small__product--content" }, [
+                          _vm._m(16),
+                          _vm._v(" "),
+                          _vm._m(17),
+                          _vm._v(" "),
+                          _c(
+                            "ul",
+                            {
+                              staticClass:
+                                "rating small__product--rating d-flex",
+                            },
+                            [
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "rating__list" }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "rating__list--icon" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "rating__list--icon__svg",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "11.105",
+                                          height: "11.732",
+                                          viewBox: "0 0 10.105 9.732",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "data-name": "star - Copy",
+                                            d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                            transform: "translate(0 -0.018)",
+                                            fill: "currentColor",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(18),
+                            ]
+                          ),
+                        ]),
+                      ]
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _vm._m(19),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-xl-9 col-lg-8" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "shop__header bg__gray--color d-flex align-items-center justify-content-between mb-30",
+              },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "widget__filter--btn d-none d-md-flex align-items-center",
+                    attrs: { "data-offcanvas": "" },
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "widget__filter--btn__icon",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 512 512",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "28",
+                            d: "M368 128h80M64 128h240M368 384h80M64 384h240M208 256h240M64 256h80",
+                          },
+                        }),
+                        _c("circle", {
+                          attrs: {
+                            cx: "336",
+                            cy: "128",
+                            r: "28",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "28",
+                          },
+                        }),
+                        _c("circle", {
+                          attrs: {
+                            cx: "176",
+                            cy: "256",
+                            r: "28",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "28",
+                          },
+                        }),
+                        _c("circle", {
+                          attrs: {
+                            cx: "336",
+                            cy: "384",
+                            r: "28",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            "stroke-width": "28",
+                          },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "widget__filter--btn__text" }, [
+                      _vm._v("Filter"),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "product__view--mode d-flex align-items-center",
+                  },
+                  [
+                    _vm._m(20),
+                    _vm._v(" "),
+                    _vm._m(21),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product__view--mode__list" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product__tab--one product__grid--column__buttons d-flex justify-content-center",
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "product__grid--column__buttons--icons active",
+                              attrs: {
+                                "data-toggle": "tab",
+                                "aria-label": "product grid btn",
+                                "data-target": "#product_grid",
+                              },
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "13",
+                                    height: "13",
+                                    viewBox: "0 0 9 9",
+                                  },
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      attrs: {
+                                        transform: "translate(-1360 -479)",
+                                      },
+                                    },
+                                    [
+                                      _c("rect", {
+                                        attrs: {
+                                          id: "Rectangle_5725",
+                                          "data-name": "Rectangle 5725",
+                                          width: "4",
+                                          height: "4",
+                                          transform: "translate(1360 479)",
+                                          fill: "currentColor",
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("rect", {
+                                        attrs: {
+                                          id: "Rectangle_5727",
+                                          "data-name": "Rectangle 5727",
+                                          width: "4",
+                                          height: "4",
+                                          transform: "translate(1360 484)",
+                                          fill: "currentColor",
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("rect", {
+                                        attrs: {
+                                          id: "Rectangle_5726",
+                                          "data-name": "Rectangle 5726",
+                                          width: "4",
+                                          height: "4",
+                                          transform: "translate(1365 479)",
+                                          fill: "currentColor",
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("rect", {
+                                        attrs: {
+                                          id: "Rectangle_5728",
+                                          "data-name": "Rectangle 5728",
+                                          width: "4",
+                                          height: "4",
+                                          transform: "translate(1365 484)",
+                                          fill: "currentColor",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "product__grid--column__buttons--icons",
+                              attrs: {
+                                "data-toggle": "tab",
+                                "aria-label": "product list btn",
+                                "data-target": "#product_list",
+                              },
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "17",
+                                    height: "16",
+                                    viewBox: "0 0 13 8",
+                                  },
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      attrs: {
+                                        id: "Group_14700",
+                                        "data-name": "Group 14700",
+                                        transform: "translate(-1376 -478)",
+                                      },
+                                    },
+                                    [
+                                      _c(
+                                        "g",
+                                        {
+                                          attrs: {
+                                            transform: "translate(12 -2)",
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "g",
+                                            {
+                                              attrs: {
+                                                id: "Group_1326",
+                                                "data-name": "Group 1326",
+                                              },
+                                            },
+                                            [
+                                              _c("rect", {
+                                                attrs: {
+                                                  id: "Rectangle_5729",
+                                                  "data-name": "Rectangle 5729",
+                                                  width: "3",
+                                                  height: "2",
+                                                  transform:
+                                                    "translate(1364 483)",
+                                                  fill: "currentColor",
+                                                },
+                                              }),
+                                              _vm._v(" "),
+                                              _c("rect", {
+                                                attrs: {
+                                                  id: "Rectangle_5730",
+                                                  "data-name": "Rectangle 5730",
+                                                  width: "9",
+                                                  height: "2",
+                                                  transform:
+                                                    "translate(1368 483)",
+                                                  fill: "currentColor",
+                                                },
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "g",
+                                            {
+                                              attrs: {
+                                                id: "Group_1328",
+                                                "data-name": "Group 1328",
+                                                transform: "translate(0 -3)",
+                                              },
+                                            },
+                                            [
+                                              _c("rect", {
+                                                attrs: {
+                                                  id: "Rectangle_5729-2",
+                                                  "data-name": "Rectangle 5729",
+                                                  width: "3",
+                                                  height: "2",
+                                                  transform:
+                                                    "translate(1364 483)",
+                                                  fill: "currentColor",
+                                                },
+                                              }),
+                                              _vm._v(" "),
+                                              _c("rect", {
+                                                attrs: {
+                                                  id: "Rectangle_5730-2",
+                                                  "data-name": "Rectangle 5730",
+                                                  width: "9",
+                                                  height: "2",
+                                                  transform:
+                                                    "translate(1368 483)",
+                                                  fill: "currentColor",
+                                                },
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "g",
+                                            {
+                                              attrs: {
+                                                id: "Group_1327",
+                                                "data-name": "Group 1327",
+                                                transform: "translate(0 -1)",
+                                              },
+                                            },
+                                            [
+                                              _c("rect", {
+                                                attrs: {
+                                                  id: "Rectangle_5731",
+                                                  "data-name": "Rectangle 5731",
+                                                  width: "3",
+                                                  height: "2",
+                                                  transform:
+                                                    "translate(1364 487)",
+                                                  fill: "currentColor",
+                                                },
+                                              }),
+                                              _vm._v(" "),
+                                              _c("rect", {
+                                                attrs: {
+                                                  id: "Rectangle_5732",
+                                                  "data-name": "Rectangle 5732",
+                                                  width: "9",
+                                                  height: "2",
+                                                  transform:
+                                                    "translate(1368 487)",
+                                                  fill: "currentColor",
+                                                },
+                                              }),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "product__showing--count" }, [
+                  _vm._v("Showing 1–9 of 21 results"),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "shop__product--wrapper" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "product__card--action__btn",
+                  attrs: {
+                    title: "Quick View",
+                    "data-open": "modal1",
+                    href: "javascript:void(0)",
+                  },
+                },
+                [
+                  _vm._v(
+                    "JKJHKHKH\n                                                               "
+                  ),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "product__card--action__btn--svg",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24.51",
+                        height: "22.443",
+                        viewBox: "0 0 512 512",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-miterlimit": "10",
+                          "stroke-width": "32",
+                        },
+                      }),
+                      _c("path", {
+                        attrs: {
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-linecap": "round",
+                          "stroke-miterlimit": "10",
+                          "stroke-width": "32",
+                          d: "M338.29 338.29L448 448",
+                        },
+                      }),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "visually-hidden" }, [
+                    _vm._v("Quick View"),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "tab_content" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab_pane active show",
+                    attrs: { id: "product_grid" },
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "product__section--inner product__grid--inner",
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "row row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2 mb--n30",
+                          },
+                          _vm._l(_vm.products, function (product) {
+                            return _c(
+                              "div",
+                              {
+                                key: product.id,
+                                staticClass: "col custom-col-2 mb-30",
+                              },
+                              [
+                                _c(
+                                  "article",
+                                  { staticClass: "product__card" },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "product__card--thumbnail",
+                                      },
+                                      [
+                                        _vm._m(22, true),
+                                        _vm._v(" "),
+                                        _c(
+                                          "ul",
+                                          {
+                                            staticClass:
+                                              "product__card--action d-flex align-items-center justify-content-center",
+                                          },
+                                          [
+                                            _c(
+                                              "li",
+                                              {
+                                                staticClass:
+                                                  "product__card--action__list",
+                                              },
+                                              [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    staticClass:
+                                                      "product__card--action__btn",
+                                                    attrs: {
+                                                      title: "Wishlist",
+                                                      href: "wishlist.html",
+                                                    },
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "svg",
+                                                      {
+                                                        staticClass:
+                                                          "product__card--action__btn--svg",
+                                                        attrs: {
+                                                          xmlns:
+                                                            "http://www.w3.org/2000/svg",
+                                                          width: "25.51",
+                                                          height: "22.443",
+                                                          viewBox:
+                                                            "0 0 512 512",
+                                                        },
+                                                      },
+                                                      [
+                                                        _c("path", {
+                                                          attrs: {
+                                                            d: "M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z",
+                                                            fill: "none",
+                                                            stroke:
+                                                              "currentColor",
+                                                            "stroke-linecap":
+                                                              "round",
+                                                            "stroke-linejoin":
+                                                              "round",
+                                                            "stroke-width":
+                                                              "32",
+                                                          },
+                                                        }),
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "visually-hidden",
+                                                      },
+                                                      [_vm._v("Wishlist")]
+                                                    ),
+                                                  ]
+                                                ),
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "li",
+                                              {
+                                                staticClass:
+                                                  "product__card--action__list",
+                                              },
+                                              [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    staticClass:
+                                                      "product__card--action__btn",
+                                                    attrs: {
+                                                      title: "Quick View",
+                                                      "data-open": "modal1",
+                                                      href: "javascript:void(0)",
+                                                    },
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "svg",
+                                                      {
+                                                        staticClass:
+                                                          "product__card--action__btn--svg",
+                                                        attrs: {
+                                                          xmlns:
+                                                            "http://www.w3.org/2000/svg",
+                                                          width: "24.51",
+                                                          height: "22.443",
+                                                          viewBox:
+                                                            "0 0 512 512",
+                                                        },
+                                                      },
+                                                      [
+                                                        _c("path", {
+                                                          attrs: {
+                                                            d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z",
+                                                            fill: "none",
+                                                            stroke:
+                                                              "currentColor",
+                                                            "stroke-miterlimit":
+                                                              "10",
+                                                            "stroke-width":
+                                                              "32",
+                                                          },
+                                                        }),
+                                                        _c("path", {
+                                                          attrs: {
+                                                            fill: "none",
+                                                            stroke:
+                                                              "currentColor",
+                                                            "stroke-linecap":
+                                                              "round",
+                                                            "stroke-miterlimit":
+                                                              "10",
+                                                            "stroke-width":
+                                                              "32",
+                                                            d: "M338.29 338.29L448 448",
+                                                          },
+                                                        }),
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "visually-hidden",
+                                                      },
+                                                      [_vm._v("Quick View")]
+                                                    ),
+                                                  ]
+                                                ),
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "li",
+                                              {
+                                                staticClass:
+                                                  "product__card--action__list",
+                                              },
+                                              [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    staticClass:
+                                                      "product__card--action__btn",
+                                                    attrs: {
+                                                      title: "Compare",
+                                                      href: "compare.html",
+                                                    },
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "svg",
+                                                      {
+                                                        staticClass:
+                                                          "product__card--action__btn--svg",
+                                                        attrs: {
+                                                          xmlns:
+                                                            "http://www.w3.org/2000/svg",
+                                                          width: "19.51",
+                                                          height: "18.443",
+                                                          viewBox: "0 0 20 20",
+                                                          fill: "currentColor",
+                                                        },
+                                                      },
+                                                      [
+                                                        _c("path", {
+                                                          attrs: {
+                                                            d: "M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z",
+                                                          },
+                                                        }),
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "visually-hidden",
+                                                      },
+                                                      [_vm._v("Compare")]
+                                                    ),
+                                                  ]
+                                                ),
+                                              ]
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(23, true),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "product__card--content text-center",
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "product__card--meta__tag",
+                                          },
+                                          [_vm._v("Watch,Woman")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "h3",
+                                          {
+                                            staticClass: "product__card--title",
+                                          },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                attrs: {
+                                                  href: "product-details.html",
+                                                },
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(product.name) + " "
+                                                ),
+                                              ]
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(24, true),
+                                        _vm._v(" "),
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "product__card--btn primary__btn",
+                                            attrs: { href: "cart.html" },
+                                          },
+                                          [_vm._v("Add To Card")]
+                                        ),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "tab_pane", attrs: { id: "product_list" } },
+                  [
+                    _c("div", { staticClass: "product__section--inner" }, [
+                      _c("div", { staticClass: "row row-cols-1 mb--n30" }, [
+                        _c("div", { staticClass: "col mb-30" }, [
+                          _c(
+                            "article",
+                            {
+                              staticClass:
+                                "product__card product__card--list d-flex",
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--thumbnail product__card--list__thumbnail",
+                                },
+                                [
+                                  _vm._m(25),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "product__card--action d-flex align-items-center justify-content-center",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Wishlist",
+                                                href: "wishlist.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "25.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-linejoin":
+                                                        "round",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Wishlist")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Quick View",
+                                                "data-open": "modal1",
+                                                href: "javascript:void(0)",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "24.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                  _c("path", {
+                                                    attrs: {
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                      d: "M338.29 338.29L448 448",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Quick View")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Compare",
+                                                href: "compare.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "19.51",
+                                                    height: "18.443",
+                                                    viewBox: "0 0 20 20",
+                                                    fill: "currentColor",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Compare")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(26),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--content product__card--list__content",
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { staticClass: "product__card--meta__tag" },
+                                    [_vm._v("Watch,Woman")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(27),
+                                  _vm._v(" "),
+                                  _vm._m(28),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "rating product__card--list__rating d-flex",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._m(29),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "product__list--items__content--desc d-lg-none mb-20",
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia voluptas dolore doloribus architecto sequi corporis deleniti officia culpa dolor esse consectetur eligendi, natus at rem ab quae amet molestiae quod voluptates, illo exercitationem numquam ipsa."
+                                      ),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "product__card--btn primary__btn",
+                                      attrs: { href: "cart.html" },
+                                    },
+                                    [_vm._v("Add To Card")]
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col mb-30" }, [
+                          _c(
+                            "article",
+                            {
+                              staticClass:
+                                "product__card product__card--list d-flex",
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--thumbnail product__card--list__thumbnail",
+                                },
+                                [
+                                  _vm._m(30),
+                                  _vm._v(" "),
+                                  _vm._m(31),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "product__card--action d-flex align-items-center justify-content-center",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Wishlist",
+                                                href: "wishlist.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "25.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-linejoin":
+                                                        "round",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Wishlist")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Quick View",
+                                                "data-open": "modal1",
+                                                href: "javascript:void(0)",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "24.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                  _c("path", {
+                                                    attrs: {
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                      d: "M338.29 338.29L448 448",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Quick View")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Compare",
+                                                href: "compare.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "19.51",
+                                                    height: "18.443",
+                                                    viewBox: "0 0 20 20",
+                                                    fill: "currentColor",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Compare")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--content product__card--list__content",
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { staticClass: "product__card--meta__tag" },
+                                    [_vm._v("Watch,Woman")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(32),
+                                  _vm._v(" "),
+                                  _vm._m(33),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "rating product__card--list__rating d-flex",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._m(34),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "product__list--items__content--desc d-lg-none mb-20",
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia voluptas dolore doloribus architecto sequi corporis deleniti officia culpa dolor esse consectetur eligendi, natus at rem ab quae amet molestiae quod voluptates, illo exercitationem numquam ipsa."
+                                      ),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "product__card--btn primary__btn",
+                                      attrs: { href: "cart.html" },
+                                    },
+                                    [_vm._v("Add To Card")]
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col mb-30" }, [
+                          _c(
+                            "article",
+                            {
+                              staticClass:
+                                "product__card product__card--list d-flex",
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--thumbnail product__card--list__thumbnail",
+                                },
+                                [
+                                  _vm._m(35),
+                                  _vm._v(" "),
+                                  _vm._m(36),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "product__card--action d-flex align-items-center justify-content-center",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Wishlist",
+                                                href: "wishlist.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "25.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-linejoin":
+                                                        "round",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Wishlist")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Quick View",
+                                                "data-open": "modal1",
+                                                href: "javascript:void(0)",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "24.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                  _c("path", {
+                                                    attrs: {
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                      d: "M338.29 338.29L448 448",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Quick View")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Compare",
+                                                href: "compare.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "19.51",
+                                                    height: "18.443",
+                                                    viewBox: "0 0 20 20",
+                                                    fill: "currentColor",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Compare")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--content product__card--list__content",
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { staticClass: "product__card--meta__tag" },
+                                    [_vm._v("Watch,Woman")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(37),
+                                  _vm._v(" "),
+                                  _vm._m(38),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "rating product__card--list__rating d-flex",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._m(39),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "product__list--items__content--desc d-lg-none mb-20",
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia voluptas dolore doloribus architecto sequi corporis deleniti officia culpa dolor esse consectetur eligendi, natus at rem ab quae amet molestiae quod voluptates, illo exercitationem numquam ipsa."
+                                      ),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "product__card--btn primary__btn",
+                                      attrs: { href: "cart.html" },
+                                    },
+                                    [_vm._v("Add To Card")]
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col mb-30" }, [
+                          _c(
+                            "article",
+                            {
+                              staticClass:
+                                "product__card product__card--list d-flex",
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--thumbnail product__card--list__thumbnail",
+                                },
+                                [
+                                  _vm._m(40),
+                                  _vm._v(" "),
+                                  _vm._m(41),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "product__card--action d-flex align-items-center justify-content-center",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Wishlist",
+                                                href: "wishlist.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "25.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-linejoin":
+                                                        "round",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Wishlist")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Quick View",
+                                                "data-open": "modal1",
+                                                href: "javascript:void(0)",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "24.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                  _c("path", {
+                                                    attrs: {
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                      d: "M338.29 338.29L448 448",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Quick View")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Compare",
+                                                href: "compare.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "19.51",
+                                                    height: "18.443",
+                                                    viewBox: "0 0 20 20",
+                                                    fill: "currentColor",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Compare")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--content product__card--list__content",
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { staticClass: "product__card--meta__tag" },
+                                    [_vm._v("Watch,Woman")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(42),
+                                  _vm._v(" "),
+                                  _vm._m(43),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "rating product__card--list__rating d-flex",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._m(44),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "product__list--items__content--desc d-lg-none mb-20",
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia voluptas dolore doloribus architecto sequi corporis deleniti officia culpa dolor esse consectetur eligendi, natus at rem ab quae amet molestiae quod voluptates, illo exercitationem numquam ipsa."
+                                      ),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "product__card--btn primary__btn",
+                                      attrs: { href: "cart.html" },
+                                    },
+                                    [_vm._v("Add To Card")]
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col mb-30" }, [
+                          _c(
+                            "article",
+                            {
+                              staticClass:
+                                "product__card product__card--list d-flex",
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--thumbnail product__card--list__thumbnail",
+                                },
+                                [
+                                  _vm._m(45),
+                                  _vm._v(" "),
+                                  _vm._m(46),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "product__card--action d-flex align-items-center justify-content-center",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Wishlist",
+                                                href: "wishlist.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "25.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-linejoin":
+                                                        "round",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Wishlist")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Quick View",
+                                                "data-open": "modal1",
+                                                href: "javascript:void(0)",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "24.51",
+                                                    height: "22.443",
+                                                    viewBox: "0 0 512 512",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z",
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                    },
+                                                  }),
+                                                  _c("path", {
+                                                    attrs: {
+                                                      fill: "none",
+                                                      stroke: "currentColor",
+                                                      "stroke-linecap": "round",
+                                                      "stroke-miterlimit": "10",
+                                                      "stroke-width": "32",
+                                                      d: "M338.29 338.29L448 448",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Quick View")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        {
+                                          staticClass:
+                                            "product__card--action__list",
+                                        },
+                                        [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass:
+                                                "product__card--action__btn",
+                                              attrs: {
+                                                title: "Compare",
+                                                href: "compare.html",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "product__card--action__btn--svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "19.51",
+                                                    height: "18.443",
+                                                    viewBox: "0 0 20 20",
+                                                    fill: "currentColor",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "visually-hidden",
+                                                },
+                                                [_vm._v("Compare")]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "product__card--content product__card--list__content",
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { staticClass: "product__card--meta__tag" },
+                                    [_vm._v("Watch,Woman")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(47),
+                                  _vm._v(" "),
+                                  _vm._m(48),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    {
+                                      staticClass:
+                                        "rating product__card--list__rating d-flex",
+                                    },
+                                    [
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "li",
+                                        { staticClass: "rating__list" },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass: "rating__list--icon",
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass:
+                                                    "rating__list--icon__svg",
+                                                  attrs: {
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg",
+                                                    width: "11.105",
+                                                    height: "11.732",
+                                                    viewBox: "0 0 10.105 9.732",
+                                                  },
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "data-name":
+                                                        "star - Copy",
+                                                      d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                                      transform:
+                                                        "translate(0 -0.018)",
+                                                      fill: "currentColor",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._m(49),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "product__list--items__content--desc d-lg-none mb-20",
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia voluptas dolore doloribus architecto sequi corporis deleniti officia culpa dolor esse consectetur eligendi, natus at rem ab quae amet molestiae quod voluptates, illo exercitationem numquam ipsa."
+                                      ),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "product__card--btn primary__btn",
+                                      attrs: { href: "cart.html" },
+                                    },
+                                    [_vm._v("Add To Card")]
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "pagination__area bg__gray--color" }, [
+                _c("nav", { staticClass: "pagination" }, [
+                  _c(
+                    "ul",
+                    {
+                      staticClass:
+                        "pagination__wrapper d-flex align-items-center justify-content-center",
+                    },
+                    [
+                      _c("li", { staticClass: "pagination__list" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "pagination__item--arrow link",
+                            attrs: { href: "shop.html" },
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "22.51",
+                                  height: "20.443",
+                                  viewBox: "0 0 512 512",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    "stroke-width": "48",
+                                    d: "M244 400L100 256l144-144M120 256h292",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "visually-hidden" }, [
+                              _vm._v("pagination arrow"),
+                            ]),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(50),
+                      _vm._v(" "),
+                      _vm._m(51),
+                      _vm._v(" "),
+                      _vm._m(52),
+                      _vm._v(" "),
+                      _vm._m(53),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "pagination__list" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "pagination__item--arrow link",
+                            attrs: { href: "shop.html" },
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "22.51",
+                                  height: "20.443",
+                                  viewBox: "0 0 512 512",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    "stroke-width": "48",
+                                    d: "M268 112l144 144-144 144M392 256H100",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "visually-hidden" }, [
+                              _vm._v("pagination arrow"),
+                            ]),
+                          ]
+                        ),
+                      ]),
+                    ]
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal",
+        attrs: { id: "modal1", "data-animation": "slideInUp" },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog quickview__main--wrapper" }, [
+          _vm._m(54),
+          _vm._v(" "),
+          _c("div", { staticClass: "quickview__inner" }, [
+            _c("div", { staticClass: "row row-cols-lg-2 row-cols-md-2" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "quickview__gallery" }, [
+                  _c(
+                    "div",
+                    { staticClass: "product__media--right__horizontal" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product__media--preview__horizontal swiper",
+                        },
+                        [
+                          _c("div", { staticClass: "swiper-wrapper" }, [
+                            _c("div", { staticClass: "swiper-slide" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "product__media--preview__items",
+                                },
+                                [
+                                  _vm._m(55),
+                                  _vm._v(" "),
+                                  _vm._m(56),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "product__media--view__icon",
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "product__media--view__icon--link glightbox",
+                                          attrs: {
+                                            href: "assets/img/product/product2.webp",
+                                            "data-gallery":
+                                              "product-media-preview",
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                "xmlns:xlink":
+                                                  "http://www.w3.org/1999/xlink",
+                                                width: "18",
+                                                height: "18",
+                                                viewBox: "0 0 18 18",
+                                              },
+                                            },
+                                            [
+                                              _c("image", {
+                                                attrs: {
+                                                  width: "18",
+                                                  height: "18",
+                                                  "xlink:href":
+                                                    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAVhJREFUOE/llLtKA0EUhjdY+BD6ABaW3tIYTWEhiKKCCGIgqGhCgqXvoQFRQdBGERQvUaJFgilVRHwF8RWCWqzfD7OyjrPZ7R342HP2nP1n58yZSfm+/+F53ivUoAseoALtxirBIXiHLPSlEHrBaMGyEYzR+BXuwduHTgltYNzBKSxAM6HSAHknMAf9EqpjjEIGzmAK7mPE0sSrRkQ/cSWhIkZQE4kdwzxoAteQiCbMgeqqsSIhO3nEJK7xPLKC0/h7oT/5CbuEFByDCShDeKZNfC3lwp49SihiVdGv/6GQdm4WSlaxt/AvQ9vedteCZlsn68Aqr/pLPfenaVVsHcBt80HQbIv4txF75GravIQafKClDMKNq9kcgspXd0+CjlM1OLTXZu1LPNVwScYwSYcwA2kJPWJ8QQGekyiEcnqxd6BDQp8YupPOoRueYDdGME9c18gbjMv+BiJYeHc6xpjnAAAAAElFTkSuQmCC",
+                                                },
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "visually-hidden" },
+                                            [_vm._v("Media Gallery")]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "swiper-slide" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "product__media--preview__items",
+                                },
+                                [
+                                  _vm._m(57),
+                                  _vm._v(" "),
+                                  _vm._m(58),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "product__media--view__icon",
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "product__media--view__icon--link glightbox",
+                                          attrs: {
+                                            href: "assets/img/product/product1.webp",
+                                            "data-gallery":
+                                              "product-media-preview",
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                "xmlns:xlink":
+                                                  "http://www.w3.org/1999/xlink",
+                                                width: "18",
+                                                height: "18",
+                                                viewBox: "0 0 18 18",
+                                              },
+                                            },
+                                            [
+                                              _c("image", {
+                                                attrs: {
+                                                  width: "18",
+                                                  height: "18",
+                                                  "xlink:href":
+                                                    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAVhJREFUOE/llLtKA0EUhjdY+BD6ABaW3tIYTWEhiKKCCGIgqGhCgqXvoQFRQdBGERQvUaJFgilVRHwF8RWCWqzfD7OyjrPZ7R342HP2nP1n58yZSfm+/+F53ivUoAseoALtxirBIXiHLPSlEHrBaMGyEYzR+BXuwduHTgltYNzBKSxAM6HSAHknMAf9EqpjjEIGzmAK7mPE0sSrRkQ/cSWhIkZQE4kdwzxoAteQiCbMgeqqsSIhO3nEJK7xPLKC0/h7oT/5CbuEFByDCShDeKZNfC3lwp49SihiVdGv/6GQdm4WSlaxt/AvQ9vedteCZlsn68Aqr/pLPfenaVVsHcBt80HQbIv4txF75GravIQafKClDMKNq9kcgspXd0+CjlM1OLTXZu1LPNVwScYwSYcwA2kJPWJ8QQGekyiEcnqxd6BDQp8YupPOoRueYDdGME9c18gbjMv+BiJYeHc6xpjnAAAAAElFTkSuQmCC",
+                                                },
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "visually-hidden" },
+                                            [_vm._v("Media Gallery")]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "swiper-slide" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "product__media--preview__items",
+                                },
+                                [
+                                  _vm._m(59),
+                                  _vm._v(" "),
+                                  _vm._m(60),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "product__media--view__icon",
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "product__media--view__icon--link glightbox",
+                                          attrs: {
+                                            href: "assets/img/product/product3.webp",
+                                            "data-gallery":
+                                              "product-media-preview",
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                "xmlns:xlink":
+                                                  "http://www.w3.org/1999/xlink",
+                                                width: "18",
+                                                height: "18",
+                                                viewBox: "0 0 18 18",
+                                              },
+                                            },
+                                            [
+                                              _c("image", {
+                                                attrs: {
+                                                  width: "18",
+                                                  height: "18",
+                                                  "xlink:href":
+                                                    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAVhJREFUOE/llLtKA0EUhjdY+BD6ABaW3tIYTWEhiKKCCGIgqGhCgqXvoQFRQdBGERQvUaJFgilVRHwF8RWCWqzfD7OyjrPZ7R342HP2nP1n58yZSfm+/+F53ivUoAseoALtxirBIXiHLPSlEHrBaMGyEYzR+BXuwduHTgltYNzBKSxAM6HSAHknMAf9EqpjjEIGzmAK7mPE0sSrRkQ/cSWhIkZQE4kdwzxoAteQiCbMgeqqsSIhO3nEJK7xPLKC0/h7oT/5CbuEFByDCShDeKZNfC3lwp49SihiVdGv/6GQdm4WSlaxt/AvQ9vedteCZlsn68Aqr/pLPfenaVVsHcBt80HQbIv4txF75GravIQafKClDMKNq9kcgspXd0+CjlM1OLTXZu1LPNVwScYwSYcwA2kJPWJ8QQGekyiEcnqxd6BDQp8YupPOoRueYDdGME9c18gbjMv+BiJYeHc6xpjnAAAAAElFTkSuQmCC",
+                                                },
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "visually-hidden" },
+                                            [_vm._v("Media Gallery")]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "swiper-slide" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "product__media--preview__items",
+                                },
+                                [
+                                  _vm._m(61),
+                                  _vm._v(" "),
+                                  _vm._m(62),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "product__media--view__icon",
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "product__media--view__icon--link glightbox",
+                                          attrs: {
+                                            href: "assets/img/product/product4.webp",
+                                            "data-gallery":
+                                              "product-media-preview",
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                "xmlns:xlink":
+                                                  "http://www.w3.org/1999/xlink",
+                                                width: "18",
+                                                height: "18",
+                                                viewBox: "0 0 18 18",
+                                              },
+                                            },
+                                            [
+                                              _c("image", {
+                                                attrs: {
+                                                  width: "18",
+                                                  height: "18",
+                                                  "xlink:href":
+                                                    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAVhJREFUOE/llLtKA0EUhjdY+BD6ABaW3tIYTWEhiKKCCGIgqGhCgqXvoQFRQdBGERQvUaJFgilVRHwF8RWCWqzfD7OyjrPZ7R342HP2nP1n58yZSfm+/+F53ivUoAseoALtxirBIXiHLPSlEHrBaMGyEYzR+BXuwduHTgltYNzBKSxAM6HSAHknMAf9EqpjjEIGzmAK7mPE0sSrRkQ/cSWhIkZQE4kdwzxoAteQiCbMgeqqsSIhO3nEJK7xPLKC0/h7oT/5CbuEFByDCShDeKZNfC3lwp49SihiVdGv/6GQdm4WSlaxt/AvQ9vedteCZlsn68Aqr/pLPfenaVVsHcBt80HQbIv4txF75GravIQafKClDMKNq9kcgspXd0+CjlM1OLTXZu1LPNVwScYwSYcwA2kJPWJ8QQGekyiEcnqxd6BDQp8YupPOoRueYDdGME9c18gbjMv+BiJYeHc6xpjnAAAAAElFTkSuQmCC",
+                                                },
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "visually-hidden" },
+                                            [_vm._v("Media Gallery")]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "swiper-slide" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "product__media--preview__items",
+                                },
+                                [
+                                  _vm._m(63),
+                                  _vm._v(" "),
+                                  _vm._m(64),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "product__media--view__icon",
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "product__media--view__icon--link glightbox",
+                                          attrs: {
+                                            href: "assets/img/product/product5.webp",
+                                            "data-gallery":
+                                              "product-media-preview",
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                "xmlns:xlink":
+                                                  "http://www.w3.org/1999/xlink",
+                                                width: "18",
+                                                height: "18",
+                                                viewBox: "0 0 18 18",
+                                              },
+                                            },
+                                            [
+                                              _c("image", {
+                                                attrs: {
+                                                  width: "18",
+                                                  height: "18",
+                                                  "xlink:href":
+                                                    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAVhJREFUOE/llLtKA0EUhjdY+BD6ABaW3tIYTWEhiKKCCGIgqGhCgqXvoQFRQdBGERQvUaJFgilVRHwF8RWCWqzfD7OyjrPZ7R342HP2nP1n58yZSfm+/+F53ivUoAseoALtxirBIXiHLPSlEHrBaMGyEYzR+BXuwduHTgltYNzBKSxAM6HSAHknMAf9EqpjjEIGzmAK7mPE0sSrRkQ/cSWhIkZQE4kdwzxoAteQiCbMgeqqsSIhO3nEJK7xPLKC0/h7oT/5CbuEFByDCShDeKZNfC3lwp49SihiVdGv/6GQdm4WSlaxt/AvQ9vedteCZlsn68Aqr/pLPfenaVVsHcBt80HQbIv4txF75GravIQafKClDMKNq9kcgspXd0+CjlM1OLTXZu1LPNVwScYwSYcwA2kJPWJ8QQGekyiEcnqxd6BDQp8YupPOoRueYDdGME9c18gbjMv+BiJYeHc6xpjnAAAAAElFTkSuQmCC",
+                                                },
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "visually-hidden" },
+                                            [_vm._v("Media Gallery")]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "swiper-slide" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "product__media--preview__items",
+                                },
+                                [
+                                  _vm._m(65),
+                                  _vm._v(" "),
+                                  _vm._m(66),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "product__media--view__icon",
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "product__media--view__icon--link glightbox",
+                                          attrs: {
+                                            href: "assets/img/product/product6.webp",
+                                            "data-gallery":
+                                              "product-media-preview",
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                "xmlns:xlink":
+                                                  "http://www.w3.org/1999/xlink",
+                                                width: "18",
+                                                height: "18",
+                                                viewBox: "0 0 18 18",
+                                              },
+                                            },
+                                            [
+                                              _c("image", {
+                                                attrs: {
+                                                  width: "18",
+                                                  height: "18",
+                                                  "xlink:href":
+                                                    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAVhJREFUOE/llLtKA0EUhjdY+BD6ABaW3tIYTWEhiKKCCGIgqGhCgqXvoQFRQdBGERQvUaJFgilVRHwF8RWCWqzfD7OyjrPZ7R342HP2nP1n58yZSfm+/+F53ivUoAseoALtxirBIXiHLPSlEHrBaMGyEYzR+BXuwduHTgltYNzBKSxAM6HSAHknMAf9EqpjjEIGzmAK7mPE0sSrRkQ/cSWhIkZQE4kdwzxoAteQiCbMgeqqsSIhO3nEJK7xPLKC0/h7oT/5CbuEFByDCShDeKZNfC3lwp49SihiVdGv/6GQdm4WSlaxt/AvQ9vedteCZlsn68Aqr/pLPfenaVVsHcBt80HQbIv4txF75GravIQafKClDMKNq9kcgspXd0+CjlM1OLTXZu1LPNVwScYwSYcwA2kJPWJ8QQGekyiEcnqxd6BDQp8YupPOoRueYDdGME9c18gbjMv+BiJYeHc6xpjnAAAAAElFTkSuQmCC",
+                                                },
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            { staticClass: "visually-hidden" },
+                                            [_vm._v("Media Gallery")]
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                          ]),
+                        ]
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(67),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "quickview__info" }, [
+                  _c("form", { attrs: { action: "#" } }, [
+                    _c(
+                      "h2",
+                      { staticClass: "product__details--info__title h4 mb-10" },
+                      [_vm._v("BASIC MICRO DAYS MONEY BACK.")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "product__details--info__rating d-flex align-items-center mb-10",
+                      },
+                      [
+                        _c(
+                          "ul",
+                          {
+                            staticClass: "rating product__list--rating d-flex",
+                          },
+                          [
+                            _c("li", { staticClass: "rating__list" }, [
+                              _c(
+                                "span",
+                                { staticClass: "rating__list--icon" },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "rating__list--icon__svg",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "13.105",
+                                        height: "13.732",
+                                        viewBox: "0 0 10.105 9.732",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "data-name": "star - Copy",
+                                          d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                          transform: "translate(0 -0.018)",
+                                          fill: "currentColor",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "rating__list" }, [
+                              _c(
+                                "span",
+                                { staticClass: "rating__list--icon" },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "rating__list--icon__svg",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "13.105",
+                                        height: "13.732",
+                                        viewBox: "0 0 10.105 9.732",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "data-name": "star - Copy",
+                                          d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                          transform: "translate(0 -0.018)",
+                                          fill: "currentColor",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "rating__list" }, [
+                              _c(
+                                "span",
+                                { staticClass: "rating__list--icon" },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "rating__list--icon__svg",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "13.105",
+                                        height: "13.732",
+                                        viewBox: "0 0 10.105 9.732",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "data-name": "star - Copy",
+                                          d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                          transform: "translate(0 -0.018)",
+                                          fill: "currentColor",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "rating__list" }, [
+                              _c(
+                                "span",
+                                { staticClass: "rating__list--icon" },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "rating__list--icon__svg",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "13.105",
+                                        height: "13.732",
+                                        viewBox: "0 0 10.105 9.732",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "data-name": "star - Copy",
+                                          d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                          transform: "translate(0 -0.018)",
+                                          fill: "currentColor",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "rating__list" }, [
+                              _c(
+                                "span",
+                                { staticClass: "rating__list--icon" },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "rating__list--icon__svg",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "13.105",
+                                        height: "13.732",
+                                        viewBox: "0 0 10.105 9.732",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "data-name": "star - Copy",
+                                          d: "M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z",
+                                          transform: "translate(0 -0.018)",
+                                          fill: "currentColor",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(68),
+                          ]
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(69),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      { staticClass: "product__details--info__desc mb-15" },
+                      [
+                        _vm._v(
+                          "Lorem ipsum dolor sit amet consectetur the are adipisicing elit. Aut numquam ullam is sequi."
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(70),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "quickview__social" }, [
+                      _c("label", { staticClass: "quickview__social--title" }, [
+                        _vm._v("Social Share:"),
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "ul",
+                        {
+                          staticClass: "quickview__social--wrapper mt-0 d-flex",
+                        },
+                        [
+                          _c("li", { staticClass: "quickview__social--list" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "quickview__social--icon",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "https://www.facebook.com/",
+                                },
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      width: "7.667",
+                                      height: "16.524",
+                                      viewBox: "0 0 7.667 16.524",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "data-name": "Path 237",
+                                        d: "M967.495,353.678h-2.3v8.253h-3.437v-8.253H960.13V350.77h1.624v-1.888a4.087,4.087,0,0,1,.264-1.492,2.9,2.9,0,0,1,1.039-1.379,3.626,3.626,0,0,1,2.153-.6l2.549.019v2.833h-1.851a.732.732,0,0,0-.472.151.8.8,0,0,0-.246.642v1.719H967.8Z",
+                                        transform:
+                                          "translate(-960.13 -345.407)",
+                                        fill: "currentColor",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "visually-hidden" }, [
+                                  _vm._v("Facebook"),
+                                ]),
+                              ]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "quickview__social--list" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "quickview__social--icon",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "https://twitter.com/",
+                                },
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      width: "16.489",
+                                      height: "13.384",
+                                      viewBox: "0 0 16.489 13.384",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "data-name": "Path 303",
+                                        d: "M966.025,1144.2v.433a9.783,9.783,0,0,1-.621,3.388,10.1,10.1,0,0,1-1.845,3.087,9.153,9.153,0,0,1-3.012,2.259,9.825,9.825,0,0,1-4.122.866,9.632,9.632,0,0,1-2.748-.4,9.346,9.346,0,0,1-2.447-1.11q.4.038.809.038a6.723,6.723,0,0,0,2.24-.376,7.022,7.022,0,0,0,1.958-1.054,3.379,3.379,0,0,1-1.958-.687,3.259,3.259,0,0,1-1.186-1.666,3.364,3.364,0,0,0,.621.056,3.488,3.488,0,0,0,.885-.113,3.267,3.267,0,0,1-1.374-.631,3.356,3.356,0,0,1-.969-1.186,3.524,3.524,0,0,1-.367-1.5v-.057a3.172,3.172,0,0,0,1.544.433,3.407,3.407,0,0,1-1.1-1.214,3.308,3.308,0,0,1-.4-1.609,3.362,3.362,0,0,1,.452-1.694,9.652,9.652,0,0,0,6.964,3.538,3.911,3.911,0,0,1-.075-.772,3.293,3.293,0,0,1,.452-1.694,3.409,3.409,0,0,1,1.233-1.233,3.257,3.257,0,0,1,1.685-.461,3.351,3.351,0,0,1,2.466,1.073,6.572,6.572,0,0,0,2.146-.828,3.272,3.272,0,0,1-.574,1.083,3.477,3.477,0,0,1-.913.8,6.869,6.869,0,0,0,1.958-.546A7.074,7.074,0,0,1,966.025,1144.2Z",
+                                        transform:
+                                          "translate(-951.23 -1140.849)",
+                                        fill: "currentColor",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "visually-hidden" }, [
+                                  _vm._v("Twitter"),
+                                ]),
+                              ]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "quickview__social--list" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "quickview__social--icon",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "https://www.instagram.com/",
+                                },
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      width: "17.497",
+                                      height: "17.492",
+                                      viewBox: "0 0 19.497 19.492",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "data-name": "Icon awesome-instagram",
+                                        d: "M9.747,6.24a5,5,0,1,0,5,5A4.99,4.99,0,0,0,9.747,6.24Zm0,8.247A3.249,3.249,0,1,1,13,11.238a3.255,3.255,0,0,1-3.249,3.249Zm6.368-8.451A1.166,1.166,0,1,1,14.949,4.87,1.163,1.163,0,0,1,16.115,6.036Zm3.31,1.183A5.769,5.769,0,0,0,17.85,3.135,5.807,5.807,0,0,0,13.766,1.56c-1.609-.091-6.433-.091-8.042,0A5.8,5.8,0,0,0,1.64,3.13,5.788,5.788,0,0,0,.065,7.215c-.091,1.609-.091,6.433,0,8.042A5.769,5.769,0,0,0,1.64,19.341a5.814,5.814,0,0,0,4.084,1.575c1.609.091,6.433.091,8.042,0a5.769,5.769,0,0,0,4.084-1.575,5.807,5.807,0,0,0,1.575-4.084c.091-1.609.091-6.429,0-8.038Zm-2.079,9.765a3.289,3.289,0,0,1-1.853,1.853c-1.283.509-4.328.391-5.746.391S5.28,19.341,4,18.837a3.289,3.289,0,0,1-1.853-1.853c-.509-1.283-.391-4.328-.391-5.746s-.113-4.467.391-5.746A3.289,3.289,0,0,1,4,3.639c1.283-.509,4.328-.391,5.746-.391s4.467-.113,5.746.391a3.289,3.289,0,0,1,1.853,1.853c.509,1.283.391,4.328.391,5.746S17.855,15.705,17.346,16.984Z",
+                                        transform: "translate(0.004 -1.492)",
+                                        fill: "currentColor",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "visually-hidden" }, [
+                                  _vm._v("Instagram"),
+                                ]),
+                              ]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "quickview__social--list" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "quickview__social--icon",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "https://www.youtube.com/",
+                                },
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      width: "16.49",
+                                      height: "11.582",
+                                      viewBox: "0 0 16.49 11.582",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "data-name": "Path 321",
+                                        d: "M967.759,1365.592q0,1.377-.019,1.717-.076,1.114-.151,1.622a3.981,3.981,0,0,1-.245.925,1.847,1.847,0,0,1-.453.717,2.171,2.171,0,0,1-1.151.6q-3.585.265-7.641.189-2.377-.038-3.387-.085a11.337,11.337,0,0,1-1.5-.142,2.206,2.206,0,0,1-1.113-.585,2.562,2.562,0,0,1-.528-1.037,3.523,3.523,0,0,1-.141-.585c-.032-.2-.06-.5-.085-.906a38.894,38.894,0,0,1,0-4.867l.113-.925a4.382,4.382,0,0,1,.208-.906,2.069,2.069,0,0,1,.491-.755,2.409,2.409,0,0,1,1.113-.566,19.2,19.2,0,0,1,2.292-.151q1.82-.056,3.953-.056t3.952.066q1.821.067,2.311.142a2.3,2.3,0,0,1,.726.283,1.865,1.865,0,0,1,.557.49,3.425,3.425,0,0,1,.434,1.019,5.72,5.72,0,0,1,.189,1.075q0,.095.057,1C967.752,1364.1,967.759,1364.677,967.759,1365.592Zm-7.6.925q1.49-.754,2.113-1.094l-4.434-2.339v4.66Q958.609,1367.311,960.156,1366.517Z",
+                                        transform:
+                                          "translate(-951.269 -1359.8)",
+                                        fill: "currentColor",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("span", { staticClass: "visually-hidden" }, [
+                                  _vm._v("Youtube"),
+                                ]),
+                              ]
+                            ),
+                          ]),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("input", {
+        staticClass: "widget__search--form__input border-0",
+        attrs: { placeholder: "Search by", type: "text" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "widget__categories--sub__menu" }, [
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product2.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Jacket, Women"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product3.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Woolend Jacket"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product4.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Western denim"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product5.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Mini Dresss"),
+            ]),
+          ]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "widget__categories--sub__menu" }, [
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product2.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Jacket, Women"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product3.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Woolend Jacket"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product4.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Western denim"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product5.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Mini Dresss"),
+            ]),
+          ]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "widget__categories--sub__menu" }, [
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product2.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Jacket, Women"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product3.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Woolend Jacket"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product4.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Western denim"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product5.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Mini Dresss"),
+            ]),
+          ]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "widget__categories--sub__menu" }, [
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product2.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Jacket, Women"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product3.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Woolend Jacket"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product4.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Western denim"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "widget__categories--sub__menu--list" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "widget__categories--sub__menu--link d-flex align-items-center",
+            attrs: { href: "shop.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "widget__categories--sub__menu--img",
+              attrs: {
+                src: "assets/img/product/small-product5.webp",
+                alt: "categories-img",
+              },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "widget__categories--sub__menu--text" }, [
+              _vm._v("Mini Dresss"),
+            ]),
+          ]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "single__widget price__filter widget__bg" },
+      [
+        _c("h2", { staticClass: "widget__title position__relative h3" }, [
+          _vm._v("Filter By Price"),
+        ]),
+        _vm._v(" "),
+        _c(
+          "form",
+          { staticClass: "price__filter--form", attrs: { action: "#" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "price__filter--form__inner mb-15 d-flex align-items-center",
+              },
+              [
+                _c("div", { staticClass: "price__filter--group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "price__filter--label",
+                      attrs: { for: "Filter-Price-GTE1" },
+                    },
+                    [_vm._v("From")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "price__filter--input border-radius-5 d-flex align-items-center",
+                    },
+                    [
+                      _c("span", { staticClass: "price__filter--currency" }, [
+                        _vm._v("$"),
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "price__filter--input__field border-0",
+                        attrs: {
+                          id: "Filter-Price-GTE1",
+                          name: "filter.v.price.gte",
+                          type: "number",
+                          placeholder: "0",
+                          min: "0",
+                          max: "250.00",
+                        },
+                      }),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "price__divider" }, [
+                  _c("span", [_vm._v("-")]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "price__filter--group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "price__filter--label",
+                      attrs: { for: "Filter-Price-LTE1" },
+                    },
+                    [_vm._v("To")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "price__filter--input border-radius-5 d-flex align-items-center",
+                    },
+                    [
+                      _c("span", { staticClass: "price__filter--currency" }, [
+                        _vm._v("$"),
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "price__filter--input__field border-0",
+                        attrs: {
+                          id: "Filter-Price-LTE1",
+                          name: "filter.v.price.lte",
+                          type: "number",
+                          min: "0",
+                          placeholder: "250.00",
+                          max: "250.00",
+                        },
+                      }),
+                    ]
+                  ),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "price__filter--btn primary__btn",
+                attrs: { type: "submit" },
+              },
+              [_vm._v("Filter")]
+            ),
+          ]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "single__widget widget__bg" }, [
+      _c("h2", { staticClass: "widget__title position__relative h3" }, [
+        _vm._v("Dietary Needs"),
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "widget__form--check" }, [
+        _c("li", { staticClass: "widget__form--check__list" }, [
+          _c(
+            "label",
+            {
+              staticClass: "widget__form--check__label",
+              attrs: { for: "check1" },
+            },
+            [_vm._v("Denim shirt")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "widget__form--check__input",
+            attrs: { id: "check1", type: "checkbox" },
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "widget__form--checkmark" }),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__form--check__list" }, [
+          _c(
+            "label",
+            {
+              staticClass: "widget__form--check__label",
+              attrs: { for: "check2" },
+            },
+            [_vm._v("Need Winter")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "widget__form--check__input",
+            attrs: { id: "check2", type: "checkbox" },
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "widget__form--checkmark" }),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__form--check__list" }, [
+          _c(
+            "label",
+            {
+              staticClass: "widget__form--check__label",
+              attrs: { for: "check3" },
+            },
+            [_vm._v("Fashion Trends")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "widget__form--check__input",
+            attrs: { id: "check3", type: "checkbox" },
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "widget__form--checkmark" }),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__form--check__list" }, [
+          _c(
+            "label",
+            {
+              staticClass: "widget__form--check__label",
+              attrs: { for: "check4" },
+            },
+            [_vm._v("Oversize Cotton")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "widget__form--check__input",
+            attrs: { id: "check4", type: "checkbox" },
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "widget__form--checkmark" }),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "small__product--thumbnail position__relative" },
+      [
+        _c(
+          "a",
+          {
+            staticClass: "small__product--link display-block",
+            attrs: { href: "product-details.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "small__product--img display-block",
+              attrs: {
+                src: "assets/img/product/small-product1.webp",
+                alt: "product-img",
+              },
+            }),
+          ]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "small__product--title h4" }, [
+      _c("a", { attrs: { href: "product-details.html" } }, [
+        _vm._v("Advanced Analytic "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "small__product--price" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$245")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $356")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "rating__list" }, [
+      _c("span", { staticClass: "rating__list--text" }, [_vm._v("( 5.0)")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "small__product--thumbnail position__relative" },
+      [
+        _c(
+          "a",
+          {
+            staticClass: "small__product--link display-block",
+            attrs: { href: "product-details.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "small__product--img display-block",
+              attrs: {
+                src: "assets/img/product/small-product2.webp",
+                alt: "product-img",
+              },
+            }),
+          ]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "small__product--title h4" }, [
+      _c("a", { attrs: { href: "product-details.html" } }, [
+        _vm._v("Advanced To Watch ww  "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "small__product--price" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$255")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $375")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "rating__list" }, [
+      _c("span", { staticClass: "rating__list--text" }, [_vm._v("( 5.0)")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "small__product--thumbnail position__relative" },
+      [
+        _c(
+          "a",
+          {
+            staticClass: "small__product--link display-block",
+            attrs: { href: "product-details.html" },
+          },
+          [
+            _c("img", {
+              staticClass: "small__product--img display-block",
+              attrs: {
+                src: "assets/img/product/small-product3.webp",
+                alt: "product-img",
+              },
+            }),
+          ]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "small__product--title h4" }, [
+      _c("a", { attrs: { href: "product-details.html" } }, [
+        _vm._v("Lorem ipsum dolor. "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "small__product--price" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$230")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $330")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "rating__list" }, [
+      _c("span", { staticClass: "rating__list--text" }, [_vm._v("( 5.0)")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "single__widget widget__bg" }, [
+      _c("h2", { staticClass: "widget__title position__relative h3" }, [
+        _vm._v("Brands"),
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "widget__tagcloud" }, [
+        _c("li", { staticClass: "widget__tagcloud--list" }, [
+          _c(
+            "a",
+            {
+              staticClass: "widget__tagcloud--link",
+              attrs: { href: "shop.html" },
+            },
+            [_vm._v("Wooden")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__tagcloud--list" }, [
+          _c(
+            "a",
+            {
+              staticClass: "widget__tagcloud--link",
+              attrs: { href: "shop.html" },
+            },
+            [_vm._v("Chair")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__tagcloud--list" }, [
+          _c(
+            "a",
+            {
+              staticClass: "widget__tagcloud--link",
+              attrs: { href: "shop.html" },
+            },
+            [_vm._v("Modern")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__tagcloud--list" }, [
+          _c(
+            "a",
+            {
+              staticClass: "widget__tagcloud--link",
+              attrs: { href: "shop.html" },
+            },
+            [_vm._v("Fabric  ")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__tagcloud--list" }, [
+          _c(
+            "a",
+            {
+              staticClass: "widget__tagcloud--link",
+              attrs: { href: "shop.html" },
+            },
+            [_vm._v("Shoulder ")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__tagcloud--list" }, [
+          _c(
+            "a",
+            {
+              staticClass: "widget__tagcloud--link",
+              attrs: { href: "shop.html" },
+            },
+            [_vm._v("Winter")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__tagcloud--list" }, [
+          _c(
+            "a",
+            {
+              staticClass: "widget__tagcloud--link",
+              attrs: { href: "shop.html" },
+            },
+            [_vm._v("Accessories")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "widget__tagcloud--list" }, [
+          _c(
+            "a",
+            {
+              staticClass: "widget__tagcloud--link",
+              attrs: { href: "shop.html" },
+            },
+            [_vm._v("Dress ")]
+          ),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "product__view--mode__list product__short--by align-items-center d-none d-lg-flex",
+      },
+      [
+        _c("label", { staticClass: "product__view--label" }, [
+          _vm._v("Prev Page :"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "select shop__header--select" }, [
+          _c("select", { staticClass: "product__view--select" }, [
+            _c("option", { attrs: { selected: "", value: "1" } }, [
+              _vm._v("65"),
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "2" } }, [_vm._v("40")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "3" } }, [_vm._v("42")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "4" } }, [_vm._v("57 ")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "5" } }, [_vm._v("60 ")]),
+          ]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "product__view--mode__list product__short--by align-items-center d-none d-lg-flex",
+      },
+      [
+        _c("label", { staticClass: "product__view--label" }, [
+          _vm._v("Sort By :"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "select shop__header--select" }, [
+          _c("select", { staticClass: "product__view--select" }, [
+            _c("option", { attrs: { selected: "", value: "1" } }, [
+              _vm._v("Sort by latest"),
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "2" } }, [
+              _vm._v("Sort by popularity"),
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "3" } }, [
+              _vm._v("Sort by newness"),
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "4" } }, [
+              _vm._v("Sort by  rating "),
+            ]),
+          ]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__card--thumbnail__link display-block",
+        attrs: { href: "product-details.html" },
+      },
+      [
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__primary--img display-block",
+          attrs: {
+            src: "assets/img/product/product1.webp",
+            alt: "product-img",
+          },
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__secondary--img display-block",
+          attrs: {
+            src: "assets/img/product/product2.webp",
+            alt: "product-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("SALE"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__card--price" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$245")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $356")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__card--thumbnail__link display-block",
+        attrs: { href: "product-details.html" },
+      },
+      [
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__primary--img display-block",
+          attrs: {
+            src: "assets/img/product/product1.webp",
+            alt: "product-img",
+          },
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__secondary--img display-block",
+          attrs: {
+            src: "assets/img/product/product2.webp",
+            alt: "product-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("SALE"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "product__card--title" }, [
+      _c("a", { attrs: { href: "product-details.html" } }, [
+        _vm._v("Lorem ipsum dolor sit. "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__card--price" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$232")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $340")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "rating__list" }, [
+      _c("span", { staticClass: "rating__list--text" }, [_vm._v("( 5.0)")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__card--thumbnail__link display-block",
+        attrs: { href: "product-details.html" },
+      },
+      [
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__primary--img display-block",
+          attrs: {
+            src: "assets/img/product/product3.webp",
+            alt: "product-img",
+          },
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__secondary--img display-block",
+          attrs: {
+            src: "assets/img/product/product4.webp",
+            alt: "product-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("SALE"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "product__card--title" }, [
+      _c("a", { attrs: { href: "product-details.html" } }, [
+        _vm._v("Advanced To Watch . "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__card--price" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$225")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $315")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "rating__list" }, [
+      _c("span", { staticClass: "rating__list--text" }, [_vm._v("( 5.0)")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__card--thumbnail__link display-block",
+        attrs: { href: "product-details.html" },
+      },
+      [
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__primary--img display-block",
+          attrs: {
+            src: "assets/img/product/product5.webp",
+            alt: "product-img",
+          },
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__secondary--img display-block",
+          attrs: {
+            src: "assets/img/product/product6.webp",
+            alt: "product-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("SALE"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "product__card--title" }, [
+      _c("a", { attrs: { href: "product-details.html" } }, [
+        _vm._v("Advanced Analytic...,, "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__card--price" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$238")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $348")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "rating__list" }, [
+      _c("span", { staticClass: "rating__list--text" }, [_vm._v("( 5.0)")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__card--thumbnail__link display-block",
+        attrs: { href: "product-details.html" },
+      },
+      [
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__primary--img display-block",
+          attrs: {
+            src: "assets/img/product/product2.webp",
+            alt: "product-img",
+          },
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__secondary--img display-block",
+          attrs: {
+            src: "assets/img/product/product1.webp",
+            alt: "product-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("SALE"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "product__card--title" }, [
+      _c("a", { attrs: { href: "product-details.html" } }, [
+        _vm._v("Adipisicing elit Officia ab. "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__card--price" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$255")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $367")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "rating__list" }, [
+      _c("span", { staticClass: "rating__list--text" }, [_vm._v("( 5.0)")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__card--thumbnail__link display-block",
+        attrs: { href: "product-details.html" },
+      },
+      [
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__primary--img display-block",
+          attrs: {
+            src: "assets/img/product/product4.webp",
+            alt: "product-img",
+          },
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass:
+            "product__card--thumbnail__img product__secondary--img display-block",
+          attrs: {
+            src: "assets/img/product/product3.webp",
+            alt: "product-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("SALE"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "product__card--title" }, [
+      _c("a", { attrs: { href: "product-details.html" } }, [
+        _vm._v("Numquam quasi atque labor. "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__card--price" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$225")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $335")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "rating__list" }, [
+      _c("span", { staticClass: "rating__list--text" }, [_vm._v("( 5.0)")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "pagination__list" }, [
+      _c(
+        "span",
+        { staticClass: "pagination__item pagination__item--current" },
+        [_vm._v("1")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "pagination__list" }, [
+      _c(
+        "a",
+        { staticClass: "pagination__item link", attrs: { href: "shop.html" } },
+        [_vm._v("2")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "pagination__list" }, [
+      _c(
+        "a",
+        { staticClass: "pagination__item link", attrs: { href: "shop.html" } },
+        [_vm._v("3")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "pagination__list" }, [
+      _c(
+        "a",
+        { staticClass: "pagination__item link", attrs: { href: "shop.html" } },
+        [_vm._v("4")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "modal-header quickview__header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close-modal quickview__close--btn",
+          attrs: { "aria-label": "close modal", "data-close": "" },
+        },
+        [_vm._v("✕ ")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__media--preview__items--link glightbox",
+        attrs: {
+          "data-gallery": "product-media-preview",
+          href: "assets/img/product/product2.webp",
+        },
+      },
+      [
+        _c("img", {
+          staticClass: "product__media--preview__items--img",
+          attrs: {
+            src: "assets/img/product/product2.webp",
+            alt: "product-media-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("New"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__media--preview__items--link glightbox",
+        attrs: {
+          "data-gallery": "product-media-preview",
+          href: "assets/img/product/product1.webp",
+        },
+      },
+      [
+        _c("img", {
+          staticClass: "product__media--preview__items--img",
+          attrs: {
+            src: "assets/img/product/product1.webp",
+            alt: "product-media-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("New"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__media--preview__items--link glightbox",
+        attrs: {
+          "data-gallery": "product-media-preview",
+          href: "assets/img/product/product3.webp",
+        },
+      },
+      [
+        _c("img", {
+          staticClass: "product__media--preview__items--img",
+          attrs: {
+            src: "assets/img/product/product3.webp",
+            alt: "product-media-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("New"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__media--preview__items--link glightbox",
+        attrs: {
+          "data-gallery": "product-media-preview",
+          href: "assets/img/product/product4.webp",
+        },
+      },
+      [
+        _c("img", {
+          staticClass: "product__media--preview__items--img",
+          attrs: {
+            src: "assets/img/product/product4.webp",
+            alt: "product-media-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("New"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__media--preview__items--link glightbox",
+        attrs: {
+          "data-gallery": "product-media-preview",
+          href: "assets/img/product/product5.webp",
+        },
+      },
+      [
+        _c("img", {
+          staticClass: "product__media--preview__items--img",
+          attrs: {
+            src: "assets/img/product/product5.webp",
+            alt: "product-media-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("New"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "product__media--preview__items--link glightbox",
+        attrs: {
+          "data-gallery": "product-media-preview",
+          href: "assets/img/product/product6.webp",
+        },
+      },
+      [
+        _c("img", {
+          staticClass: "product__media--preview__items--img",
+          attrs: {
+            src: "assets/img/product/product6.webp",
+            alt: "product-media-img",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__badge" }, [
+      _c("span", { staticClass: "product__badge--items sale" }, [
+        _vm._v("New"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "product__media--nav__horizontal swiper d-none" },
+      [
+        _c("div", { staticClass: "swiper-wrapper" }, [
+          _c("div", { staticClass: "swiper-slide" }, [
+            _c("div", { staticClass: "product__media--nav__items" }, [
+              _c("img", {
+                staticClass: "product__media--nav__items--img",
+                attrs: {
+                  src: "assets/img/product/small-product1.webp",
+                  alt: "product-nav-img",
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "swiper-slide" }, [
+            _c("div", { staticClass: "product__media--nav__items" }, [
+              _c("img", {
+                staticClass: "product__media--nav__items--img",
+                attrs: {
+                  src: "assets/img/product/small-product2.webp",
+                  alt: "product-nav-img",
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "swiper-slide" }, [
+            _c("div", { staticClass: "product__media--nav__items" }, [
+              _c("img", {
+                staticClass: "product__media--nav__items--img",
+                attrs: {
+                  src: "assets/img/product/small-product3.webp",
+                  alt: "product-nav-img",
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "swiper-slide" }, [
+            _c("div", { staticClass: "product__media--nav__items" }, [
+              _c("img", {
+                staticClass: "product__media--nav__items--img",
+                attrs: {
+                  src: "assets/img/product/small-product4.webp",
+                  alt: "product-nav-img",
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "swiper-slide" }, [
+            _c("div", { staticClass: "product__media--nav__items" }, [
+              _c("img", {
+                staticClass: "product__media--nav__items--img",
+                attrs: {
+                  src: "assets/img/product/small-product1.webp",
+                  alt: "product-nav-img",
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "swiper-slide" }, [
+            _c("div", { staticClass: "product__media--nav__items" }, [
+              _c("img", {
+                staticClass: "product__media--nav__items--img",
+                attrs: {
+                  src: "assets/img/product/small-product2.webp",
+                  alt: "product-nav-img",
+                },
+              }),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "swiper__nav--btn swiper-button-next" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "swiper__nav--btn swiper-button-prev" }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "rating__list" }, [
+      _c("span", { staticClass: "rating__list--text text__secondary" }, [
+        _vm._v("( 5.0)"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "quantity__product--price mb-10" }, [
+      _c("span", { staticClass: "current__price" }, [_vm._v("$278")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "price__divided" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "old__price" }, [_vm._v(" $376")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product__variant" }, [
+      _c("div", { staticClass: "product__variant--list mb-12" }, [
+        _c("fieldset", { staticClass: "variant__input--fieldset d-none" }, [
+          _c("legend", { staticClass: "product__variant--title mb-8" }, [
+            _vm._v("Color :"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "variant__color d-flex" }, [
+            _c("div", { staticClass: "variant__color--list" }, [
+              _c("input", {
+                attrs: {
+                  id: "color-red1",
+                  name: "color",
+                  type: "radio",
+                  checked: "",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "variant__color--value red",
+                  attrs: { for: "color-red1", title: "Red" },
+                },
+                [
+                  _c("img", {
+                    staticClass: "variant__color--value__img",
+                    attrs: {
+                      src: "assets/img/product/small-product1.webp",
+                      alt: "variant-color-img",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "variant__color--list" }, [
+              _c("input", {
+                attrs: { id: "color-red2", name: "color", type: "radio" },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "variant__color--value red",
+                  attrs: { for: "color-red2", title: "Black" },
+                },
+                [
+                  _c("img", {
+                    staticClass: "variant__color--value__img",
+                    attrs: {
+                      src: "assets/img/product/small-product2.webp",
+                      alt: "variant-color-img",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "variant__color--list" }, [
+              _c("input", {
+                attrs: { id: "color-red3", name: "color", type: "radio" },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "variant__color--value red",
+                  attrs: { for: "color-red3", title: "Pink" },
+                },
+                [
+                  _c("img", {
+                    staticClass: "variant__color--value__img",
+                    attrs: {
+                      src: "assets/img/product/small-product3.webp",
+                      alt: "variant-color-img",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "variant__color--list" }, [
+              _c("input", {
+                attrs: { id: "color-red4", name: "color", type: "radio" },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "variant__color--value red",
+                  attrs: { for: "color-red4", title: "Orange" },
+                },
+                [
+                  _c("img", {
+                    staticClass: "variant__color--value__img",
+                    attrs: {
+                      src: "assets/img/product/small-product4.webp",
+                      alt: "variant-color-img",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "product__variant--list mb-15 d-none" }, [
+        _c("fieldset", { staticClass: "variant__input--fieldset" }, [
+          _c("legend", { staticClass: "product__variant--title mb-8" }, [
+            _vm._v("Weight :"),
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "variant__size d-flex" }, [
+            _c("li", { staticClass: "variant__size--list" }, [
+              _c("input", {
+                attrs: {
+                  id: "weight1",
+                  name: "weight",
+                  type: "radio",
+                  checked: "",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "variant__size--value red",
+                  attrs: { for: "weight1" },
+                },
+                [_vm._v("5 kg")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "variant__size--list" }, [
+              _c("input", {
+                attrs: { id: "weight2", name: "weight", type: "radio" },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "variant__size--value red",
+                  attrs: { for: "weight2" },
+                },
+                [_vm._v("3 kg")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "variant__size--list" }, [
+              _c("input", {
+                attrs: { id: "weight3", name: "weight", type: "radio" },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "variant__size--value red",
+                  attrs: { for: "weight3" },
+                },
+                [_vm._v("2 kg")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "product__variant--list quantity d-flex align-items-center mb-15",
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "quickview__cart--btn primary__btn",
+              attrs: { type: "submit" },
+            },
+            [_vm._v("Add To Cart")]
+          ),
+        ]
+      ),
     ])
   },
 ]

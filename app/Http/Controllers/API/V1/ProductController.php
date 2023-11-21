@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\ProductImage;
 
 class ProductController extends Controller
 {
@@ -38,44 +39,37 @@ class ProductController extends Controller
     {
         //
 
-        return $request->all();
+        // return $request->all();
+        $product = Product::create([
+            'name' => $request->product_name,
+            'price' => $request->product_price,
+            'product_category_id' => $request->product_category_id
+        ]);
 
-        if ($request->has('type')) {
+        //store images
+        for ($i=0; $i < 6; $i++) {
+            # code...
+            $i = $i + 1;
+            if($request->file('productImg'.$i)){
+
+                $product_img = $request->file('productImg'.$i);
+
+                $path = $product_img->store('products', 'public');
+
+                ProductImage::create([
+                    'product_id' => $product->id,
+                    'img_url' => $path
+                ]);
+            }
 
 
-            $doc = $request->file('product_image');
+        }
+        // store products data in db
 
 
-            $new_name = rand().".".$doc->getClientOriginalExtension();
-
-            $file1 = $doc->move(public_path('products'), $new_name);
-
-            return Product::find($request->productId)->update([
-                'img_url' => asset('products').'/'.$new_name
-            ]);
-
-
-        }else{
-
-            $doc = $request->file('product_image');
-
-
-            $new_name = rand().".".$doc->getClientOriginalExtension();
-
-            $file1 = $doc->move(public_path('products'), $new_name);
-
-            $product = Product::create([
-                'name' => $request->name,
-                'description' => $request->description,
-                'img_url' => asset('products').'/'.$new_name,
-                'price' => $request->price,
-                'user_id' => $request->user_id,
-                'status' => 'active',
-                'discount' => 0,
-            ]);
 
             return $product;
-        }
+
 
 
 

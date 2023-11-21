@@ -225,6 +225,11 @@
       <input type="text" id="product-name" class="form-control"  v-model="product_name" required />
     </div>
 
+    <div class="form-group">
+      <label for="product-name">Product Price:</label>
+      <input type="number" id="product-name" class="form-control"  v-model="product_price" required />
+    </div>
+
     <!-- Other product details fields -->
 
     <div class="form-group">
@@ -256,7 +261,7 @@
 
     <!-- Additional product attributes fields based on category and subcategory -->
 
-        <button @click="createProduct()" class="btn btn-primary" >Submit</button>
+        <button @click="createProduct()" class="btn btn-primary" >{{ loading?'Processing...':'Submit' }}</button>
 
 
         </div>
@@ -277,6 +282,8 @@ export default {
             productimg7: '',
 
             product_name: '',
+            product_price: '',
+
 
             selectedSubcategory: '',
             selectedCategory: '',
@@ -289,6 +296,8 @@ export default {
 
             brands: [],
             selectedBrand: '',
+
+            loading: false
 
 
 
@@ -504,6 +513,8 @@ export default {
 
         createProduct(){
 
+            this.loading = true
+
             const formData = new FormData();
 
             formData.append('productImg1', this.productimg1);
@@ -514,6 +525,8 @@ export default {
             formData.append('productImg7', this.productimg7);
 
             formData.append('product_name', this.product_name);
+            formData.append('product_price', this.product_price);
+
             formData.append('selectedSubcategory', this.selectedSubcategory);
             formData.append('selectedCategory', this.selectedCategory);
             formData.append('selectedBrand', this.selectedBrand);
@@ -530,6 +543,9 @@ export default {
                     data: formData
 
                 }).then((response) => {
+
+                    this.loading = false
+
 
 
                     console.log(response)
