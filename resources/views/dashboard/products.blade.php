@@ -2,7 +2,7 @@
 
 @section('content')
 
-<products-component vueurl='{{config('app.url')}}'></products-component>
+<products-component vueurl="{{config('app.url')}}"></products-component>
 
 
 
