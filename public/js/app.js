@@ -6189,7 +6189,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('add-product-component', (
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('store-profile-card', (__webpack_require__(/*! ./components/StoreProfileCardComponent.vue */ "./resources/js/components/StoreProfileCardComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('store-front-component', (__webpack_require__(/*! ./components/StoreFrontComponent.vue */ "./resources/js/components/StoreFrontComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('product-details-component', (__webpack_require__(/*! ./components/ProductDetailsComponent.vue */ "./resources/js/components/ProductDetailsComponent.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('dash-products-component', (__webpack_require__(/*! ./components/dashboard/ProductsComponent.vue */ "./resources/js/components/dashboard/ProductsComponent.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('products-component', (__webpack_require__(/*! ./components/dashboard/ProductsComponent.vue */ "./resources/js/components/dashboard/ProductsComponent.vue")["default"]));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
