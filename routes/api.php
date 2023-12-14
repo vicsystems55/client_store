@@ -45,7 +45,7 @@ Route::group([
       Route::get('productsx', [ProductController::class,'products']);
 
 
-      Route::post('initiate-pay', [PaymentController::class, 'initiatepay']);
+    //   Route::post('initiate-pay', [PaymentController::class, 'initiatepay']);
 
 
       Route::apiResource('product-order', ProductOrderController::class)->middleware('auth:sanctum');

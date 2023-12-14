@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
         //
 
-        return Product::latest()->get();
+        return Product::with('images')->latest()->get();
     }
 
     public function products()

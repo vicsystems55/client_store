@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+        content="We offer affordable luxury! Explore trendsetting fashion, home appliances, and stylish accessories">
     <meta name="keywords"
-        content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
+        content="Luxury, men's fashion, women's fashion, ">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="{{asset('admin_dashboard')}}/assets/images/dashboard/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="{{asset('admin_dashboard')}}/assets/images/dashboard/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/icon.png">
+
+
     <title>Ednascorner Stores - Admin</title>
 
     <!-- Google font-->
@@ -55,8 +56,8 @@
                 <div class="main-header-left d-lg-none w-auto">
                     <div class="logo-wrapper">
                         <a href="index.html">
-                            <img class="blur-up lazyloaded d-block d-lg-none"
-                                src="{{asset('admin_dashboard')}}/assets/images/dashboard/multikart-logo-black.png" alt="">
+                            <img style="height: 60px;" class="blur-up lazyloaded d-block d-lg-none"
+                                src="{{asset('/')}}assets/img/logo/nav-logo.webp" alt="">
                         </a>
                     </div>
                 </div>
@@ -201,7 +202,13 @@
 
                             <ul class="sidebar-submenu">
                                 <li>
-                                    <a href="category-digital.html">
+                                    <a href="/all-products">
+                                        <i class="fa fa-circle"></i>All Products
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="">
                                         <i class="fa fa-circle"></i>Category
                                     </a>
                                 </li>

@@ -8,7 +8,7 @@
   <title>Ednascorner Stores</title>
   <meta name="description" content="Morden Simplistic, E-Store For Your Business">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/icon.png">
 
   <!-- ======= All CSS Plugins here ======== -->
   <link rel="stylesheet" href="{{asset('/')}}assets/css/plugins/swiper-bundle.min.css">

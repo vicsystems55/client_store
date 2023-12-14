@@ -72,6 +72,15 @@ class DashboardController extends Controller
         return view('dashboard.products', compact('products'));
     }
 
+    public function product_details($id)
+    {
+
+        $products = Product::with('images')->find($id);
+
+
+        return view('dashboard.product_details', compact('products'));
+    }
+
     public function add_products()
     {
 
