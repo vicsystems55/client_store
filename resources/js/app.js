@@ -43,7 +43,7 @@ Vue.component('store-front-component', require('./components/StoreFrontComponent
 
 Vue.component('product-details-component', require('./components/ProductDetailsComponent.vue').default);
 
-Vue.component('products-component', require('./components/dashboard/ProductsComponent.vue').default);
+Vue.component('products-component', require('./components/ProductsComponent.vue').default);
 
 
 
