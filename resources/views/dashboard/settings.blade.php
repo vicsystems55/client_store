@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="page-header-left">
-                        <h3>Settings
+                        <h3>Admin Settings
                             <small></small>
                         </h3>
                     </div>
@@ -34,6 +34,19 @@
                     <!-- Container-fluid starts-->
                     <div class="container-fluid">
                         <div class="row products-admin ratio_asos">
+
+
+                            @if(Session::has('msg'))
+                            <p class="alert alert-info">{{ Session::get('msg') }}</p>
+                            @endif
+
+
+                            <form action="/update-app" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Update application version </button>
+                                </div>
+                            </form>
 
 
 

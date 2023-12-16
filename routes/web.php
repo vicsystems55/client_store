@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\AppUpdateController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -48,6 +49,9 @@ Route::get('/settings', [DashboardController::class, 'settings']);
 Route::get('/all-products', [DashboardController::class, 'products']);
 
 Route::get('/add-products', [DashboardController::class, 'add_products']);
+
+Route::post('/update-app', [AppUpdateController::class, 'update_app']);
+
 
 
 
