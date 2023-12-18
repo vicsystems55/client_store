@@ -55,7 +55,7 @@
             <div class="main-header-right row">
                 <div class="main-header-left d-lg-none w-auto">
                     <div class="logo-wrapper">
-                        <a href="index.html">
+                        <a href="/">
                             <img style="height: 60px;" class="blur-up lazyloaded d-block d-lg-none"
                                 src="{{asset('/')}}assets/img/logo/nav-logo.webp" alt="">
                         </a>
@@ -174,7 +174,7 @@
             <div class="page-sidebar">
                 <div class="main-header-left d-none d-lg-block">
                     <div class="logo-wrapper">
-                        <a href="index.html">
+                        <a href="/">
                             <img class="d-none d-lg-block blur-up lazyloaded"
                                 src="{{asset('/')}}images/logo.png" alt="">
                         </a>
