@@ -50456,6 +50456,10 @@ var render = function () {
                       _c("a", { attrs: { href: "javascript:void(0)" } }, [
                         _c("img", {
                           staticClass: "img-fluid blur-up lazyload bg-img",
+                          staticStyle: {
+                            height: "140px",
+                            "object-fit": "cover",
+                          },
                           attrs: {
                             src: _vm.resolveImg(product.images[0].img_url),
                             alt: "",

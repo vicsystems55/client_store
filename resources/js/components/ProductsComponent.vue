@@ -46,7 +46,7 @@
                             <div class="img-wrapper">
                                 <div class="front">
                                     <a href="javascript:void(0)">
-                                        <img :src="resolveImg(product.images[0].img_url)"
+                                        <img style="height: 140px; object-fit: cover;"  :src="resolveImg(product.images[0].img_url)"
                                             class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                     <div class="product-hover">
                                         <ul>
